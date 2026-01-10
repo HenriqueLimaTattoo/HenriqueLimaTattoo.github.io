@@ -1,3 +1,16 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Transformo histórias em arte eterna na pele</h1>
+    <p>
+      Realismo Preto & Cinza e Lettering.<br>
+      Arte feita para quem valoriza exclusividade.
+    </p>
+
+    <a class="btn" href="https://wa.me/558896036386">Agendar Tattoo</a>
+    <a class="btn" href="#portfolio">Ver Portfólio</a>
+  </div>
+</section>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -87,28 +100,68 @@
 
     .btn:hover{background:var(--prata); color:var(--preto)}
 
+    .hero {
+  height: 90vh;
+  background: linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.9)
+    ),
+    url("IMG_8581.JPG") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero p {
+  color: #ccc;
+  margin: 20px 0;
+}
+
+
     /* CARROSSEL */
-    .carousel{
-      position:relative;
-      overflow:hidden;
-      margin-bottom:40px;
-    }
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  background: #000;
+}
 
-    .carousel-track{
-      display:flex;
-      transition:transform 0.6s ease;
-    }
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 40s linear infinite;
+}
 
-    .carousel-item{
-      min-width:100%;
-    }
+.carousel-item {
+  flex: 0 0 auto;
+}
 
-    .carousel-item img,
-    .carousel-item video{
-      width:100%;
-      height:500px;
-      object-fit:cover;
-    }
+.carousel-item img,
+.carousel-item video {
+  height: 260px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* animação contínua */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
     /* SEÇÕES */
     .grid{
