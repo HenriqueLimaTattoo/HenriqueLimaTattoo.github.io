@@ -1,322 +1,255 @@
-<section class="hero">
-  <div class="hero-content">
-    <h1>Transformo histórias em arte eterna na pele</h1>
-    <p>
-      Realismo Preto & Cinza e Lettering.<br>
-      Arte feita para quem valoriza exclusividade.
-    </p>
-
-    <a class="btn" href="https://wa.me/558896036386">Agendar Tattoo</a>
-    <a class="btn" href="#portfolio">Ver Portfólio</a>
-  </div>
-</section>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Henrique Lima Tattoo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henrique Lima Tattoo</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --preto:#0b0b0b;
-      --cinza:#8e8e8e;
-      --branco:#ffffff;
-      --prata:#cfd3d6;
-    }
+<style>
+:root{
+  --preto:#0b0b0b;
+  --cinza:#8e8e8e;
+  --branco:#ffffff;
+  --prata:#cfd3d6;
+}
 
-    *{box-sizing:border-box; margin:0; padding:0}
-    body{
-      font-family:'Montserrat', sans-serif;
-      background:var(--preto);
-      color:var(--branco);
-      line-height:1.6;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
 
-    header{
-      position:fixed;
-      top:0;
-      width:100%;
-      background:rgba(11,11,11,0.95);
-      border-bottom:1px solid var(--cinza);
-      z-index:1000;
-    }
+body{
+  background:var(--preto);
+  color:var(--branco);
+  font-family:'Montserrat',sans-serif;
+}
 
-    nav{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px;
-    }
+/* MENU */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.9);
+  z-index:1000;
+  border-bottom:1px solid #222;
+}
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
+}
 
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:20px;
-    }
-
-    nav a{
-      color:var(--branco);
-      text-decoration:none;
-      font-size:14px;
-      transition:0.3s;
-    }
-
-    nav a:hover{color:var(--prata)}
-
-    section{
-      max-width:1200px;
-      margin:120px auto 80px;
-      padding:0 20px;
-    }
-
-    h1,h2{
-      font-family:'Playfair Display', serif;
-      margin-bottom:20px;
-    }
-
-    /* HERO */
-    .hero{
-      text-align:center;
-    }
-
-    .hero p{color:var(--cinza); margin-bottom:30px}
-
-    .btn{
-      display:inline-block;
-      padding:12px 30px;
-      border:1px solid var(--prata);
-      color:var(--branco);
-      text-decoration:none;
-      margin:10px;
-      transition:0.3s;
-    }
-
-    .btn:hover{background:var(--prata); color:var(--preto)}
-
-    .hero {
-  height: 90vh;
-  background: linear-gradient(
-      rgba(0,0,0,0.6),
-      rgba(0,0,0,0.9)
-    ),
+/* HERO */
+.hero{
+  height:90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.9)),
     url("IMG_8581.JPG") center/cover no-repeat;
-  display: flex;
-  align-items: center;
+  display:flex;
+  align-items:center;
+}
+.hero-content{
+  max-width:600px;
+  padding:40px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:46px;
+}
+.hero p{
+  color:#ccc;
+  margin:20px 0;
+}
+.btn{
+  display:inline-block;
+  padding:12px 28px;
+  border:1px solid var(--prata);
+  margin-right:10px;
+  color:white;
+  text-decoration:none;
+}
+.btn:hover{
+  background:var(--prata);
+  color:black;
 }
 
-.hero-content {
-  max-width: 600px;
-  padding: 40px;
+/* SEÇÕES */
+section{
+  max-width:1200px;
+  margin:120px auto;
+  padding:0 20px;
 }
 
-.hero h1 {
-  font-size: 48px;
-  font-family: 'Playfair Display', serif;
+/* CARROSSEL REALISMO */
+.carousel{
+  position:relative;
+  overflow:hidden;
+  width:100%;
 }
 
-.hero p {
-  color: #ccc;
-  margin: 20px 0;
+.carousel-track{
+  display:flex;
+  transition:transform 0.6s ease;
 }
 
-
-    /* CARROSSEL */
-.carousel {
-  overflow: hidden;
-  width: 100%;
-  background: #000;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  animation: scroll 40s linear infinite;
-}
-
-.carousel-item {
-  flex: 0 0 auto;
+.carousel-item{
+  min-width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
 }
 
 .carousel-item img,
-.carousel-item video {
-  height: 260px;
-  width: auto;
-  object-fit: contain;
-  border-radius: 6px;
+.carousel-item video{
+  max-width:100%;
+  height:380px;
+  object-fit:contain;
 }
 
-/* animação contínua */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* SETAS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.15);
+  border:none;
+  color:white;
+  font-size:28px;
+  padding:10px 15px;
+  cursor:pointer;
 }
+.arrow:hover{background:rgba(255,255,255,0.35)}
+.prev{left:10px}
+.next{right:10px}
 
-
-    /* SEÇÕES */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      border:1px solid var(--cinza);
-      padding:20px;
-    }
-
-    /* BOTÃO WHATS FIXO */
-    .whats{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:var(--prata);
-      color:var(--preto);
-      padding:15px 20px;
-      text-decoration:none;
-      font-weight:600;
-      border-radius:50px;
-      z-index:1000;
-    }
-
-    footer{
-      border-top:1px solid var(--cinza);
-      text-align:center;
-      padding:30px;
-      color:var(--cinza);
-    }
-  </style>
+/* WHATS */
+.whats{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:black;
+  padding:14px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <nav>
-    <strong>Henrique Lima Tattoo</strong>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
-      <li><a href="#premiacoes">Premiações</a></li>
-      <li><a href="#colabs">Colabs</a></li>
-      <li><a href="#workshop">Workshop & Mentorias</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
+<nav>
+<strong>Henrique Lima Tattoo</strong>
+<div>
+  <a href="#">Sobre</a>
+  <a href="#portfolio">Portfólio</a>
+  <a href="#">Premiações</a>
+  <a href="#">Colabs</a>
+  <a href="#">Workshop & Mentorias</a>
+  <a href="#">Contato</a>
+</div>
+</nav>
 </header>
 
 <a class="whats" href="https://wa.me/558896036386" target="_blank">Agendar no WhatsApp</a>
 
 <section class="hero">
-  <!-- CARROSSEL PRINCIPAL -->
-  <div class="carousel" data-interval="3000">
-    <div class="carousel-track">
-      <!--
-        👉 ADICIONE AQUI SUAS FOTOS OU VÍDEOS PRINCIPAIS
-        <div class="carousel-item"><img src="imagens/exemplo.jpg"></div>
-        <div class="carousel-item"><video src="videos/exemplo.mp4" autoplay muted loop></video></div>
-      -->
-    </div>
+  <div class="hero-content">
+    <h1>Transformo histórias em arte eterna na pele</h1>
+    <p>Realismo Preto & Cinza e Lettering.<br>Arte feita para quem valoriza exclusividade.</p>
+    <a class="btn" href="#portfolio">Ver Portfólio</a>
   </div>
-
-  <h1>Transformo histórias em arte eterna na pele.</h1>
-  <p>Arte, significado e exclusividade.</p>
-
-  <a class="btn" href="https://wa.me/558896036386" target="_blank">Agendar pelo WhatsApp</a>
-  <a class="btn" href="https://www.instagram.com/_henriquelimah/" target="_blank">Ver mais no Instagram</a>
-</section>
-
-<section id="sobre">
-  <h2>O artista por trás da agulha</h2>
-  <p>
-    Desde pequeno, o desenho sempre foi meu refúgio. A arte me acompanhou do papel até a pele.
-    Hoje, mais do que tatuar, eu crio experiências personalizadas, unindo técnica, exclusividade e propósito.
-  </p>
 </section>
 
 <section id="portfolio">
-  <h2>Portfólio</h2>
+<h2 style="font-family:Playfair Display;margin-bottom:20px">Realismo Preto & Cinza</h2>
 
-  <h3>Realismo Preto & Cinza</h3>
-  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
-  
-  <div class="carousel-item"><video src="Realismo/Jesus.mp4" autoplay muted loop></video></div>
-  <div class="carousel-item"><img src="Realismo/Poseidon.jpg" autoplay muted loop></video></div>
-  <div class="carousel-item"><video src="Realismo/criança.mp4" autoplay muted loop></video></div>
-  <div class="carousel-item"><video src="Realismo/gueixa.mp4" autoplay muted loop></video></div>
-  <div class="carousel-item"><video src="Realismo/jesus e medalha.mp4" autoplay muted loop></video></div>
-  <div class="carousel-item"><video src="Realismo/leão e guerreiro.mp4" autoplay muted loop></video></div>
-  <div class="carousel-item"><img src="Realismo/Seu madruga.jpg"></div>
+<div class="carousel" id="carousel">
+  <div class="carousel-track">
 
-  
-  <h3>Lettering</h3>
-  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
+  <div class="carousel-item">
+  <video src="Realismo/Jesus.mp4" muted loop playsinline></video>
+</div>
 
-  <h3>Fechamentos</h3>
-  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
+<div class="carousel-item">
+  <img src="Realismo/Poseidon.jpg">
+</div>
+
+<div class="carousel-item">
+  <video src="Realismo/crianca.mp4" muted loop playsinline></video>
+</div>
+
+<div class="carousel-item">
+  <video src="Realismo/gueixa.mp4" muted loop playsinline></video>
+</div>
+
+<div class="carousel-item">
+  <video src="Realismo/jesus-medalha.mp4" muted loop playsinline></video>
+</div>
+
+<div class="carousel-item">
+  <video src="Realismo/leao-guerreiro.mp4" muted loop playsinline></video>
+</div>
+
+<div class="carousel-item">
+  <img src="Realismo/seu-madruga.jpg">
+</div>
+
+
+  <button class="arrow prev" onclick="prevSlide()">‹</button>
+  <button class="arrow next" onclick="nextSlide()">›</button>
+</div>
 </section>
-
-<section id="premiacoes">
-  <h2>Premiações</h2>
-  <!-- 👉 ADICIONE EVENTOS MANUALMENTE -->
-  <div class="grid">
-    <div class="card">Evento / Ano / Categoria</div>
-  </div>
-</section>
-
-<section id="colabs">
-  <h2>Colabs</h2>
-  <div class="grid">
-    <!-- 👉 ADICIONE FOTOS/VÍDEOS + NOME DO ARTISTA -->
-    <div class="card">Nome do tatuador colaborador</div>
-  </div>
-</section>
-
-<section id="workshop">
-  <h2>Workshop & Mentorias</h2>
-  <div class="grid">
-    <div class="card">Workshop</div>
-    <div class="card">Mentorias</div>
-  </div>
-</section>
-
-<section id="contato">
-  <h2>Contato</h2>
-  <p>Juazeiro do Norte – CE</p>
-  <p>R. Construtor José Sabino, 51 – Antônio Vieira</p>
-  <p>
-    <a class="btn" href="https://wa.me/558896036386" target="_blank">WhatsApp</a>
-    <a class="btn" href="https://www.tiktok.com/@henriquelimatattoo" target="_blank">TikTok</a>
-    <a class="btn" href="https://k.kwai.com/u/@HenriqueLimaTattoo/CyLpujwk" target="_blank">Kwai</a>
-  </p>
-
-  <iframe src="https://www.google.com/maps?q=R.%20Construtor%20Jos%C3%A9%20Sabino,%2051%20Juazeiro%20do%20Norte&output=embed" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
-</section>
-
-<footer>
-  © Henrique Lima Tattoo
-</footer>
 
 <script>
-  document.querySelectorAll('.carousel').forEach(carousel=>{
-    const track = carousel.querySelector('.carousel-track');
-    let index = 0;
-    const interval = carousel.dataset.interval || 3000;
+let index = 0;
+let timer;
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
 
-    setInterval(()=>{
-      if(track.children.length === 0) return;
-      index = (index + 1) % track.children.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }, interval);
-  });
+function showSlide(i){
+  track.style.transform = `translateX(-${i * 100}%)`;
+}
+
+function nextSlide(){
+  index = (index + 1) % items.length;
+  resetAuto();
+}
+
+function prevSlide(){
+  index = (index - 1 + items.length) % items.length;
+  resetAuto();
+}
+
+function resetAuto(){
+  clearTimeout(timer);
+  showSlide(index);
+  autoSlide();
+}
+
+function autoSlide(){
+  const current = items[index].querySelector('video');
+  const delay = current ? 6000 : 3000;
+
+  if(current){
+    current.currentTime = 0;
+    current.play();
+  }
+
+  timer = setTimeout(nextSlide, delay);
+}
+
+autoSlide();
 </script>
 
 </body>
