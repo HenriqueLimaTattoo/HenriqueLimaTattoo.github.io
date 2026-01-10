@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henrique Lima Tattoo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --preto:#0b0b0b;
+      --cinza:#8e8e8e;
+      --branco:#ffffff;
+      --prata:#cfd3d6;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      font-family:'Montserrat', sans-serif;
+      background:var(--preto);
+      color:var(--branco);
+      line-height:1.6;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(11,11,11,0.95);
+      border-bottom:1px solid var(--cinza);
+      z-index:1000;
+    }
+
+    nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:20px;
+    }
+
+    nav a{
+      color:var(--branco);
+      text-decoration:none;
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    nav a:hover{color:var(--prata)}
+
+    section{
+      max-width:1200px;
+      margin:120px auto 80px;
+      padding:0 20px;
+    }
+
+    h1,h2{
+      font-family:'Playfair Display', serif;
+      margin-bottom:20px;
+    }
+
+    /* HERO */
+    .hero{
+      text-align:center;
+    }
+
+    .hero p{color:var(--cinza); margin-bottom:30px}
+
+    .btn{
+      display:inline-block;
+      padding:12px 30px;
+      border:1px solid var(--prata);
+      color:var(--branco);
+      text-decoration:none;
+      margin:10px;
+      transition:0.3s;
+    }
+
+    .btn:hover{background:var(--prata); color:var(--preto)}
+
+    /* CARROSSEL */
+    .carousel{
+      position:relative;
+      overflow:hidden;
+      margin-bottom:40px;
+    }
+
+    .carousel-track{
+      display:flex;
+      transition:transform 0.6s ease;
+    }
+
+    .carousel-item{
+      min-width:100%;
+    }
+
+    .carousel-item img,
+    .carousel-item video{
+      width:100%;
+      height:500px;
+      object-fit:cover;
+    }
+
+    /* SEÇÕES */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      border:1px solid var(--cinza);
+      padding:20px;
+    }
+
+    /* BOTÃO WHATS FIXO */
+    .whats{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:var(--prata);
+      color:var(--preto);
+      padding:15px 20px;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:50px;
+      z-index:1000;
+    }
+
+    footer{
+      border-top:1px solid var(--cinza);
+      text-align:center;
+      padding:30px;
+      color:var(--cinza);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <strong>Henrique Lima Tattoo</strong>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#premiacoes">Premiações</a></li>
+      <li><a href="#colabs">Colabs</a></li>
+      <li><a href="#workshop">Workshop & Mentorias</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a class="whats" href="https://wa.me/558896036386" target="_blank">Agendar no WhatsApp</a>
+
+<section class="hero">
+  <!-- CARROSSEL PRINCIPAL -->
+  <div class="carousel" data-interval="3000">
+    <div class="carousel-track">
+      <!--
+        👉 ADICIONE AQUI SUAS FOTOS OU VÍDEOS PRINCIPAIS
+        <div class="carousel-item"><img src="imagens/exemplo.jpg"></div>
+        <div class="carousel-item"><video src="videos/exemplo.mp4" autoplay muted loop></video></div>
+      -->
+    </div>
+  </div>
+
+  <h1>Transformo histórias em arte eterna na pele.</h1>
+  <p>Arte, significado e exclusividade.</p>
+
+  <a class="btn" href="https://wa.me/558896036386" target="_blank">Agendar pelo WhatsApp</a>
+  <a class="btn" href="https://www.instagram.com/_henriquelimah/" target="_blank">Ver mais no Instagram</a>
+</section>
+
+<section id="sobre">
+  <h2>O artista por trás da agulha</h2>
+  <p>
+    Desde pequeno, o desenho sempre foi meu refúgio. A arte me acompanhou do papel até a pele.
+    Hoje, mais do que tatuar, eu crio experiências personalizadas, unindo técnica, exclusividade e propósito.
+  </p>
+</section>
+
+<section id="portfolio">
+  <h2>Portfólio</h2>
+
+  <h3>Realismo Preto & Cinza</h3>
+  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
+
+  <h3>Lettering</h3>
+  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
+
+  <h3>Fechamentos</h3>
+  <div class="carousel" data-interval="3000"><div class="carousel-track"></div></div>
+</section>
+
+<section id="premiacoes">
+  <h2>Premiações</h2>
+  <!-- 👉 ADICIONE EVENTOS MANUALMENTE -->
+  <div class="grid">
+    <div class="card">Evento / Ano / Categoria</div>
+  </div>
+</section>
+
+<section id="colabs">
+  <h2>Colabs</h2>
+  <div class="grid">
+    <!-- 👉 ADICIONE FOTOS/VÍDEOS + NOME DO ARTISTA -->
+    <div class="card">Nome do tatuador colaborador</div>
+  </div>
+</section>
+
+<section id="workshop">
+  <h2>Workshop & Mentorias</h2>
+  <div class="grid">
+    <div class="card">Workshop</div>
+    <div class="card">Mentorias</div>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+  <p>Juazeiro do Norte – CE</p>
+  <p>R. Construtor José Sabino, 51 – Antônio Vieira</p>
+  <p>
+    <a class="btn" href="https://wa.me/558896036386" target="_blank">WhatsApp</a>
+    <a class="btn" href="https://www.tiktok.com/@henriquelimatattoo" target="_blank">TikTok</a>
+    <a class="btn" href="https://k.kwai.com/u/@HenriqueLimaTattoo/CyLpujwk" target="_blank">Kwai</a>
+  </p>
+
+  <iframe src="https://www.google.com/maps?q=R.%20Construtor%20Jos%C3%A9%20Sabino,%2051%20Juazeiro%20do%20Norte&output=embed" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
+</section>
+
+<footer>
+  © Henrique Lima Tattoo
+</footer>
+
+<script>
+  document.querySelectorAll('.carousel').forEach(carousel=>{
+    const track = carousel.querySelector('.carousel-track');
+    let index = 0;
+    const interval = carousel.dataset.interval || 3000;
+
+    setInterval(()=>{
+      if(track.children.length === 0) return;
+      index = (index + 1) % track.children.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, interval);
+  });
+</script>
+
+</body>
+</html>
