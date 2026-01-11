@@ -332,7 +332,7 @@ header{
 .portfolio-item img,
 .portfolio-item video{
   width:100%;
-  max-height:75vh;
+  max-height:55vh;   /* 🔧 DIMINUI AQUI antes 75vh*/
   object-fit:contain;
   background:black;
   border-radius:6px;
@@ -349,10 +349,11 @@ header{
   font-size:26px;
   padding:10px 14px;
   cursor:pointer;
+  z-index:10;              /* 🔴 ISSO FAZ A SETA APARECER */
 }
-
-.portfolio-btn.prev{left:10px;}
-.portfolio-btn.next{right:10px;}
+/* POSIÇÃO LATERAL */
+.portfolio-btn.prev{left:15px;}
+.portfolio-btn.next{right:15px;}
 
 @media(max-width:768px){
   .portfolio{padding:80px 20px;}
@@ -473,7 +474,7 @@ header{
       <div class="portfolio-item"><video src="Realismo/crianca.mp4" muted></video></div>
       <div class="portfolio-item"><video src="Realismo/gueixa.mp4" muted></video></div>
       <div class="portfolio-item"><video src="Realismo/jesus-medalha.mp4" muted></video></div>
-      <div class="portfolio-item"><video src="Realismo/leão-guerreiro.mp4" muted></video></div>
+      <div class="portfolio-item"><video src="Realismo/leao-guerreiro.mp4" muted></video></div>
       <div class="portfolio-item"><img src="Realismo/seu-madruga.jpg"></div>
 
     </div>
