@@ -6,12 +6,9 @@
 
 <title>Henrique Lima Tattoo</title>
 
+<!-- FONTES -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  
 <style>
 /* ================= VARIÁVEIS ================= */
 :root{
@@ -137,13 +134,13 @@ header{
   color:black;
 }
 
-/* ÍCONE DO BOTÃO (MAIOR) */
+/* ÍCONE DO BOTÃO */
 .btn img{
-  width:26px;
+  width:26px; /* ajuste fácil */
   height:26px;
 }
 
-/* ================= IMAGEM ================= */
+/* ================= IMAGEM HERO ================= */
 .hero-image img{
   width:100%;
   max-height:85vh;
@@ -156,14 +153,11 @@ header{
   position:fixed;
   bottom:20px;
   right:20px;
-  width:auto;
-  height:auto;
-  background:none;     /* remove bola verde */
-  box-shadow:none;     /* remove sombra */
+  background:none;
 }
 
 .whats img{
-  width:70px;          /* tamanho do ícone flutuante */
+  width:70px; /* tamanho do ícone flutuante */
   height:70px;
 }
 
@@ -182,6 +176,61 @@ header{
 
 @keyframes btnRight{
   to{opacity:1; transform:translateX(0);}
+}
+
+/* ================= SOBRE MIM ================= */
+.sobre{
+  padding:120px 40px;
+  background:var(--preto);
+}
+
+.sobre-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:center;
+}
+
+.sobre-texto h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:14px;
+}
+
+.sobre-subtitulo{
+  display:block;
+  color:var(--cinza);
+  margin-bottom:28px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:13px;
+}
+
+.sobre-texto p{
+  margin-bottom:18px;
+  line-height:1.7;
+  color:#d0d0d0;
+}
+
+.sobre-destaque{
+  border-left:1px solid var(--prata);
+  padding-left:30px;
+}
+
+.sobre-destaque .linha{
+  display:block;
+  width:40px;
+  height:1px;
+  background:var(--prata);
+  margin-bottom:20px;
+}
+
+.sobre-destaque p{
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  line-height:1.4;
 }
 
 /* ================= MOBILE ================= */
@@ -221,12 +270,34 @@ header{
     justify-content:center;
     flex-wrap:wrap;
   }
+
+  .sobre{
+    padding:80px 20px;
+  }
+
+  .sobre-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .sobre-destaque{
+    border-left:none;
+    border-top:1px solid var(--prata);
+    padding-left:0;
+    padding-top:24px;
+    text-align:center;
+  }
+
+  .sobre-destaque .linha{
+    margin:0 auto 20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="navbar">
     <div class="brand">Henrique Lima Tattoo</div>
@@ -243,11 +314,12 @@ header{
   </div>
 </header>
 
-<!-- WHATS FLUTUANTE -->
+<!-- ================= WHATS FLUTUANTE ================= -->
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
 
   <div class="hero-text">
@@ -269,6 +341,47 @@ header{
 
   <div class="hero-image">
     <img src="IMG_8581.JPG" alt="Henrique Lima Tattoo">
+  </div>
+
+</section>
+
+<!-- ================= SOBRE MIM ================= -->
+<section class="sobre" id="sobre">
+
+  <div class="sobre-container">
+
+    <div class="sobre-texto">
+      <h2>O artista por trás da agulha</h2>
+
+      <span class="sobre-subtitulo">
+        Mais do que tatuar, criar experiências
+      </span>
+
+      <p>
+        Desde cedo, o desenho sempre foi meu refúgio.
+        A arte me acompanhou do papel até a pele.
+      </p>
+
+      <p>
+        No <strong>Realismo Preto & Cinza</strong> e no
+        <strong>Lettering</strong>, encontrei o desafio técnico,
+        a emoção e a profundidade que me movem como artista.
+      </p>
+
+      <p>
+        Cada projeto é pensado do zero, respeitando a história
+        e o significado de quem confia no meu trabalho.
+      </p>
+    </div>
+
+    <div class="sobre-destaque">
+      <span class="linha"></span>
+      <p>
+        Arte feita para eternizar<br>
+        histórias que importam.
+      </p>
+    </div>
+
   </div>
 
 </section>
