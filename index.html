@@ -6,7 +6,6 @@
 
 <title>Henrique Lima Tattoo</title>
 
-<!-- ================= FONTES ================= -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -27,7 +26,7 @@ body{
   color:var(--branco);
 }
 
-/* ================= HEADER / MENU ================= */
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;
@@ -46,11 +45,6 @@ header{
   align-items:center;
 }
 
-.navbar strong{
-  font-size:16px;
-}
-
-/* MENU DESKTOP */
 .nav-links{
   display:flex;
   gap:20px;
@@ -62,7 +56,6 @@ header{
   font-size:14px;
 }
 
-/* MENU HAMBURGUER */
 .hamburger{
   display:none;
   font-size:26px;
@@ -79,7 +72,6 @@ header{
   align-items:center;
 }
 
-/* TEXTO */
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:44px;
@@ -91,7 +83,6 @@ header{
   line-height:1.6;
 }
 
-/* BOTÕES */
 .hero-buttons{
   margin-top:30px;
   display:flex;
@@ -113,11 +104,6 @@ header{
   color:black;
 }
 
-/* IMAGEM */
-.hero-image{
-  position:relative;
-}
-
 .hero-image img{
   width:100%;
   max-height:85vh;
@@ -125,7 +111,7 @@ header{
   border-radius:6px;
 }
 
-/* ================= WHATS FIXO ================= */
+/* ================= WHATS ================= */
 .whats{
   position:fixed;
   bottom:20px;
@@ -138,10 +124,9 @@ header{
   font-weight:600;
 }
 
-/* ================= RESPONSIVO ================= */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
 
-  /* MENU */
   .nav-links{
     position:absolute;
     top:60px;
@@ -153,19 +138,11 @@ header{
     padding:20px;
   }
 
-  .nav-links a{
-    padding:10px 0;
-    font-size:16px;
-  }
+  .hamburger{display:block}
 
-  .hamburger{
-    display:block;
-  }
-
-  /* HERO MOBILE */
   .hero{
     grid-template-columns:1fr;
-    padding:100px 20px 40px;
+    padding:90px 20px 40px;
   }
 
   /* FOTO PRIMEIRO */
@@ -173,18 +150,24 @@ header{
     order:1;
   }
 
-  /* TEXTO DEPOIS */
+  /* TEXTO DEPOIS (AJUSTADO) */
   .hero-text{
     order:2;
-    margin-top:-120px;
-    background:linear-gradient(to top, rgba(11,11,11,0.95), rgba(11,11,11,0.6), rgba(11,11,11,0));
-    padding:30px 20px;
+    margin-top:-80px; /* 👈 AJUSTE AQUI */
+    background:linear-gradient(
+      to top,
+      rgba(11,11,11,0.98),
+      rgba(11,11,11,0.75),
+      rgba(11,11,11,0)
+    );
+    padding:40px 20px 30px;
     border-radius:6px;
     text-align:center;
   }
 
   .hero-text h1{
-    font-size:30px;
+    font-size:28px; /* 👈 MENOR PRA NÃO CORTAR */
+    line-height:1.2;
   }
 
   .hero-buttons{
@@ -197,7 +180,6 @@ header{
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
   <div class="navbar">
     <strong>Henrique Lima Tattoo</strong>
@@ -216,10 +198,8 @@ header{
 
 <a class="whats" href="https://wa.me/558896036386" target="_blank">Agendar no WhatsApp</a>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
 
-  <!-- TEXTO -->
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
     <p>
@@ -235,7 +215,6 @@ header{
     </div>
   </div>
 
-  <!-- IMAGEM -->
   <div class="hero-image">
     <img src="IMG_8581.JPG" alt="Henrique Lima Tattoo">
   </div>
