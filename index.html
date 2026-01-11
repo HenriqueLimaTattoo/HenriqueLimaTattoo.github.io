@@ -16,7 +16,7 @@
   --branco:#ffffff;
   --cinza:#bdbdbd;
   --prata:#cfd3d6;
-  --destaque:#e0e0e0; /* cor de destaque para o nome */
+  --destaque:#e0e0e0;
 }
 
 /* ================= RESET ================= */
@@ -63,12 +63,6 @@ header{
   color:white;
   text-decoration:none;
   font-size:13px;
-}
-
-.hamburger{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
 }
 
 /* ================= HERO ================= */
@@ -134,9 +128,8 @@ header{
   color:black;
 }
 
-/* ÍCONE DO BOTÃO */
 .btn img{
-  width:26px; /* ajuste fácil */
+  width:26px;
   height:26px;
 }
 
@@ -157,7 +150,7 @@ header{
 }
 
 .whats img{
-  width:70px; /* tamanho do ícone flutuante */
+  width:70px;
   height:70px;
 }
 
@@ -181,7 +174,6 @@ header{
 /* ================= SOBRE MIM ================= */
 .sobre{
   padding:120px 40px;
-  background:var(--preto);
 }
 
 .sobre-container{
@@ -196,15 +188,15 @@ header{
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
-  margin-bottom:18px;
+  margin-bottom:12px;
 }
 
-/* DESTAQUE DO NOME */
+/* NOME EM DESTAQUE (MAIOR) */
 .sobre-nome{
+  font-size:22px; /* AJUSTE AQUI */
   color:var(--destaque);
   font-weight:600;
-  margin-bottom:24px;
-  font-size:16px;
+  margin-bottom:30px;
 }
 
 .sobre-texto p{
@@ -217,41 +209,36 @@ header{
   color:white;
 }
 
-/* DESTAQUE LATERAL */
-.sobre-destaque{
-  border-left:1px solid var(--prata);
+/* FRASE FINAL EM DESTAQUE */
+.sobre-fechamento{
+  margin-top:40px;
   padding-left:30px;
+  border-left:1px solid var(--prata);
 }
 
-.sobre-destaque .linha{
+.sobre-fechamento span{
   display:block;
   width:40px;
   height:1px;
   background:var(--prata);
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
-.sobre-destaque p{
+.sobre-fechamento p{
   font-family:'Playfair Display',serif;
-  font-size:24px;
-  line-height:1.4;
+  font-size:22px;
+  line-height:1.5;
+  color:white;
+}
+
+/* IMAGEM LATERAL DO SOBRE */
+.sobre-imagem img{
+  width:100%;
+  border-radius:6px;
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
-
-  .nav-links{
-    position:absolute;
-    top:62px;
-    right:0;
-    background:black;
-    flex-direction:column;
-    width:100%;
-    display:none;
-    padding:20px;
-  }
-
-  .hamburger{display:block}
 
   .hero{
     grid-template-columns:1fr;
@@ -262,7 +249,6 @@ header{
 
   .hero-text{
     order:2;
-    margin-top:30px;
     text-align:center;
   }
 
@@ -284,7 +270,7 @@ header{
     gap:40px;
   }
 
-  .sobre-destaque{
+  .sobre-fechamento{
     border-left:none;
     border-top:1px solid var(--prata);
     padding-left:0;
@@ -292,8 +278,8 @@ header{
     text-align:center;
   }
 
-  .sobre-destaque .linha{
-    margin:0 auto 20px;
+  .sobre-fechamento span{
+    margin:0 auto 18px;
   }
 }
 </style>
@@ -301,14 +287,12 @@ header{
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
   <div class="navbar">
     <div class="brand">Henrique Lima Tattoo</div>
 
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-    <div class="nav-links" id="menu">
+    <div class="nav-links">
+      <a href="#sobre">Sobre mim</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#premiacoes">Premiações</a>
       <a href="#colabs">Colabs</a>
@@ -318,19 +302,17 @@ header{
   </div>
 </header>
 
-<!-- ================= WHATS FLUTUANTE ================= -->
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
 
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
     <p>
       Realismo Preto & Cinza e Lettering.<br>
-      Arte feita para quem valoriza exclusividade.
+      Arte feita para quem valoriza arte, significado e exclusividade.
     </p>
 
     <div class="hero-buttons">
@@ -349,19 +331,14 @@ header{
 
 </section>
 
-<!-- ================= SOBRE MIM ================= -->
 <section class="sobre" id="sobre">
 
   <div class="sobre-container">
 
-    <!-- TEXTO -->
     <div class="sobre-texto">
       <h2>O artista por trás da agulha</h2>
 
-      <!-- FRASE COM NOME EM DESTAQUE -->
-      <div class="sobre-nome">
-        Meu nome é Henrique Lima
-      </div>
+      <div class="sobre-nome">Meu nome é Henrique Lima</div>
 
       <p>
         Desde pequeno, o desenho sempre foi meu refúgio.
@@ -379,43 +356,34 @@ header{
         Cada projeto que faço é <strong>planejado do zero</strong>,
         pensado na <strong>história de quem vai carregar</strong>.
         Meu objetivo é que, quando você olhar para sua tatuagem,
-        <strong>sinta orgulho e emoção</strong>, como se estivesse
-        vendo uma obra de arte na pele.
+        <strong>sinta orgulho e emoção</strong>.
       </p>
 
       <p>
         O Realismo Preto e Cinza e o Lettering me conquistaram pela
         <strong>profundidade, emoção e desafio técnico</strong>.
-        Cada arte que tatuo é uma forma de <strong>eternizar algo
-        que tem valor</strong> para quem confia no meu trabalho.
+        Cada arte que tatuo é uma forma de <strong>eternizar algo que tem valor</strong>.
       </p>
 
-      <p>
-        Hoje, mais do que tatuar,
-        <strong>eu crio experiências personalizadas</strong>,
-        unindo técnica, exclusividade, sensibilidade e propósito.
-      </p>
+      <!-- FRASE FINAL EM DESTAQUE -->
+      <div class="sobre-fechamento">
+        <span></span>
+        <p>
+          Hoje, mais do que tatuar,
+          <strong>eu crio experiências personalizadas</strong>,
+          unindo técnica, exclusividade, sensibilidade e propósito.
+        </p>
+      </div>
     </div>
 
-    <!-- DESTAQUE -->
-    <div class="sobre-destaque">
-      <span class="linha"></span>
-      <p>
-        Arte feita para eternizar<br>
-        histórias que importam.
-      </p>
+    <!-- IMAGEM LATERAL -->
+    <div class="sobre-imagem">
+      <img src="IMG_9615.JPG" alt="Henrique Lima Tattoo">
     </div>
 
   </div>
 
 </section>
-
-<script>
-function toggleMenu(){
-  const menu = document.getElementById('menu');
-  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-}
-</script>
 
 </body>
 </html>
