@@ -16,6 +16,7 @@
   --branco:#ffffff;
   --cinza:#bdbdbd;
   --prata:#cfd3d6;
+  --destaque:#e0e0e0; /* cor de destaque para o nome */
 }
 
 /* ================= RESET ================= */
@@ -80,7 +81,6 @@ header{
   align-items:center;
 }
 
-/* TEXTO COM ANIMAÇÃO */
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:46px;
@@ -190,22 +190,21 @@ header{
   display:grid;
   grid-template-columns:1.2fr 0.8fr;
   gap:60px;
-  align-items:center;
+  align-items:flex-start;
 }
 
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
-  margin-bottom:14px;
+  margin-bottom:18px;
 }
 
-.sobre-subtitulo{
-  display:block;
-  color:var(--cinza);
-  margin-bottom:28px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  font-size:13px;
+/* DESTAQUE DO NOME */
+.sobre-nome{
+  color:var(--destaque);
+  font-weight:600;
+  margin-bottom:24px;
+  font-size:16px;
 }
 
 .sobre-texto p{
@@ -214,6 +213,11 @@ header{
   color:#d0d0d0;
 }
 
+.sobre-texto strong{
+  color:white;
+}
+
+/* DESTAQUE LATERAL */
 .sobre-destaque{
   border-left:1px solid var(--prata);
   padding-left:30px;
@@ -350,30 +354,50 @@ header{
 
   <div class="sobre-container">
 
+    <!-- TEXTO -->
     <div class="sobre-texto">
       <h2>O artista por trás da agulha</h2>
 
-      <span class="sobre-subtitulo">
-        Mais do que tatuar, criar experiências
-      </span>
+      <!-- FRASE COM NOME EM DESTAQUE -->
+      <div class="sobre-nome">
+        Meu nome é Henrique Lima
+      </div>
 
       <p>
-        Desde cedo, o desenho sempre foi meu refúgio.
-        A arte me acompanhou do papel até a pele.
+        Desde pequeno, o desenho sempre foi meu refúgio.
+        A arte me acompanhou desde o papel até a pele.
+        E foi na tatuagem que encontrei minha verdadeira expressão.
       </p>
 
       <p>
-        No <strong>Realismo Preto & Cinza</strong> e no
-        <strong>Lettering</strong>, encontrei o desafio técnico,
-        a emoção e a profundidade que me movem como artista.
+        Sou <strong>tatuador especializado em Realismo Preto & Cinza e Lettering</strong>.
+        Acredito que tatuar vai muito além da técnica, é sobre traduzir sentimentos,
+        memórias e momentos em arte viva.
       </p>
 
       <p>
-        Cada projeto é pensado do zero, respeitando a história
-        e o significado de quem confia no meu trabalho.
+        Cada projeto que faço é <strong>planejado do zero</strong>,
+        pensado na <strong>história de quem vai carregar</strong>.
+        Meu objetivo é que, quando você olhar para sua tatuagem,
+        <strong>sinta orgulho e emoção</strong>, como se estivesse
+        vendo uma obra de arte na pele.
+      </p>
+
+      <p>
+        O Realismo Preto e Cinza e o Lettering me conquistaram pela
+        <strong>profundidade, emoção e desafio técnico</strong>.
+        Cada arte que tatuo é uma forma de <strong>eternizar algo
+        que tem valor</strong> para quem confia no meu trabalho.
+      </p>
+
+      <p>
+        Hoje, mais do que tatuar,
+        <strong>eu crio experiências personalizadas</strong>,
+        unindo técnica, exclusividade, sensibilidade e propósito.
       </p>
     </div>
 
+    <!-- DESTAQUE -->
     <div class="sobre-destaque">
       <span class="linha"></span>
       <p>
