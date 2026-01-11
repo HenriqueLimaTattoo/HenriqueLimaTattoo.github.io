@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Henrique Lima Tattoo</title>
 
+<!-- ================= FONTES ================= -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ================= VARIÁVEIS ================= */
 :root{
   --preto:#0b0b0b;
   --cinza:#8e8e8e;
@@ -15,83 +18,112 @@
   --prata:#cfd3d6;
 }
 
+/* ================= RESET ================= */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  font-family:'Montserrat',sans-serif;
   background:var(--preto);
   color:var(--branco);
-  font-family:'Montserrat',sans-serif;
 }
 
-/* MENU */
+/* ================= HEADER / MENU ================= */
 header{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.95);
   z-index:1000;
   border-bottom:1px solid #222;
 }
-nav{
+
+.navbar{
   max-width:1200px;
   margin:auto;
-  padding:15px;
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
 }
-nav a{
+
+.navbar strong{
+  font-size:16px;
+}
+
+/* MENU DESKTOP */
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
   color:white;
   text-decoration:none;
-  margin-left:20px;
   font-size:14px;
 }
 
-/* HERO */
+/* HAMBURGUER */
+.hamburger{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
 .hero{
-  height:90vh;
+  height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.9)),
-    url("IMG.JPG") center/cover no-repeat;
+    url("IMG_8581.JPG") center/cover no-repeat;
   display:flex;
   align-items:center;
 }
+
 .hero-content{
   max-width:600px;
   padding:40px;
 }
+
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:46px;
+  font-size:42px;
 }
+
 .hero p{
-  color:#ccc;
   margin:20px 0;
+  color:#ccc;
 }
+
 .btn{
   display:inline-block;
-  padding:12px 28px;
+  padding:12px 26px;
   border:1px solid var(--prata);
-  margin-right:10px;
   color:white;
   text-decoration:none;
+  margin-right:10px;
 }
+
 .btn:hover{
   background:var(--prata);
   color:black;
 }
 
-/* SEÇÕES */
+/* ================= SEÇÕES ================= */
 section{
   max-width:1200px;
   margin:120px auto;
   padding:0 20px;
 }
 
-/* CARROSSEL REALISMO */
+section h2{
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
+}
+
+/* ================= CARROSSEL ================= */
 .carousel{
   position:relative;
   overflow:hidden;
-  width:100%;
 }
 
 .carousel-track{
@@ -109,8 +141,8 @@ section{
 
 .carousel-item img,
 .carousel-item video{
+  height:360px;
   max-width:100%;
-  height:380px;
   object-fit:contain;
 }
 
@@ -119,18 +151,18 @@ section{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  background:rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.2);
   border:none;
   color:white;
   font-size:28px;
-  padding:10px 15px;
+  padding:10px 14px;
   cursor:pointer;
 }
-.arrow:hover{background:rgba(255,255,255,0.35)}
+
 .prev{left:10px}
 .next{right:10px}
 
-/* WHATS */
+/* ================= WHATS FIXO ================= */
 .whats{
   position:fixed;
   bottom:20px;
@@ -142,27 +174,63 @@ section{
   text-decoration:none;
   font-weight:600;
 }
+
+/* ================= RESPONSIVO ================= */
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:black;
+    flex-direction:column;
+    width:100%;
+    display:none;
+    padding:20px;
+  }
+
+  .nav-links a{
+    padding:10px 0;
+    font-size:16px;
+  }
+
+  .hamburger{
+    display:block;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .carousel-item img,
+  .carousel-item video{
+    height:260px;
+  }
+}
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
-<nav>
-<strong>Henrique Lima Tattoo</strong>
-<div>
-  <a href="#">Sobre</a>
-  <a href="#portfolio">Portfólio</a>
-  <a href="#">Premiações</a>
-  <a href="#">Colabs</a>
-  <a href="#">Workshop & Mentorias</a>
-  <a href="#">Contato</a>
-</div>
-</nav>
+  <div class="navbar">
+    <strong>Henrique Lima Tattoo</strong>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="menu">
+      <a href="#portfolio">Portfólio</a>
+      <a href="#premiacoes">Premiações</a>
+      <a href="#colabs">Colabs</a>
+      <a href="#workshop">Workshop & Mentorias</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
 </header>
 
-<a class="whats" href="https://wa.me/558896036386" target="_blank">Agendar no WhatsApp</a>
+<a class="whats" href="https://wa.me/558896036386" target="_blank">WhatsApp</a>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-content">
     <h1>Transformo histórias em arte eterna na pele</h1>
@@ -171,74 +239,78 @@ section{
   </div>
 </section>
 
+<!-- ================= PORTFÓLIO - REALISMO ================= -->
 <section id="portfolio">
-<h2 style="font-family:Playfair Display;margin-bottom:20px">Realismo Preto & Cinza</h2>
+  <h2>Realismo Preto & Cinza</h2>
 
-<div class="carousel" id="carousel">
-  <div class="carousel-track">
+  <div class="carousel">
+    <div class="carousel-track">
 
-  <div class="carousel-item">
-  <video src="Realismo/Jesus.mp4" muted loop playsinline></video>
-</div>
+      <!-- AQUI ENTRAM AS FOTOS E VÍDEOS DO REALISMO -->
 
-<div class="carousel-item">
-  <img src="Realismo/Poseidon.jpg">
-</div>
+    </div>
 
-<div class="carousel-item">
-  <video src="Realismo/crianca.mp4" muted loop playsinline></video>
-</div>
-
-<div class="carousel-item">
-  <video src="Realismo/gueixa.mp4" muted loop playsinline></video>
-</div>
-
-<div class="carousel-item">
-  <video src="Realismo/jesus-medalha.mp4" muted loop playsinline></video>
-</div>
-
-<div class="carousel-item">
-  <video src="Realismo/leao-guerreiro.mp4" muted loop playsinline></video>
-</div>
-
-<div class="carousel-item">
-  <img src="Realismo/seu-madruga.jpg">
-</div>
-
-
-  <button class="arrow prev" onclick="prevSlide()">‹</button>
-  <button class="arrow next" onclick="nextSlide()">›</button>
-</div>
+    <button class="arrow prev" onclick="prevSlide()">‹</button>
+    <button class="arrow next" onclick="nextSlide()">›</button>
+  </div>
 </section>
 
+<!-- ================= PREMIAÇÕES ================= -->
+<section id="premiacoes">
+  <h2>Premiações</h2>
+</section>
+
+<!-- ================= COLABS ================= -->
+<section id="colabs">
+  <h2>Colabs</h2>
+</section>
+
+<!-- ================= WORKSHOP ================= -->
+<section id="workshop">
+  <h2>Workshop & Mentorias</h2>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section id="contato">
+  <h2>Contato</h2>
+  <p>Juazeiro do Norte - CE</p>
+</section>
+
+<!-- ================= JAVASCRIPT ================= -->
 <script>
+/* MENU */
+function toggleMenu(){
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+/* CARROSSEL */
 let index = 0;
 let timer;
 const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
 
-function showSlide(i){
-  track.style.transform = `translateX(-${i * 100}%)`;
+function updateCarousel(){
+  track.style.transform = `translateX(-${index * 100}%)`;
 }
 
 function nextSlide(){
-  index = (index + 1) % items.length;
-  resetAuto();
+  index = (index + 1) % track.children.length;
+  restartAuto();
 }
 
 function prevSlide(){
-  index = (index - 1 + items.length) % items.length;
-  resetAuto();
+  index = (index - 1 + track.children.length) % track.children.length;
+  restartAuto();
 }
 
-function resetAuto(){
+function restartAuto(){
   clearTimeout(timer);
-  showSlide(index);
+  updateCarousel();
   autoSlide();
 }
 
 function autoSlide(){
-  const current = items[index].querySelector('video');
+  const current = track.children[index].querySelector('video');
   const delay = current ? 6000 : 3000;
 
   if(current){
