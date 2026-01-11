@@ -69,7 +69,7 @@ header{
   cursor:pointer;
 }
 
-/* ================= HERO (APRESENTAÇÃO) ================= */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   padding:120px 40px 40px;
@@ -79,10 +79,7 @@ header{
   align-items:center;
 }
 
-.hero-text{
-  animation:fadeUp 1s ease forwards;
-}
-
+/* TEXTO */
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:44px;
@@ -116,48 +113,16 @@ header{
   color:black;
 }
 
-.btn-left{
-  animation:slideLeft 1s ease forwards;
-}
-
-.btn-right{
-  animation:slideRight 1s ease forwards;
-}
-
 /* IMAGEM */
+.hero-image{
+  position:relative;
+}
+
 .hero-image img{
   width:100%;
   max-height:85vh;
   object-fit:cover;
   border-radius:6px;
-}
-
-/* ================= ANIMAÇÕES ================= */
-@keyframes slideLeft{
-  from{opacity:0; transform:translateX(-60px);}
-  to{opacity:1; transform:translateX(0);}
-}
-
-@keyframes slideRight{
-  from{opacity:0; transform:translateX(60px);}
-  to{opacity:1; transform:translateX(0);}
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ================= SEÇÕES ================= */
-section{
-  max-width:1200px;
-  margin:120px auto;
-  padding:0 20px;
-}
-
-section h2{
-  font-family:'Playfair Display',serif;
-  margin-bottom:20px;
 }
 
 /* ================= WHATS FIXO ================= */
@@ -176,6 +141,7 @@ section h2{
 /* ================= RESPONSIVO ================= */
 @media(max-width:768px){
 
+  /* MENU */
   .nav-links{
     position:absolute;
     top:60px;
@@ -196,18 +162,34 @@ section h2{
     display:block;
   }
 
+  /* HERO MOBILE */
   .hero{
     grid-template-columns:1fr;
+    padding:100px 20px 40px;
+  }
+
+  /* FOTO PRIMEIRO */
+  .hero-image{
+    order:1;
+  }
+
+  /* TEXTO DEPOIS */
+  .hero-text{
+    order:2;
+    margin-top:-120px;
+    background:linear-gradient(to top, rgba(11,11,11,0.95), rgba(11,11,11,0.6), rgba(11,11,11,0));
+    padding:30px 20px;
+    border-radius:6px;
     text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:30px;
   }
 
   .hero-buttons{
     justify-content:center;
     flex-wrap:wrap;
-  }
-
-  .hero-text h1{
-    font-size:32px;
   }
 }
 </style>
@@ -246,11 +228,9 @@ section h2{
     </p>
 
     <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-left">Ver Portfólio</a>
-
-      <a href="https://wa.me/558896036386" target="_blank" class="btn btn-right">
-        Solicite seu orçamento
-        <span style="font-size:14px">🟢</span>
+      <a href="#portfolio" class="btn">Ver Portfólio</a>
+      <a href="https://wa.me/558896036386" target="_blank" class="btn">
+        Solicite seu orçamento <span>🟢</span>
       </a>
     </div>
   </div>
@@ -262,33 +242,6 @@ section h2{
 
 </section>
 
-<!-- ================= PORTFÓLIO ================= -->
-<section id="portfolio">
-  <h2>Portfólio</h2>
-</section>
-
-<!-- ================= PREMIAÇÕES ================= -->
-<section id="premiacoes">
-  <h2>Premiações</h2>
-</section>
-
-<!-- ================= COLABS ================= -->
-<section id="colabs">
-  <h2>Colabs</h2>
-</section>
-
-<!-- ================= WORKSHOP ================= -->
-<section id="workshop">
-  <h2>Workshop & Mentorias</h2>
-</section>
-
-<!-- ================= CONTATO ================= -->
-<section id="contato">
-  <h2>Contato</h2>
-  <p>Juazeiro do Norte - CE</p>
-</section>
-
-<!-- ================= JAVASCRIPT ================= -->
 <script>
 function toggleMenu(){
   const menu = document.getElementById('menu');
