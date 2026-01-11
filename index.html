@@ -16,7 +16,6 @@
   --branco:#ffffff;
   --cinza:#bdbdbd;
   --prata:#cfd3d6;
-  --destaque:#e0e0e0;
 }
 
 /* ================= RESET ================= */
@@ -65,7 +64,14 @@ header{
   font-size:13px;
 }
 
-/* ================= HERO ================= */
+/* HAMBURGUER */
+.hamburger{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ================= HERO (INTOCADO) ================= */
 .hero{
   min-height:100vh;
   padding:120px 40px 40px;
@@ -93,7 +99,6 @@ header{
   animation-delay:0.6s;
 }
 
-/* ================= BOTÕES ================= */
 .hero-buttons{
   margin-top:34px;
   display:flex;
@@ -123,17 +128,11 @@ header{
   animation-delay:1.2s;
 }
 
-.btn:hover{
-  background:var(--prata);
-  color:black;
-}
-
 .btn img{
   width:26px;
   height:26px;
 }
 
-/* ================= IMAGEM HERO ================= */
 .hero-image img{
   width:100%;
   max-height:85vh;
@@ -146,12 +145,82 @@ header{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:none;
 }
 
 .whats img{
-  width:70px;
+  width:70px; /* tamanho do ícone flutuante */
   height:70px;
+}
+
+/* ================= SOBRE MIM ================= */
+.sobre{
+  padding:120px 40px;
+}
+
+.sobre-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+}
+
+/* TÍTULO COM ANIMAÇÃO */
+.sobre-texto h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:12px;
+  opacity:0;
+  transform:translateY(40px);
+  animation:sectionTitleReveal 1.2s ease forwards;
+}
+
+/* NOME EM DESTAQUE */
+.sobre-nome{
+  font-size:22px;
+  margin-bottom:30px;
+}
+
+/* TEXTO NORMAL */
+.sobre-texto p{
+  margin-bottom:18px;
+  line-height:1.7;
+  color:#d0d0d0;
+}
+
+.sobre-texto strong{
+  color:white;
+}
+
+/* FRASE FINAL COM ANIMAÇÃO */
+.sobre-fechamento{
+  margin-top:40px;
+  padding-left:30px;
+  border-left:1px solid var(--prata);
+  opacity:0;
+  transform:translateY(40px);
+  animation:closingReveal 1.2s ease forwards;
+  animation-delay:0.8s;
+}
+
+.sobre-fechamento span{
+  display:block;
+  width:40px;
+  height:1px;
+  background:var(--prata);
+  margin-bottom:18px;
+}
+
+.sobre-fechamento p{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  line-height:1.5;
+}
+
+/* IMAGEM SOBRE */
+.sobre-imagem img{
+  width:100%;
+  border-radius:6px;
 }
 
 /* ================= ANIMAÇÕES ================= */
@@ -171,84 +240,42 @@ header{
   to{opacity:1; transform:translateX(0);}
 }
 
-/* ================= SOBRE MIM ================= */
-.sobre{
-  padding:120px 40px;
+@keyframes sectionTitleReveal{
+  to{opacity:1; transform:translateY(0);}
 }
 
-.sobre-container{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.2fr 0.8fr;
-  gap:60px;
-  align-items:flex-start;
-}
-
-.sobre-texto h2{
-  font-family:'Playfair Display',serif;
-  font-size:38px;
-  margin-bottom:12px;
-}
-
-.sobre-nome{
-  font-size:22px;
-  color:var(--destaque);
-  font-weight:600;
-  margin-bottom:30px;
-}
-
-.sobre-texto p{
-  margin-bottom:18px;
-  line-height:1.7;
-  color:#d0d0d0;
-}
-
-.sobre-texto strong{
-  color:white;
-}
-
-/* FRASE FINAL EM DESTAQUE */
-.sobre-fechamento{
-  margin-top:40px;
-  padding-left:30px;
-  border-left:1px solid var(--prata);
-}
-
-.sobre-fechamento span{
-  display:block;
-  width:40px;
-  height:1px;
-  background:var(--prata);
-  margin-bottom:18px;
-}
-
-.sobre-fechamento p{
-  font-family:'Playfair Display',serif;
-  font-size:22px;
-  line-height:1.5;
-  color:white;
-}
-
-/* IMAGEM DO SOBRE */
-.sobre-imagem img{
-  width:100%;
-  border-radius:6px;
-  object-fit:cover;
+@keyframes closingReveal{
+  to{opacity:1; transform:translateY(0);}
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
+
+  .hamburger{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:62px;
+    right:0;
+    background:black;
+    width:100%;
+    flex-direction:column;
+    display:none;
+    padding:20px;
+  }
+
+  .nav-links a{
+    padding:10px 0;
+  }
 
   .hero{
     grid-template-columns:1fr;
     padding:90px 20px 40px;
   }
 
-  .hero-image{order:1}
-
   .hero-text{
-    order:2;
     text-align:center;
   }
 
@@ -291,7 +318,9 @@ header{
   <div class="navbar">
     <div class="brand">Henrique Lima Tattoo</div>
 
-    <div class="nav-links">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="menu">
       <a href="#sobre">Sobre mim</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#premiacoes">Premiações</a>
@@ -307,18 +336,16 @@ header{
 </a>
 
 <section class="hero">
-
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
     <p>
       Realismo Preto & Cinza e Lettering.<br>
-      Arte feita para quem valoriza exclusividade.
+      Feito para quem valoriza arte, significado e exclusividade.
     </p>
 
     <div class="hero-buttons">
       <a href="#portfolio" class="btn btn-left">Ver Portfólio</a>
-
-      <a href="https://wa.me/558896036386" target="_blank" class="btn btn-right">
+      <a href="https://wa.me/558896036386" class="btn btn-right">
         Orçamentos e Agendamentos
         <img src="Icones/whats.png" alt="">
       </a>
@@ -326,44 +353,18 @@ header{
   </div>
 
   <div class="hero-image">
-    <img src="IMG_8581.JPG" alt="Henrique Lima Tattoo">
+    <img src="IMG_8581.JPG" alt="">
   </div>
-
 </section>
 
 <section class="sobre" id="sobre">
-
   <div class="sobre-container">
 
     <div class="sobre-texto">
       <h2>O artista por trás da agulha</h2>
-
       <div class="sobre-nome">Meu nome é Henrique Lima</div>
 
-      <p>
-        Desde pequeno, o desenho sempre foi meu refúgio.
-        A arte me acompanhou desde o papel até a pele.
-        E foi na tatuagem que encontrei minha verdadeira expressão.
-      </p>
-
-      <p>
-        Sou <strong>tatuador especializado em Realismo Preto & Cinza e Lettering</strong>.
-        Acredito que tatuar vai muito além da técnica, é sobre traduzir sentimentos,
-        memórias e momentos em arte viva.
-      </p>
-
-      <p>
-        Cada projeto que faço é <strong>planejado do zero</strong>,
-        pensado na <strong>história de quem vai carregar</strong>.
-        Meu objetivo é que, quando você olhar para sua tatuagem,
-        <strong>sinta orgulho e emoção</strong>.
-      </p>
-
-      <p>
-        O Realismo Preto e Cinza e o Lettering me conquistaram pela
-        <strong>profundidade, emoção e desafio técnico</strong>.
-        Cada arte que tatuo é uma forma de <strong>eternizar algo que tem valor</strong>.
-      </p>
+      <p>Desde pequeno, o desenho sempre foi meu refúgio...</p>
 
       <div class="sobre-fechamento">
         <span></span>
@@ -375,14 +376,19 @@ header{
       </div>
     </div>
 
-    <!-- FOTO NO LUGAR DO X -->
     <div class="sobre-imagem">
-      <img src="IMG_9615.jpg" alt="Henrique Lima Tattoo">
+      <img src="IMG_9615.jpg" alt="">
     </div>
 
   </div>
-
 </section>
+
+<script>
+function toggleMenu(){
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
 
 </body>
 </html>
