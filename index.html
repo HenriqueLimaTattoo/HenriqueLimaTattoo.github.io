@@ -310,7 +310,7 @@ header{
 /* CARROSSEL (MÁSCARA) */
 .portfolio-carousel{
   position:relative;
-  max-width:520px;  /* ✅ TAMANHO IDEAL PARA VERTICAL */
+  max-width:900px; /* ← CONTROLA A LARGURA DO PORTFÓLIO */
   margin:0 auto;
   overflow:hidden;
 }
@@ -335,7 +335,7 @@ header{
   width:100%;
   max-height:55vh;   /* 🔧 DIMINUI AQUI antes 75vh*/
   object-fit:contain;
-  background:none; /* remove fundo preto do item */
+  background:black; /* remove fundo preto do item */
   border-radius:6px;
 }
 
@@ -359,22 +359,37 @@ header{
 @media(max-width:768px){
   .portfolio{padding:80px 20px;}
 }
- /* ================= BOTÃO VER MAIS ================= */
+  
+ /* ================= BOTÃO VER MAIS (PORTFÓLIO) ================= */
+
 .portfolio-vermais{
   margin-top:40px;
   display:flex;
   justify-content:center;
 }
 
-/* reutiliza o estilo do botão já existente */
-.portfolio-vermais .btn{
+.portfolio-vermais a{
   padding:14px 36px;
+  border:1px solid var(--prata); /* borda visível */
+  color:white;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  font-size:14px;
+  transition:all 0.3s ease;
 }
 
-/* TAMANHO DO ÍCONE DO INSTAGRAM */
+/* HOVER ELEGANTE */
+.portfolio-vermais a:hover{
+  background:rgba(255,255,255,0.05);
+}
+
+/* ÍCONE DO INSTAGRAM */
 .portfolio-vermais img{
-  width:22px;       /* ← ajuste o tamanho aqui */
+  width:22px;   /* tamanho do ícone */
   height:22px;
+  display:block;
 }
 
   
@@ -500,14 +515,13 @@ header{
     </div>
   </div>
   
-<!-- ================= BOTÃO VER MAIS (INSTAGRAM) ================= -->
+<!-- BOTÃO VER MAIS (INSTAGRAM) -->
 <div class="portfolio-vermais">
-  <a href="https://instagram.com/SEU_INSTAGRAM" target="_blank" class="btn">
-    VER MAIS
+  <a href="https://www.instagram.com/_henriquelimah/" target="_blank">
+    Ver mais
     <img src="Icones/insta-vermais.png" alt="Instagram">
   </a>
 </div>
-
   
 </section>
 
