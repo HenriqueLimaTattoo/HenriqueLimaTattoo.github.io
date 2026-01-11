@@ -81,6 +81,10 @@ header{
   align-items:center;
 }
 
+/* --- ORDEM NO DESKTOP --- */
+.hero-text{order:1;}     /* TEXTO À ESQUERDA */
+.hero-image{order:2;}    /* FOTO À DIREITA */
+
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:46px;
@@ -128,8 +132,9 @@ header{
   animation-delay:1.2s;
 }
 
+/* ÍCONE DO BOTÃO WHATS */
 .btn img{
-  width:26px;
+  width:26px; /* ajuste fácil aqui */
   height:26px;
 }
 
@@ -149,7 +154,7 @@ header{
 }
 
 .whats img{
-  width:70px; /* ajuste fácil aqui */
+  width:70px; /* tamanho do ícone flutuante */
   height:70px;
 }
 
@@ -167,7 +172,10 @@ header{
   align-items:flex-start;
 }
 
-/* TEXTO */
+/* --- ORDEM DESKTOP SOBRE --- */
+.sobre-texto{order:1;}   /* TEXTO ESQUERDA */
+.sobre-imagem{order:2;}  /* FOTO DIREITA */
+
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -192,7 +200,7 @@ header{
   color:white;
 }
 
-/* FRASE FINAL */
+/* FRASE FINAL DESTACADA */
 .sobre-fechamento{
   margin-top:40px;
   padding-left:30px;
@@ -217,7 +225,7 @@ header{
   line-height:1.5;
 }
 
-/* IMAGEM SOBRE (LATERAL DIREITA) */
+/* IMAGEM SOBRE */
 .sobre-imagem img{
   width:100%;
   border-radius:6px;
@@ -235,6 +243,7 @@ header{
 /* ================= MOBILE ================= */
 @media(max-width:768px){
 
+  /* MENU MOBILE */
   .hamburger{display:block}
 
   .nav-links{
@@ -248,14 +257,17 @@ header{
     padding:20px;
   }
 
-  /* HERO MOBILE: FOTO PRIMEIRO */
+  /* HERO MOBILE */
   .hero{
     grid-template-columns:1fr;
     padding:90px 20px 40px;
   }
 
-  .hero-image{order:1}
-  .hero-text{order:2; text-align:center}
+  .hero-image{order:1;} /* FOTO EM CIMA */
+  .hero-text{
+    order:2;
+    text-align:center;
+  }
 
   .hero-text h1{font-size:30px}
 
@@ -274,8 +286,8 @@ header{
     gap:40px;
   }
 
-  .sobre-imagem{order:2}
-  .sobre-texto{order:1}
+  .sobre-texto{order:1;}
+  .sobre-imagem{order:2;}
 
   .sobre-fechamento{
     border-left:none;
@@ -310,15 +322,13 @@ header{
   </div>
 </header>
 
+<!-- WHATS FLUTUANTE -->
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-image">
-    <img src="IMG_8581.JPG" alt="">
-  </div>
 
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
@@ -335,9 +345,14 @@ header{
       </a>
     </div>
   </div>
+
+  <div class="hero-image">
+    <img src="IMG_8581.JPG" alt="">
+  </div>
+
 </section>
 
-<!-- SOBRE MIM -->
+<!-- ================= SOBRE MIM ================= -->
 <section class="sobre" id="sobre">
   <div class="sobre-container">
 
@@ -380,7 +395,7 @@ header{
       </div>
     </div>
 
-    <!-- IMAGEM LATERAL -->
+    <!-- FOTO LATERAL DIREITA -->
     <div class="sobre-imagem">
       <img src="IMG_9615.JPG" alt="">
     </div>
