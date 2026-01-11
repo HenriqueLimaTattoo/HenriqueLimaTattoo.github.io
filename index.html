@@ -6,11 +6,17 @@
 
 <title>Henrique Lima Tattoo</title>
 
-<!-- FONTES -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- ================= FONTES ================= -->
+<!-- Fonte principal dos títulos -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Fonte dos textos -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ================= VARIÁVEIS ================= */
+/* ======================================================
+   VARIÁVEIS DE CORES (facilita mudar depois)
+====================================================== */
 :root{
   --preto:#0b0b0b;
   --branco:#ffffff;
@@ -28,7 +34,9 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/* ======================================================
+   HEADER / MENU
+====================================================== */
 header{
   position:fixed;
   top:0;
@@ -64,14 +72,16 @@ header{
   font-size:13px;
 }
 
-/* HAMBURGUER */
+/* ÍCONE HAMBURGUER (MOBILE) */
 .hamburger{
   display:none;
   font-size:26px;
   cursor:pointer;
 }
 
-/* ================= HERO (INTOCADO) ================= */
+/* ======================================================
+   HERO (NÃO MEXER – PARTE JÁ APROVADA)
+====================================================== */
 .hero{
   min-height:100vh;
   padding:120px 40px 40px;
@@ -129,7 +139,7 @@ header{
 }
 
 .btn img{
-  width:26px;
+  width:26px; /* TAMANHO DO ÍCONE DO BOTÃO */
   height:26px;
 }
 
@@ -140,7 +150,9 @@ header{
   border-radius:6px;
 }
 
-/* ================= WHATS FLUTUANTE ================= */
+/* ======================================================
+   WHATS FLUTUANTE
+====================================================== */
 .whats{
   position:fixed;
   bottom:20px;
@@ -148,11 +160,13 @@ header{
 }
 
 .whats img{
-  width:70px; /* tamanho do ícone flutuante */
+  width:70px; /* ALTERE AQUI O TAMANHO DO ÍCONE FLUTUANTE */
   height:70px;
 }
 
-/* ================= SOBRE MIM ================= */
+/* ======================================================
+   SOBRE MIM
+====================================================== */
 .sobre{
   padding:120px 40px;
 }
@@ -165,34 +179,35 @@ header{
   gap:60px;
 }
 
-/* TÍTULO COM ANIMAÇÃO */
+/* ---------- TÍTULO "O artista por trás da agulha" ---------- */
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
   margin-bottom:12px;
   opacity:0;
   transform:translateY(40px);
-  animation:sectionTitleReveal 1.2s ease forwards;
+  animation:sectionReveal 1.2s ease forwards;
 }
 
-/* NOME EM DESTAQUE */
+/* ---------- FRASE "Meu nome é Henrique Lima" ---------- */
 .sobre-nome{
-  font-size:22px;
+  font-size:22px; /* ALTERE AQUI O TAMANHO */
   margin-bottom:30px;
 }
 
-/* TEXTO NORMAL */
+/* ---------- PARÁGRAFOS NORMAIS ---------- */
 .sobre-texto p{
   margin-bottom:18px;
   line-height:1.7;
   color:#d0d0d0;
 }
 
+/* DESTACAR PALAVRAS EM NEGRITO */
 .sobre-texto strong{
   color:white;
 }
 
-/* FRASE FINAL COM ANIMAÇÃO */
+/* ---------- FRASE FINAL DE IMPACTO ---------- */
 .sobre-fechamento{
   margin-top:40px;
   padding-left:30px;
@@ -200,9 +215,10 @@ header{
   opacity:0;
   transform:translateY(40px);
   animation:closingReveal 1.2s ease forwards;
-  animation-delay:0.8s;
+  animation-delay:0.6s;
 }
 
+/* LINHA DECORATIVA */
 .sobre-fechamento span{
   display:block;
   width:40px;
@@ -217,13 +233,15 @@ header{
   line-height:1.5;
 }
 
-/* IMAGEM SOBRE */
+/* ---------- IMAGEM LATERAL ---------- */
 .sobre-imagem img{
   width:100%;
   border-radius:6px;
 }
 
-/* ================= ANIMAÇÕES ================= */
+/* ======================================================
+   ANIMAÇÕES
+====================================================== */
 @keyframes titleReveal{
   to{opacity:1; transform:scale(1);}
 }
@@ -240,7 +258,7 @@ header{
   to{opacity:1; transform:translateX(0);}
 }
 
-@keyframes sectionTitleReveal{
+@keyframes sectionReveal{
   to{opacity:1; transform:translateY(0);}
 }
 
@@ -248,12 +266,12 @@ header{
   to{opacity:1; transform:translateY(0);}
 }
 
-/* ================= MOBILE ================= */
+/* ======================================================
+   MOBILE
+====================================================== */
 @media(max-width:768px){
 
-  .hamburger{
-    display:block;
-  }
+  .hamburger{display:block}
 
   .nav-links{
     position:absolute;
@@ -266,22 +284,14 @@ header{
     padding:20px;
   }
 
-  .nav-links a{
-    padding:10px 0;
-  }
-
   .hero{
     grid-template-columns:1fr;
     padding:90px 20px 40px;
   }
 
-  .hero-text{
-    text-align:center;
-  }
+  .hero-text{text-align:center}
 
-  .hero-text h1{
-    font-size:30px;
-  }
+  .hero-text h1{font-size:30px}
 
   .hero-buttons{
     justify-content:center;
@@ -317,7 +327,6 @@ header{
 <header>
   <div class="navbar">
     <div class="brand">Henrique Lima Tattoo</div>
-
     <div class="hamburger" onclick="toggleMenu()">☰</div>
 
     <div class="nav-links" id="menu">
@@ -331,10 +340,12 @@ header{
   </div>
 </header>
 
+<!-- WHATS FLUTUANTE -->
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
@@ -357,6 +368,7 @@ header{
   </div>
 </section>
 
+<!-- ================= SOBRE MIM ================= -->
 <section class="sobre" id="sobre">
   <div class="sobre-container">
 
@@ -364,7 +376,30 @@ header{
       <h2>O artista por trás da agulha</h2>
       <div class="sobre-nome">Meu nome é Henrique Lima</div>
 
-      <p>Desde pequeno, o desenho sempre foi meu refúgio...</p>
+      <p>
+        Desde pequeno, o desenho sempre foi meu refúgio.
+        A arte me acompanhou desde o papel até a pele.
+        E foi na tatuagem que encontrei minha verdadeira expressão.
+      </p>
+
+      <p>
+        Sou <strong>tatuador especializado em Realismo Preto & Cinza e Lettering</strong>.
+        Acredito que tatuar vai muito além da técnica, é sobre traduzir sentimentos,
+        memórias e momentos em arte viva.
+      </p>
+
+      <p>
+        Cada projeto que faço é <strong>planejado do zero</strong>,
+        pensado na <strong>história de quem vai carregar</strong>.
+        Meu objetivo é que, quando você olhar para sua tatuagem,
+        <strong>sinta orgulho e emoção</strong>.
+      </p>
+
+      <p>
+        O Realismo Preto e Cinza e o Lettering me conquistaram pela
+        <strong>profundidade, emoção e desafio técnico</strong>.
+        Cada arte que tatuo é uma forma de <strong>eternizar algo que tem valor</strong>.
+      </p>
 
       <div class="sobre-fechamento">
         <span></span>
@@ -377,13 +412,14 @@ header{
     </div>
 
     <div class="sobre-imagem">
-      <img src="IMG_9615.jpg" alt="">
+      <img src="IMG_9615.JPG" alt="">
     </div>
 
   </div>
 </section>
 
 <script>
+/* ABRIR / FECHAR MENU MOBILE */
 function toggleMenu(){
   const menu = document.getElementById('menu');
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
