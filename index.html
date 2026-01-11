@@ -7,16 +7,11 @@
 <title>Henrique Lima Tattoo</title>
 
 <!-- ================= FONTES ================= -->
-<!-- Fonte principal dos títulos -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-<!-- Fonte dos textos -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ======================================================
-   VARIÁVEIS DE CORES (facilita mudar depois)
-====================================================== */
+/* ================= VARIÁVEIS ================= */
 :root{
   --preto:#0b0b0b;
   --branco:#ffffff;
@@ -34,9 +29,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ======================================================
-   HEADER / MENU
-====================================================== */
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;
@@ -72,16 +65,13 @@ header{
   font-size:13px;
 }
 
-/* ÍCONE HAMBURGUER (MOBILE) */
 .hamburger{
   display:none;
   font-size:26px;
   cursor:pointer;
 }
 
-/* ======================================================
-   HERO (NÃO MEXER – PARTE JÁ APROVADA)
-====================================================== */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   padding:120px 40px 40px;
@@ -139,10 +129,11 @@ header{
 }
 
 .btn img{
-  width:26px; /* TAMANHO DO ÍCONE DO BOTÃO */
+  width:26px;
   height:26px;
 }
 
+/* IMAGEM DO HERO */
 .hero-image img{
   width:100%;
   max-height:85vh;
@@ -150,9 +141,7 @@ header{
   border-radius:6px;
 }
 
-/* ======================================================
-   WHATS FLUTUANTE
-====================================================== */
+/* ================= WHATS FLUTUANTE ================= */
 .whats{
   position:fixed;
   bottom:20px;
@@ -160,13 +149,11 @@ header{
 }
 
 .whats img{
-  width:70px; /* ALTERE AQUI O TAMANHO DO ÍCONE FLUTUANTE */
+  width:70px; /* ajuste fácil aqui */
   height:70px;
 }
 
-/* ======================================================
-   SOBRE MIM
-====================================================== */
+/* ================= SOBRE MIM ================= */
 .sobre{
   padding:120px 40px;
 }
@@ -177,9 +164,10 @@ header{
   display:grid;
   grid-template-columns:1.2fr 0.8fr;
   gap:60px;
+  align-items:flex-start;
 }
 
-/* ---------- TÍTULO "O artista por trás da agulha" ---------- */
+/* TEXTO */
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -189,25 +177,22 @@ header{
   animation:sectionReveal 1.2s ease forwards;
 }
 
-/* ---------- FRASE "Meu nome é Henrique Lima" ---------- */
 .sobre-nome{
-  font-size:22px; /* ALTERE AQUI O TAMANHO */
+  font-size:22px;
   margin-bottom:30px;
 }
 
-/* ---------- PARÁGRAFOS NORMAIS ---------- */
 .sobre-texto p{
   margin-bottom:18px;
   line-height:1.7;
   color:#d0d0d0;
 }
 
-/* DESTACAR PALAVRAS EM NEGRITO */
 .sobre-texto strong{
   color:white;
 }
 
-/* ---------- FRASE FINAL DE IMPACTO ---------- */
+/* FRASE FINAL */
 .sobre-fechamento{
   margin-top:40px;
   padding-left:30px;
@@ -218,7 +203,6 @@ header{
   animation-delay:0.6s;
 }
 
-/* LINHA DECORATIVA */
 .sobre-fechamento span{
   display:block;
   width:40px;
@@ -233,42 +217,22 @@ header{
   line-height:1.5;
 }
 
-/* ---------- IMAGEM LATERAL ---------- */
+/* IMAGEM SOBRE (LATERAL DIREITA) */
 .sobre-imagem img{
   width:100%;
   border-radius:6px;
+  display:block;
 }
 
-/* ======================================================
-   ANIMAÇÕES
-====================================================== */
-@keyframes titleReveal{
-  to{opacity:1; transform:scale(1);}
-}
+/* ================= ANIMAÇÕES ================= */
+@keyframes titleReveal{to{opacity:1; transform:scale(1);}}
+@keyframes subtitleReveal{to{opacity:1; transform:translateY(0);}}
+@keyframes btnLeft{to{opacity:1; transform:translateX(0);}}
+@keyframes btnRight{to{opacity:1; transform:translateX(0);}}
+@keyframes sectionReveal{to{opacity:1; transform:translateY(0);}}
+@keyframes closingReveal{to{opacity:1; transform:translateY(0);}}
 
-@keyframes subtitleReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes btnLeft{
-  to{opacity:1; transform:translateX(0);}
-}
-
-@keyframes btnRight{
-  to{opacity:1; transform:translateX(0);}
-}
-
-@keyframes sectionReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes closingReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ======================================================
-   MOBILE
-====================================================== */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
 
   .hamburger{display:block}
@@ -284,12 +248,14 @@ header{
     padding:20px;
   }
 
+  /* HERO MOBILE: FOTO PRIMEIRO */
   .hero{
     grid-template-columns:1fr;
     padding:90px 20px 40px;
   }
 
-  .hero-text{text-align:center}
+  .hero-image{order:1}
+  .hero-text{order:2; text-align:center}
 
   .hero-text h1{font-size:30px}
 
@@ -298,6 +264,7 @@ header{
     flex-wrap:wrap;
   }
 
+  /* SOBRE MOBILE */
   .sobre{
     padding:80px 20px;
   }
@@ -306,6 +273,9 @@ header{
     grid-template-columns:1fr;
     gap:40px;
   }
+
+  .sobre-imagem{order:2}
+  .sobre-texto{order:1}
 
   .sobre-fechamento{
     border-left:none;
@@ -340,13 +310,16 @@ header{
   </div>
 </header>
 
-<!-- WHATS FLUTUANTE -->
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-image">
+    <img src="IMG_8581.JPG" alt="">
+  </div>
+
   <div class="hero-text">
     <h1>Transformo histórias em arte eterna na pele</h1>
     <p>
@@ -362,13 +335,9 @@ header{
       </a>
     </div>
   </div>
-
-  <div class="hero-image">
-    <img src="IMG_8581.JPG" alt="">
-  </div>
 </section>
 
-<!-- ================= SOBRE MIM ================= -->
+<!-- SOBRE MIM -->
 <section class="sobre" id="sobre">
   <div class="sobre-container">
 
@@ -411,6 +380,7 @@ header{
       </div>
     </div>
 
+    <!-- IMAGEM LATERAL -->
     <div class="sobre-imagem">
       <img src="IMG_9615.JPG" alt="">
     </div>
@@ -419,7 +389,6 @@ header{
 </section>
 
 <script>
-/* ABRIR / FECHAR MENU MOBILE */
 function toggleMenu(){
   const menu = document.getElementById('menu');
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
