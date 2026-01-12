@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
+/* ================= STYLE ================= */
+  
 <style>
 /* ================= VARIÁVEIS ================= */
 :root{
@@ -29,6 +31,11 @@ body{
   overflow-x:hidden;
 }
 
+/* ================= ÂNCORA ================= */
+  html{
+  scroll-behavior: smooth;
+}
+  
 /* ================= HEADER ================= */
 header{
   position:fixed;
@@ -393,10 +400,58 @@ header{
   background:none;
 }
 
+  /* ================= MENU PORTFÓLIO (SUBMENU) ================= */
+
+/* bloco do portfólio */
+.menu-dropdown{
+  position:relative;
+  cursor:pointer;
+}
+
+/* texto "Portfólio" */
+.menu-dropdown span{
+  color:white;
+  font-size:13px;
+}
+
+/* submenu escondido */
+.submenu{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:black;
+  border:1px solid #222;
+  display:none;
+  flex-direction:column;
+  min-width:220px;
+  z-index:999;
+}
+
+/* links internos */
+.submenu a{
+  padding:12px 16px;
+  font-size:13px;
+  color:white;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+/* hover nos itens */
+.submenu a:hover{
+  background:rgba(255,255,255,0.05);
+}
+
+/* DESKTOP: abre ao passar o mouse */
+.menu-dropdown:hover .submenu{
+  display:flex;
+}
+
   
 </style>
 </head>
 
+  <!-- ================= HTML ================= -->
+  
 <body>
 
 <header>
@@ -406,7 +461,14 @@ header{
 
     <div class="nav-links" id="menu">
       <a href="#sobre">Sobre mim</a>
-      <a href="#portfolio">Portfólio</a>
+      <div class="menu-dropdown">
+  <span>Portfólio</span>
+  <div class="submenu">
+    <a href="#portfolio">Realismo Preto & Cinza</a>
+    <a href="#portfolio-lettering">Lettering</a>
+    <a href="#portfolio-fechamentos">Fechamentos</a>
+  </div>
+</div>
       <a href="#premiacoes">Premiações</a>
       <a href="#colabs">Colabs</a>
       <a href="#workshop">Workshop & Mentorias</a>
@@ -612,6 +674,7 @@ header{
 
 </section>
 
+  /* ================= SCRIPT ================= */
   
 <script>
 function toggleMenu(){
@@ -726,6 +789,20 @@ fechamentosUpdate();
 
 
 </script>
+
+<script>
+/* ================= SUBMENU MOBILE ================= */
+const dropdown = document.querySelector('.menu-dropdown span');
+
+dropdown.addEventListener('click', function(){
+  const submenu = this.nextElementSibling;
+
+  submenu.style.display =
+    submenu.style.display === 'flex' ? 'none' : 'flex';
+});
+</script>
+
+  
 </body>
 </html>
 
