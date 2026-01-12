@@ -129,7 +129,7 @@ header{
 }
 
 .btn:hover{
-  background:rgba(255,255,255,0.05);
+  background:var(--prata);
   color:black;
 }
   
@@ -444,7 +444,7 @@ header{
 
 /* hover nos itens */
 .submenu a:hover{
-  background:rgba(255,255,255,0.05);
+  background:var(--prata);
 }
 
 /* DESKTOP: abre ao passar o mouse */
@@ -460,7 +460,7 @@ header{
 
 .nav-links a:hover,
 .menu-dropdown span:hover{
-  color:rgba(255,255,255,0.05);
+  color:var(--prata);
 }
  
   
@@ -699,10 +699,15 @@ document.querySelectorAll('#menu a').forEach(link=>{
 /* ================= PORTFÓLIO JS REALISMO ================= */
 let pIndex = 0;
 const pTrack = document.getElementById('portfolioTrack');
-const pItems = document.querySelectorAll('.portfolio-item');
+const pItems = pTrack.querySelectorAll('.portfolio-item');
 let pTimer;
 
 function portfolioUpdate(){
+
+  if(pIndex >= pItems.length){
+    pIndex = 0;
+  }
+
   pTrack.style.transform = `translateX(-${pIndex * 100}%)`;
 
   pItems.forEach((item,i)=>{
@@ -718,6 +723,7 @@ function portfolioUpdate(){
   const currentVideo = pItems[pIndex].querySelector('video');
   pTimer = setTimeout(portfolioNext, currentVideo ? 6000 : 3000);
 }
+
 
 function portfolioNext(){
   if(pIndex < pItems.length - 1){
