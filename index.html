@@ -493,7 +493,7 @@ header{
 </section>
 
 
-<!-- ================= PORTFÓLIO ================= -->
+<!-- ================= PORTFÓLIO REALISMO================= -->
 <section class="portfolio" id="portfolio">
 
   <h2>Realismo Preto & Cinza</h2>
@@ -526,13 +526,87 @@ header{
   
 </section>
 
+<!-- ================= PORTFÓLIO LETTERING ================= -->
+<section class="portfolio" id="portfolio-lettering">
+
+  <h2>Lettering</h2>
+
+  <div class="portfolio-carousel">
+    <button class="portfolio-btn prev" onclick="letteringPrev()">‹</button>
+    <button class="portfolio-btn next" onclick="letteringNext()">›</button>
+
+    <div class="portfolio-track" id="letteringTrack">
+
+      <!-- ORDEM DOS ITENS LETTERING (EDITE AQUI) -->
+      <div class="portfolio-item"><img src="Lettering/01.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/02.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/03.jpg"></div>
+      <div class="portfolio-item"><img src="Lettering/04.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/05.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/06.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/07.mp4"></div>
+      <div class="portfolio-item"><img src="Lettering/08.mp4"></div>
+      
+    </div>
+  </div>
+
+  <div class="portfolio-vermais">
+    <a href="https://www.instagram.com/_henriquelimah/" target="_blank">
+      VER MAIS
+      <img src="Icones/insta-vermais.png" alt="Instagram">
+    </a>
+  </div>
+
+</section>
+
+  <!-- ================= PORTFÓLIO FECHAMENTOS ================= -->
+<section class="portfolio" id="portfolio-fechamentos">
+
+  <h2>Fechamentos</h2>
+
+  <div class="portfolio-carousel">
+    <button class="portfolio-btn prev" onclick="fechamentosPrev()">‹</button>
+    <button class="portfolio-btn next" onclick="fechamentosNext()">›</button>
+
+    <div class="portfolio-track" id="fechamentosTrack">
+
+      <!-- ORDEM DOS ITENS FECHAMENTOS (EDITE AQUI) -->
+      <div class="portfolio-item"><img src="Fechamentos/01.mp4"></div>
+      <div class="portfolio-item"><img src="Fechamentos/02.mp4"></div>
+      <div class="portfolio-item"><img src="Fechamentos/03.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/04.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/05.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/06.mp4"></div>
+      <div class="portfolio-item"><img src="Fechamentos/07.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/08.mp4"></div>
+      <div class="portfolio-item"><img src="Fechamentos/09.mp4"></div>
+      <div class="portfolio-item"><img src="Fechamentos/10.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/11.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/12.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/13.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/14.jpg"></div>
+      <div class="portfolio-item"><img src="Fechamentos/15.mp4"></div>
+         
+    </div>
+  </div>
+
+  <div class="portfolio-vermais">
+    <a href="https://www.instagram.com/_henriquelimah/" target="_blank">
+      VER MAIS
+      <img src="Icones/insta-vermais.png" alt="Instagram">
+    </a>
+  </div>
+
+</section>
+
+  
 <script>
 function toggleMenu(){
   const menu = document.getElementById('menu');
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
-
-/* ================= PORTFÓLIO JS ================= */
+  
+/* ================= PORTFÓLIO JS REALISMO ================= */
 let pIndex = 0;
 const pTrack = document.getElementById('portfolioTrack');
 const pItems = document.querySelectorAll('.portfolio-item');
@@ -566,7 +640,79 @@ function portfolioPrev(){
 }
 
 portfolioUpdate();
-</script>
 
+/* ================= JS LETTERING ================= */
+let lIndex = 0;
+const lTrack = document.getElementById('letteringTrack');
+const lItems = lTrack.querySelectorAll('.portfolio-item');
+let lTimer;
+
+function letteringUpdate(){
+  lTrack.style.transform = `translateX(-${lIndex * 100}%)`;
+
+  lItems.forEach((item,i)=>{
+    const video = item.querySelector('video');
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+      if(i === lIndex) video.play();
+    }
+  });
+
+  clearTimeout(lTimer);
+  const currentVideo = lItems[lIndex].querySelector('video');
+  lTimer = setTimeout(letteringNext, currentVideo ? 6000 : 3000);
+}
+
+function letteringNext(){
+  lIndex = (lIndex + 1) % lItems.length;
+  letteringUpdate();
+}
+
+function letteringPrev(){
+  lIndex = (lIndex - 1 + lItems.length) % lItems.length;
+  letteringUpdate();
+}
+
+letteringUpdate();
+
+/* ================= JS FECHAMENTOS ================= */
+let fIndex = 0;
+const fTrack = document.getElementById('fechamentosTrack');
+const fItems = fTrack.querySelectorAll('.portfolio-item');
+let fTimer;
+
+function fechamentosUpdate(){
+  fTrack.style.transform = `translateX(-${fIndex * 100}%)`;
+
+  fItems.forEach((item,i)=>{
+    const video = item.querySelector('video');
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+      if(i === fIndex) video.play();
+    }
+  });
+
+  clearTimeout(fTimer);
+  const currentVideo = fItems[fIndex].querySelector('video');
+  fTimer = setTimeout(fechamentosNext, currentVideo ? 6000 : 3000);
+}
+
+function fechamentosNext(){
+  fIndex = (fIndex + 1) % fItems.length;
+  fechamentosUpdate();
+}
+
+function fechamentosPrev(){
+  fIndex = (fIndex - 1 + fItems.length) % fItems.length;
+  fechamentosUpdate();
+}
+
+fechamentosUpdate();
+
+
+</script>
 </body>
 </html>
+
