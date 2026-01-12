@@ -478,7 +478,7 @@ header{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:1.2fr 0.8fr;
+  grid-template-columns:0.9fr 1.1fr; /* TEXTO MAIS ESTREITO ANTES ERA 1.2 E 0.8*/
   gap:60px;
   align-items:flex-start;
 }
@@ -487,7 +487,7 @@ header{
 .premiacoes-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
-  margin-bottom:24px;
+  margin-bottom:20px;
 }
 
 .premiacoes-texto p{
@@ -500,38 +500,62 @@ header{
   color:white;
 }
 
+  /* FRASE FINAL */
+.premiacoes-fechamento{
+  margin-top:40px;
+  padding-left:30px;
+  border-left:1px solid var(--prata);
+}
+
+.premiacoes-fechamento span{
+  display:block;
+  width:40px;
+  height:1px;
+  background:var(--prata);
+  margin-bottom:18px;
+}
+
+.premiacoes-fechamento p{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  line-height:1.5;
+  color:white;
+}
+
 /* GRID DE IMAGENS */
 .premiacoes-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr); /* MAIS COLUNAS */
-  gap:12px;
+  gap:14px;
 }
 
 .premiacoes-grid img{
   width:100%;
   border-radius:6px;
   cursor:pointer;
-  max-height:120px;     /* 🔧 CONTROLA O TAMANHO antes era 140 */
+  height:130px;     /* 🔧 CONTROLA O TAMANHO antes era 140 */
   object-fit:cover;
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
-  .premiacoes-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-
   .premiacoes-container{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .premiacoes-imagem{
-    grid-template-columns:repeat(3, 1fr);
-  }
+  grid-template-columns:1fr;
+  gap:40px;
 }
+
+.premiacoes-texto{
+  order:1;
+}
+
+.premiacoes-grid{
+  order:2;
+}
+
+.premiacoes-grid img{
+  height:110px;
+}
+
 
   /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
 
@@ -659,6 +683,7 @@ header{
     <!-- TEXTO SOBRE MIM (RESTAURADO INTEGRALMENTE) -->
     <div class="sobre-texto">
       <h2>O artista por trás da agulha</h2>
+      
       <div class="sobre-nome">Meu nome é Henrique Lima</div>
 
       <p>
@@ -821,7 +846,7 @@ header{
 
 </section>
 
-   <!-- ================= PREMIAÇÕES ================= -->
+   <!-- ================= PREMIAÇÕES / RECONHECIMENTOS ================= -->
 <section class="premiacoes" id="premiacoes">
   <div class="premiacoes-container">
 
@@ -856,16 +881,16 @@ header{
     <!-- GRID DE FOTOS -->
     <div class="premiacoes-grid">
       <!-- TROQUE OS NOMES DAS IMAGENS -->
-      <img src="Premiacoes/01.jpg" alt="Premiação">
-      <img src="Premiacoes/02.jpg" alt="Premiação">
-      <img src="Premiacoes/03.jpg" alt="Premiação">
-      <img src="Premiacoes/04.jpg" alt="Premiação">
-      <img src="Premiacoes/05.PNG" alt="Premiação">
-      <img src="Premiacoes/06.jpg" alt="Premiação">
-      <img src="Premiacoes/07.jpg" alt="Premiação">
-      <img src="Premiacoes/08.jpg" alt="Premiação">
-      <img src="Premiacoes/09.jpg" alt="Premiação">
-      <img src="Premiacoes/10.jpg" alt="Premiação">
+      <img src="Premiacoes/01.jpg">
+      <img src="Premiacoes/02.jpg">
+      <img src="Premiacoes/03.jpg">
+      <img src="Premiacoes/04.jpg">
+      <img src="Premiacoes/05.PNG">
+      <img src="Premiacoes/06.jpg">
+      <img src="Premiacoes/07.jpg">
+      <img src="Premiacoes/08.jpg">
+      <img src="Premiacoes/09.jpg">
+      <img src="Premiacoes/10.jpg">
     </div>
 
      </div>
