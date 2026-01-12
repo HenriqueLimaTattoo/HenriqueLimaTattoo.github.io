@@ -468,13 +468,116 @@ header{
   color:var(--prata);
 }
  
+/* ================= PREMIAÇÕES ================= */
+
+.premiacoes{
+  padding:120px 40px;
+}
+
+.premiacoes-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:flex-start;
+}
+
+/* TEXTO */
+.premiacoes-texto h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:24px;
+}
+
+.premiacoes-texto p{
+  margin-bottom:18px;
+  line-height:1.7;
+  color:#d0d0d0;
+}
+
+.premiacoes-texto strong{
+  color:white;
+}
+
+/* GRID DE IMAGENS */
+.premiacoes-imagens{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+}
+
+.premiacoes-imagens img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .premiacoes{
+    padding:80px 20px;
+  }
+
+  .premiacoes-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .premiacoes-imagens{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
+
+  /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.fade-up.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* DELAY NAS IMAGENS */
+.premiacoes-imagens img{
+  transition:transform 0.4s ease, opacity 0.6s ease;
+}
+
+.premiacoes-imagens img:hover{
+  transform:scale(1.05);
+}
+
+  /* ================= LIGHTBOX ================= */
+
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:6px;
+  cursor:pointer;
+}
+
   
 </style>
 </head>
 
   <!-- ================= HTML ================= -->
   
-<body id="Início">
+<body id="inicio">
 
 
 <header>
@@ -485,15 +588,23 @@ header{
     <div class="nav-links" id="menu">
       <a href="#inicio">Início</a>
       <a href="#sobre">Sobre mim</a>
-      <div class="menu-dropdown">
-  <span>Portfólio</span>
-  <div class="submenu">
-    <a href="#portfolio">Realismo Preto & Cinza</a>
-    <a href="#portfolio-lettering">Lettering</a>
-    <a href="#portfolio-fechamentos">Fechamentos</a>
+      
+    <div class="menu-dropdown">
+       <span>Portfólio</span>
+       <div class="submenu">
+         <a href="#portfolio">Realismo Preto & Cinza</a>
+         <a href="#portfolio-lettering">Lettering</a>
+         <a href="#portfolio-fechamentos">Fechamentos</a>
   </div>
 </div>
-      <a href="#premiacoes">Premiações</a>
+      <div class="menu-dropdown">
+        <span>Premiações</span>
+        <div class="submenu">
+          <a href="#premiacoes">Reconhecimentos</a>
+          <a href="#tatuagens-premiadas">Tatuagens Premiadas</a>
+  </div>
+</div>
+
       <a href="#colabs">Colabs</a>
       <a href="#workshop">Workshop & Mentorias</a>
       <a href="#contato">Contato</a>
@@ -501,10 +612,17 @@ header{
   </div>
 </header>
 
+<!-- ================= LIGHTBOX (clicou na foto → amplia) ================= -->
+  
+<div id="lightbox" style="display:none;">
+  <img id="lightbox-img">
+</div>
+  
 <a class="whats" href="https://wa.me/558896036386" target="_blank">
   <img src="Icones/whats-flutuante.png" alt="WhatsApp">
 </a>
 
+  
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-text">
@@ -578,7 +696,85 @@ header{
   </div>
 </section>
 
+  <!-- ================= PREMIAÇÕES ================= -->
+<section class="premiacoes" id="premiacoes">
+  <div class="premiacoes-container">
 
+    <!-- TEXTO -->
+    <div class="premiacoes-texto fade-up">
+      <h2>Premiações</h2>
+
+      <p>
+        Meu trabalho já foi reconhecido em grandes convenções de tatuages,
+        como <strong>Art Tattoo Expo</strong>, <strong>Expo Tattoo Cariri</strong>
+        e <strong>Ouricuri Tattoo Fest</strong>, com premiações em
+        <strong>Realismo Preto & Cinza</strong> e <strong>Lettering</strong>,
+        conquistando <strong>1º lugar, pódios e títulos de melhor da categoria</strong>.
+      </p>
+
+      <p>
+        Esses prêmios representam não apenas técnica,
+        mas <strong>consistência, dedicação e respeito à arte</strong>,
+        avaliados por jurados e artistas renomados do cenário nacional e internacional.
+      </p>
+    </div>
+
+    <!-- GRID DE FOTOS -->
+    <div class="premiacoes-imagens fade-up">
+      <!-- TROQUE OS NOMES DAS IMAGENS -->
+      <img src="Premiacoes/01.jpg" alt="">
+      <img src="Premiacoes/02.jpg" alt="">
+      <img src="Premiacoes/03.jpg" alt="">
+      <img src="Premiacoes/04.jpg" alt="">
+      <img src="Premiacoes/05.PNG" alt="">
+      <img src="Premiacoes/06.jpg" alt="">
+      <img src="Premiacoes/07.jpg" alt="">
+      <img src="Premiacoes/08.jpg" alt="">
+      <img src="Premiacoes/09.jpg" alt="">
+      <img src="Premiacoes/10.jpg" alt="">
+    </div>
+
+<!-- ================= TATUAGENS PREMIADAS ================= -->
+<section class="portfolio" id="tatuagens-premiadas">
+
+  <h2>Tatuagens Premiadas</h2>
+
+  <div class="portfolio-carousel">
+    <button class="portfolio-btn prev" onclick="premiadasPrev()">‹</button>
+    <button class="portfolio-btn next" onclick="premiadasNext()">›</button>
+
+    <div class="portfolio-track" id="premiadasTrack">
+
+      <!-- ORDEM DOS ITENS (SÓ TROCAR OS ARQUIVOS) -->
+      <div class="portfolio-item"><video src="Premiadas/01.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><video src="Premiadas/02.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><video src="Premiadas/03.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><img src="Premiadas/04.jpg"></div>
+      <div class="portfolio-item"><video src="Premiadas/05.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><video src="Premiadas/06.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><video src="Premiadas/07.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><img src="Premiadas/08.jpg"></div>
+      <div class="portfolio-item"><video src="Premiadas/09.mp4" muted playsinline></video></div>
+      <div class="portfolio-item"><img src="Premiadas/10.jpg"></div>
+
+    </div>
+  </div>
+
+  <!-- BOTÃO INSTAGRAM -->
+  <div class="portfolio-vermais">
+    <a href="https://www.instagram.com/_henriquelimah/" target="_blank">
+      VER MAIS
+      <img src="Icones/insta-vermais.png" alt="Instagram">
+    </a>
+  </div>
+
+</section>
+
+
+  </div>
+</section>
+
+    
 <!-- ================= PORTFÓLIO REALISMO================= -->
 <section class="portfolio" id="portfolio">
 
@@ -847,6 +1043,44 @@ fechamentosUpdate();
 </script>
 
 <script>
+/* ================= JS TATUAGENS PREMIADAS ================= */
+let prIndex = 0;
+const prTrack = document.getElementById('premiadasTrack');
+const prItems = prTrack.querySelectorAll('.portfolio-item');
+let prTimer;
+
+function premiadasUpdate(){
+  prTrack.style.transform = `translateX(-${prIndex * 100}%)`;
+
+  prItems.forEach((item,i)=>{
+    const video = item.querySelector('video');
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+      if(i === prIndex) video.play();
+    }
+  });
+
+  clearTimeout(prTimer);
+  const currentVideo = prItems[prIndex].querySelector('video');
+  prTimer = setTimeout(premiadasNext, currentVideo ? 6000 : 3000);
+}
+
+function premiadasNext(){
+  prIndex = (prIndex + 1) % prItems.length;
+  premiadasUpdate();
+}
+
+function premiadasPrev(){
+  prIndex = (prIndex - 1 + prItems.length) % prItems.length;
+  premiadasUpdate();
+}
+
+premiadasUpdate();
+</script>
+
+  
+<script>
 /* ================= SUBMENU MOBILE ================= */
 const dropdown = document.querySelector('.menu-dropdown span');
 
@@ -855,6 +1089,37 @@ dropdown.addEventListener('click', function(){
 
   submenu.style.display =
     submenu.style.display === 'flex' ? 'none' : 'flex';
+});
+</script>
+
+  <script>
+    
+/* ================= ANIMAÇÃO AO SCROLL ================= */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+  <script>
+/* ================= LIGHTBOX ================= */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.premiacoes-imagens img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener('click', ()=>{
+  lightbox.style.display = 'none';
 });
 </script>
 
