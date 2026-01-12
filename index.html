@@ -704,42 +704,43 @@ let pTimer;
 
 function portfolioUpdate(){
 
+  if(!pItems[pIndex]){
+    pIndex = 0;
+  }
+
   if(pIndex >= pItems.length){
     pIndex = 0;
   }
 
   pTrack.style.transform = `translateX(-${pIndex * 100}%)`;
 
+
   pItems.forEach((item,i)=>{
     const video = item.querySelector('video');
     if(video){
-      video.pause();
-      video.currentTime = 0;
-      if(i === pIndex) video.play();
-    }
+  if(i === pIndex){
+    video.play();
+  }else{
+    video.pause();
+    video.currentTime = 0;
+  }
+}
   });
 
   clearTimeout(pTimer);
   const currentVideo = pItems[pIndex].querySelector('video');
-  pTimer = setTimeout(portfolioNext, currentVideo ? 6000 : 3000);
+  pTimer = setTimeout(portfolioNext, currentVideo ? 10000 : 3000);
 }
-
 
 function portfolioNext(){
-  if(pIndex < pItems.length - 1){
-  pIndex++;
-}else{
-  pIndex = 0;
-}
+  clearTimeout(pTimer);   // ← NOVO (importante)
+  pIndex = (pIndex + 1) % pItems.length;
   portfolioUpdate();
 }
 
 function portfolioPrev(){
-  if(pIndex > 0){
-  pIndex--;
-}else{
-  pIndex = pItems.length - 1;
-}
+  clearTimeout(pTimer);   // ← NOVO (importante)
+  pIndex = (pIndex - 1 + pItems.length) % pItems.length;
   portfolioUpdate();
 }
 
