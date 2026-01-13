@@ -368,13 +368,16 @@ header{
 }
 
   /* FADE-IN DA LEGENDA */
-.colabs-legenda{
+.colab-legenda{
+  margin-top:16px;              /* 👈 legenda mais afastada */
+  text-align:center;
+  font-size:16px;
   opacity:0;
   transform:translateY(10px);
-  transition:all 0.6s ease;
+  transition:all 0.4s ease;
 }
 
-.colabs-legenda.show{
+.colab-legenda.show{
   opacity:1;
   transform:translateY(0);
 }
@@ -1000,57 +1003,57 @@ header{
     <div class="portfolio-track" id="colabsTrack">
 
       <!-- ITEM 1 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col01.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com o tatuador @tertotattooartist
         </div>
       </div>
 
       <!-- ITEM 2 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col02.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com os tatuadores @mendestattoos e @tertotattooartist 
         </div>
       </div>
 
       <!-- ITEM 3 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col03.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com os tatuadores @viannatattoo.art e @mendestattoos
         </div>
       </div>
 
        <!-- ITEM 4 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col04.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com o tatuador @vitu.angelo
         </div>
       </div>
 
        <!-- ITEM 5 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col05.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com os tatuadores @brunoalves_tattoo e @mendestattoos
         </div>
       </div>
 
        <!-- ITEM 6 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col06.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com os tatuadores @mendestattoos e @vitu.angelo
         </div>
       </div>
 
        <!-- ITEM 7 -->
-      <div class="portfolio-item colabs-item">
+      <div class="portfolio-item">
         <video src="Col07.mp4" muted playsinline></video>
-        <div class="colabs-legenda">
+        <div class="colab-legenda">
           Colab com o tatuador @viannatattoo.art
         </div>
       </div>
@@ -1209,38 +1212,36 @@ let cIndex = 0;
 const cTrack = document.getElementById('colabsTrack');
 const cItems = cTrack.querySelectorAll('.portfolio-item');
 
-  
 function colabsUpdate(){
-   const legenda = colabsItems[cIndex].querySelector('.colabs-legenda');
-
-    // REMOVE A ANIMAÇÃO (reset)
-  legenda.classList.remove('show');
-
- // ADICIONA DE NOVO COM LEVE ATRASO
-setTimeout(()=>{
-  legenda.classList.add('show');
-}, 200);
-
-  // MOVE O CARROSSEL
   cTrack.style.transform = `translateX(-${cIndex * 100}%)`;
-// CONTROLA OS VÍDEOS
-  cItems.forEach((item, i)=>{
+
+  cItems.forEach((item, i) => {
     const video = item.querySelector('video');
+    const legenda = item.querySelector('.colab-legenda');
 
     if(video){
       video.pause();
       video.currentTime = 0;
-
-      // remove eventos antigos (segurança)
       video.onended = null;
+    }
 
-      if(i === cIndex){
+    if(legenda){
+      legenda.classList.remove('show');
+    }
+
+    if(i === cIndex){
+      if(video){
         video.play();
 
-        // quando o vídeo acabar → próximo
         video.onended = () => {
           colabsNext();
         };
+      }
+
+      if(legenda){
+        setTimeout(() => {
+          legenda.classList.add('show');
+        }, 200);
       }
     }
   });
@@ -1256,8 +1257,8 @@ function colabsPrev(){
   colabsUpdate();
 }
 
-// inicia
 colabsUpdate();
+
 </script>
 
   
