@@ -350,10 +350,12 @@ header{
   /* ================= COLABS ================= */
 
 /* ITEM COM LEGENDA */
-.colabs-item{
-  flex-direction:column;
+.colab-item{
+  display:flex;
+  flex-direction:column;   /* 🔴 ISSO resolve o problema */
   align-items:center;
 }
+
 
 /
 
@@ -372,6 +374,7 @@ header{
   margin-top:16px;              /* 👈 legenda mais afastada */
   text-align:center;
   font-size:16px;
+  color:#d0d0d0;
   opacity:0;
   transform:translateY(10px);
   transition:all 0.4s ease;
@@ -1003,58 +1006,58 @@ header{
     <div class="portfolio-track" id="colabsTrack">
 
       <!-- ITEM 1 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col01.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com o tatuador @tertotattooartist
+          Colab com o tatuador <strong>@tertotattooartist</strong>
         </div>
       </div>
 
       <!-- ITEM 2 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col02.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com os tatuadores @mendestattoos e @tertotattooartist 
+          Colab com os tatuadores <strong>@mendestattoos e @tertotattooartist</strong> 
         </div>
       </div>
 
       <!-- ITEM 3 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col03.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com os tatuadores @viannatattoo.art e @mendestattoos
+          Colab com os tatuadores <strong>@viannatattoo.art e @mendestattoos</strong>
         </div>
       </div>
 
        <!-- ITEM 4 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col04.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com o tatuador @vitu.angelo
+          Colab com o tatuador <strong>@vitu.angelo</strong>
         </div>
       </div>
 
        <!-- ITEM 5 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col05.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com os tatuadores @brunoalves_tattoo e @mendestattoos
+          Colab com os tatuadores <strong>@brunoalves_tattoo e @mendestattoos</strong>
         </div>
       </div>
 
        <!-- ITEM 6 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col06.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com os tatuadores @mendestattoos e @vitu.angelo
+          Colab com os tatuadores <strong>@mendestattoos e @vitu.angelo</strong>
         </div>
       </div>
 
        <!-- ITEM 7 -->
-      <div class="portfolio-item">
+      <div class="portfolio-item colab-item">
         <video src="Col07.mp4" muted playsinline></video>
         <div class="colab-legenda">
-          Colab com o tatuador @viannatattoo.art
+          Colab com o tatuador <strong>@viannatattoo.art</strong>
         </div>
       </div>
 
