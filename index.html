@@ -535,8 +535,61 @@ header{
   cursor:pointer;
   height:130px;     /* 🔧 CONTROLA O TAMANHO antes era 140 */
   object-fit:cover;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fotoReveal 0.6s ease forwards;
+  /* IMAGENS zoom sutil */
+  transition:
+  transform 0.4s ease,
+  box-shadow 0.4s ease,
+  opacity 0.6s ease;
+
+  
+}
+  /* IMAGENS surgindo em sequência */
+ 
+.premiacoes-grid img:nth-child(1){animation-delay:0.1s;}
+.premiacoes-grid img:nth-child(2){animation-delay:0.2s;}
+.premiacoes-grid img:nth-child(3){animation-delay:0.3s;}
+.premiacoes-grid img:nth-child(4){animation-delay:0.4s;}
+.premiacoes-grid img:nth-child(5){animation-delay:0.5s;}
+.premiacoes-grid img:nth-child(6){animation-delay:0.6s;}
+.premiacoes-grid img:nth-child(7){animation-delay:0.7s;}
+.premiacoes-grid img:nth-child(8){animation-delay:0.8s;}
+.premiacoes-grid img:nth-child(9){animation-delay:0.9s;}
+.premiacoes-grid img:nth-child(10){animation-delay:1s;}
+
+@keyframes fotoReveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
+.premiacoes-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+    /* ================= LIGHTBOX ================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:8px;
+}
+
+  
 /* ================= MOBILE ================= */
 @media(max-width:768px){
   .premiacoes-container{
@@ -552,11 +605,6 @@ header{
   order:2;
 }
 
-.premiacoes-grid img{
-  height:110px;
-}
-
-
   /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
 
 .fade-up{
@@ -569,38 +617,6 @@ header{
   opacity:1;
   transform:translateY(0);
 }
-
-/* DELAY NAS IMAGENS */
-.premiacoes-imagens img{
-  transition:transform 0.4s ease, opacity 0.6s ease;
-}
-
-.premiacoes-imagens img:hover{
-  transform:scale(1.05);
-}
-
-  /* ================= LIGHTBOX ================= */
-
-.lightbox{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:8px;
-}
-
-
   
 </style>
 </head>
@@ -645,8 +661,9 @@ header{
 <!-- ================= LIGHTBOX (clicou na foto → amplia) ================= -->
 
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img">
+  <img src="" alt="">
 </div>
+
 
   <!-- ================= WHATSAPP FLUTUANTE ================= -->
   
@@ -869,7 +886,7 @@ header{
       </p>
     </div>
 
-    <div class="sobre-fechamento">
+    <div class="premiacoes-fechamento">
         <span></span>
         <p>
           Hoje, mais do que tatuar,
@@ -1146,18 +1163,19 @@ animatedItems.forEach(img=>{
   <script>
 /* ================= LIGHTBOX ================= */
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const lightboxImg = lightbox.querySelector('img');
 
-document.querySelectorAll('.premiacoes-imagens img').forEach(img=>{
+document.querySelectorAll('.premiacoes-grid img').forEach(img=>{
   img.addEventListener('click', ()=>{
-    lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
   });
 });
 
 lightbox.addEventListener('click', ()=>{
   lightbox.style.display = 'none';
 });
+
 </script>
 
   
