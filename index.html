@@ -658,6 +658,108 @@ header{
   transform:translateY(0);
 }
 
+/* ================= WORKSHOP & MENTORIAS ================= */
+
+.workshop{
+  padding:120px 40px;
+}
+
+/* TÍTULO */
+.workshop-title{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  text-align:center;
+  margin-bottom:60px;
+}
+
+/* CONTAINER GRID + CARROSSEL */
+.workshop-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr; /* ESQUERDA / DIREITA */
+  gap:60px;
+  align-items:flex-start;
+}
+
+/* GRID DE FOTOS */
+.workshop-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.workshop-grid img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:6px;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fotoReveal 0.6s ease forwards;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.workshop-grid img:nth-child(1){animation-delay:0.1s;}
+.workshop-grid img:nth-child(2){animation-delay:0.2s;}
+.workshop-grid img:nth-child(3){animation-delay:0.3s;}
+.workshop-grid img:nth-child(4){animation-delay:0.4s;}
+.workshop-grid img:nth-child(5){animation-delay:0.5s;}
+.workshop-grid img:nth-child(6){animation-delay:0.6s;}
+
+.workshop-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* BOTÃO WHATS */
+.workshop-cta{
+  margin-top:60px;
+  display:flex;
+  justify-content:center;
+}
+
+.workshop-cta a{
+  padding:14px 36px;
+  border:1px solid var(--prata);
+  color:white;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  font-size:18px;
+  transition:all 0.3s ease;
+}
+
+.workshop-cta a:hover{
+  background:var(--prata);
+  color:black;
+}
+
+.workshop-cta img{
+  width:26px;
+  height:26px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .workshop-container{
+    grid-template-columns:1fr;
+  }
+
+  /* ORDEM MOBILE */
+  .workshop-grid{
+    order:1;
+  }
+
+  .workshop-videos{
+    order:2;
+  }
+
+  .workshop-cta{
+    order:3;
+  }
+}
 
 
   
@@ -1066,6 +1168,82 @@ header{
 
 </section>
 
+  <!-- ================= WORKSHOP & MENTORIAS ================= -->
+<section class="workshop" id="workshop">
+
+  <!-- TÍTULO -->
+  <h2 class="workshop-title">QUER APRENDER COMIGO?</h2>
+
+  <!-- CONTEÚDO (GRID + CARROSSEL) -->
+  <div class="workshop-container">
+
+    <!-- GRID DE FOTOS (ESQUERDA NO DESKTOP) -->
+    <div class="workshop-grid">
+      <img src="Workshop/01.jpg">
+      <img src="Workshop/02.jpg">
+      <img src="Workshop/03.jpg">
+      <img src="Workshop/04.jpg">
+      <img src="Workshop/05.jpg">
+      <img src="Workshop/06.jpg">
+    </div>
+
+    <!-- CARROSSEL DE VÍDEOS (DIREITA NO DESKTOP) -->
+    <div class="workshop-videos">
+
+      <div class="portfolio-carousel">
+        <button class="portfolio-btn prev" onclick="workshopPrev()">‹</button>
+        <button class="portfolio-btn next" onclick="workshopNext()">›</button>
+
+        <div class="portfolio-track" id="workshopTrack">
+
+          <div class="portfolio-item">
+            <video src="Workshop/04.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/06.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/07.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/08.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/09.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/10.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/11.mp4" muted playsinline></video>
+          </div>
+
+          <div class="portfolio-item">
+            <video src="Workshop/12.mp4" muted playsinline></video>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTÃO WHATS (CENTRALIZADO EMBAIXO) -->
+  <div class="workshop-cta">
+    <a href="https://wa.me/558896036386" target="_blank">
+      Vamos elevar o seu nível?
+      <img src="Icones/whats.png" alt="WhatsApp">
+    </a>
+  </div>
+
+</section>
+
   
 <script>
 function toggleMenu(){
@@ -1319,6 +1497,38 @@ function premiadasPrev(){
 }
 
 premiadasUpdate();
+</script>
+
+  <script>
+/* ================= WORKSHOP JS ================= */
+let wIndex = 0;
+const wTrack = document.getElementById('workshopTrack');
+const wItems = wTrack.querySelectorAll('.portfolio-item');
+
+function workshopUpdate(){
+  wTrack.style.transform = `translateX(-${wIndex * 100}%)`;
+
+  wItems.forEach((item,i)=>{
+    const video = item.querySelector('video');
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+      if(i === wIndex) video.play();
+    }
+  });
+}
+
+function workshopNext(){
+  wIndex = (wIndex + 1) % wItems.length;
+  workshopUpdate();
+}
+
+function workshopPrev(){
+  wIndex = (wIndex - 1 + wItems.length) % wItems.length;
+  workshopUpdate();
+}
+
+workshopUpdate();
 </script>
 
   
