@@ -347,6 +347,25 @@ header{
   justify-content:center;
 }
 
+  /* ================= COLABS ================= */
+
+/* ITEM COM LEGENDA */
+.colabs-item{
+  flex-direction:column;
+  align-items:center;
+}
+
+/
+
+/* LEGENDA */
+.colabs-legenda{
+  margin-top:16px;
+  font-size:15px;
+  color:var(--cinza);
+  text-align:center;
+  letter-spacing:0.5px;
+}
+  
 /* FOTO E VÍDEO */
 .portfolio-item img,
 .portfolio-item video{
@@ -356,6 +375,7 @@ header{
   background:black; /* remove fundo preto do item */
   border-radius:6px;
 }
+
 
 /* SETAS */
 .portfolio-btn{
@@ -617,6 +637,9 @@ header{
   opacity:1;
   transform:translateY(0);
 }
+
+
+
   
 </style>
 </head>
@@ -950,6 +973,79 @@ header{
   </div>
 
 </section>
+
+  <!-- ================= COLABS ================= -->
+<section class="portfolio" id="colabs">
+
+  <h2>Colabs</h2>
+
+  <div class="portfolio-carousel">
+    <button class="portfolio-btn prev" onclick="colabsPrev()">‹</button>
+    <button class="portfolio-btn next" onclick="colabsNext()">›</button>
+
+    <div class="portfolio-track" id="colabsTrack">
+
+      <!-- ITEM 1 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col01.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com o tatuador @tertotattooartist
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col02.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com os tatuadores @mendestattoos e @tertotattooartist 
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col03.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com os tatuadores @viannatattoo.art e @mendestattoos
+        </div>
+      </div>
+
+       <!-- ITEM 4 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col04.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com o tatuador @vitu.angelo
+        </div>
+      </div>
+
+       <!-- ITEM 5 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col05.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com os tatuadores @brunoalves_tattoo e @mendestattoos
+        </div>
+      </div>
+
+       <!-- ITEM 6 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col06.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com os tatuadores @mendestattoos e @vitu.angelo
+        </div>
+      </div>
+
+       <!-- ITEM 7 -->
+      <div class="portfolio-item colabs-item">
+        <video src="Col07.mp4" muted playsinline></video>
+        <div class="colabs-legenda">
+          Colab com o tatuador @viannatattoo.art
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
   
 <script>
 function toggleMenu(){
@@ -1092,6 +1188,53 @@ fechamentosUpdate();
 
 </script>
 
+<script>
+/* ================= JS COLABS ================= */
+
+let cIndex = 0;
+const cTrack = document.getElementById('colabsTrack');
+const cItems = cTrack.querySelectorAll('.portfolio-item');
+
+function colabsUpdate(){
+  cTrack.style.transform = `translateX(-${cIndex * 100}%)`;
+
+  cItems.forEach((item, i)=>{
+    const video = item.querySelector('video');
+
+    if(video){
+      video.pause();
+      video.currentTime = 0;
+
+      // remove eventos antigos (segurança)
+      video.onended = null;
+
+      if(i === cIndex){
+        video.play();
+
+        // quando o vídeo acabar → próximo
+        video.onended = () => {
+          colabsNext();
+        };
+      }
+    }
+  });
+}
+
+function colabsNext(){
+  cIndex = (cIndex + 1) % cItems.length;
+  colabsUpdate();
+}
+
+function colabsPrev(){
+  cIndex = (cIndex - 1 + cItems.length) % cItems.length;
+  colabsUpdate();
+}
+
+// inicia
+colabsUpdate();
+</script>
+
+  
 <script>
 /* ================= JS TATUAGENS PREMIADAS ================= */
 let prIndex = 0;
