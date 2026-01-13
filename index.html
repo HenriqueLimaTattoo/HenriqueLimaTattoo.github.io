@@ -363,8 +363,22 @@ header{
   font-size:15px;
   color:var(--cinza);
   text-align:center;
+  margin-top:14px; /* 🔧 controla distância da legenda pro vídeo antes era 18 */
   letter-spacing:0.5px;
 }
+
+  /* FADE-IN DA LEGENDA */
+.colabs-legenda{
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.6s ease;
+}
+
+.colabs-legenda.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
   
 /* FOTO E VÍDEO */
 .portfolio-item img,
@@ -1135,7 +1149,7 @@ function letteringUpdate(){
 
   clearTimeout(lTimer);
   const currentVideo = lItems[lIndex].querySelector('video');
-  lTimer = setTimeout(letteringNext, currentVideo ? 6000 : 3000);   /* muda tamanho da imagem e do vídeo */
+  lTimer = setTimeout(letteringNext, currentVideo ? 10000 : 3000);   /* muda tamanho da imagem e do vídeo */
 }
 
 function letteringNext(){
@@ -1170,7 +1184,7 @@ function fechamentosUpdate(){
 
   clearTimeout(fTimer);
   const currentVideo = fItems[fIndex].querySelector('video');
-  fTimer = setTimeout(fechamentosNext, currentVideo ? 6000 : 3000);
+  fTimer = setTimeout(fechamentosNext, currentVideo ? 10000 : 4000);
 }
 
 function fechamentosNext(){
@@ -1195,9 +1209,21 @@ let cIndex = 0;
 const cTrack = document.getElementById('colabsTrack');
 const cItems = cTrack.querySelectorAll('.portfolio-item');
 
+  
 function colabsUpdate(){
-  cTrack.style.transform = `translateX(-${cIndex * 100}%)`;
+   const legenda = colabsItems[cIndex].querySelector('.colabs-legenda');
 
+    // REMOVE A ANIMAÇÃO (reset)
+  legenda.classList.remove('show');
+
+ // ADICIONA DE NOVO COM LEVE ATRASO
+setTimeout(()=>{
+  legenda.classList.add('show');
+}, 200);
+
+  // MOVE O CARROSSEL
+  cTrack.style.transform = `translateX(-${cIndex * 100}%)`;
+// CONTROLA OS VÍDEOS
   cItems.forEach((item, i)=>{
     const video = item.querySelector('video');
 
@@ -1245,19 +1271,38 @@ let prTimer;
 function premiadasUpdate(){
   prTrack.style.transform = `translateX(-${prIndex * 100}%)`;
 
-  prItems.forEach((item,i)=>{
+  // limpa qualquer timer antigo
+  clearTimeout(prTimer);
+
+  prItems.forEach((item, i) => {
     const video = item.querySelector('video');
+
     if(video){
       video.pause();
       video.currentTime = 0;
-      if(i === prIndex) video.play();
+      video.onended = null;
     }
   });
 
-  clearTimeout(prTimer);
-  const currentVideo = prItems[prIndex].querySelector('video');
-  prTimer = setTimeout(premiadasNext, currentVideo ? 6000 : 3000);
+  const currentItem = prItems[prIndex];
+  const currentVideo = currentItem.querySelector('video');
+
+  // 🔹 SE FOR VÍDEO
+  if(currentVideo){
+    currentVideo.play();
+
+    currentVideo.onended = () => {
+      premiadasNext();
+    };
+  }
+  // 🔹 SE FOR IMAGEM
+  else{
+    prTimer = setTimeout(() => {
+      premiadasNext();
+    }, 3000); // ⏱️ TEMPO DA FOTO (3s)
+  }
 }
+
 
 function premiadasNext(){
   prIndex = (prIndex + 1) % prItems.length;
