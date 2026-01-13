@@ -761,6 +761,43 @@ header{
   }
 }
 
+/* ================= WORKSHOP – GRID DE FOTOS ================= */
+
+.workshop-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr); /* 2 colunas */
+  grid-template-rows:repeat(3, auto);   /* 3 linhas */
+  gap:14px;
+}
+
+/* CONTROLE REAL DO TAMANHO DAS FOTOS */
+.workshop-grid img{
+  width:100%;
+  height:130px;          /* 🔑 ISSO resolve o tamanho gigante */
+  object-fit:cover;
+  border-radius:6px;
+  cursor:pointer;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.workshop-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+  /* ================= WORKSHOP – BOTÃO WHATS ================= */
+
+.workshop-cta{
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+}
+
+/* CONTROLA APENAS O ÍCONE DO BOTÃO */
+.workshop-cta img{
+  width:24px;   /* 🔑 evita ficar gigante */
+  height:24px;
+}
 
   
 </style>
@@ -1252,7 +1289,7 @@ header{
 
   <!-- BOTÃO WHATS (CENTRALIZADO EMBAIXO) -->
   <div class="workshop-cta">
-    <a href="https://wa.me/558896036386" target="_blank">
+    <a href="https://wa.me/558896036386" target="_blank" class="btn">
       Vamos elevar o seu nível?
       <img src="Icones/whats.png" alt="WhatsApp">
     </a>
