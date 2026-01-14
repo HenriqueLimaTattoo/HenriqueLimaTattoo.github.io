@@ -809,6 +809,16 @@ header{
   height:24px;
 }
 
+ 
+/* ================= CORREÇÃO DE HERANÇA DO CARROSSEL ================= */
+/* ESSA PARTE SEMPRE FICA NO FINAL DO CSS */
+
+.workshop .portfolio-item img{
+  max-height:none !important;   /* remove limite herdado do portfólio */
+  height:95px !important;       /* força altura correta do grid */
+  object-fit:cover;             /* evita distorção */
+}
+
   
 </style>
 </head>
