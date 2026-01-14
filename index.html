@@ -715,11 +715,13 @@ header{
 }
 
 /* TAMANHO PADRÃO (DESKTOP) */
+  /* Garante que imagens do grid não herdem regras do carrossel */
 .workshop-grid img{
   width:100%;
   height:95px;          /* 🔥 MENOR no desktop */
   aspect-ratio:4 / 3;  /* 🔥 trava proporção */
   object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS evita distorção */
+  max-height:none !important;  /* REMOVE limite herdado */
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
