@@ -667,9 +667,15 @@ header{
 /* TÍTULO */
 .workshop-title{
   font-family:'Playfair Display',serif;
-  font-size:42px;
+  font-size:38px;   /* elegante, não exagerado */
   text-align:center;
-  margin-bottom:60px;
+  margin-bottom:40px;
+}
+
+  @media(max-width:768px){
+  .workshop-title{
+    font-size:26px;
+  }
 }
 
 /* ================= WORKSHOP – SUBTÍTULO ================= */
@@ -714,7 +720,7 @@ header{
 .workshop-grid img{
   width:100%;
   height:95px;          /* 🔥 MENOR no desktop */
-  object-fit:cover;
+  object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS */
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
@@ -751,6 +757,7 @@ header{
   color:white;
   text-decoration:none;
   transition:all 0.3s ease;
+  white-space:nowrap; /* 🔑 isso resolve o alinhamento da frase elevar nível */
 }
 
 .workshop-cta a:hover{
@@ -770,6 +777,11 @@ header{
     grid-template-columns:1fr;
   }
 
+  .workshop-grid img{
+    height:120px; /* mobile tamanho da foto */
+  }
+}
+  
   /* ORDEM MOBILE */
   .workshop-grid{
     order:1;
@@ -784,47 +796,6 @@ header{
   }
 }
 
-  /* ================= WORKSHOP – TÍTULO ================= */
-
-.workshop h2{
-  font-family:'Playfair Display',serif;
-  font-size:34px;     /* 🔧 desktop */
-  text-align:center;
-  margin-bottom:50px;
-}
-
-@media(max-width:768px){
-  .workshop h2{
-    font-size:26px;   /* mobile */
-  }
-}
-
-
-/* ================= WORKSHOP – GRID DE FOTOS ================= */
-
-.workshop-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr); /* 2 colunas */
-  grid-template-rows:repeat(3, auto);   /* 3 linhas */
-  gap:14px;
-}
-
-/* CONTROLE REAL DO TAMANHO DAS FOTOS */
-.workshop-grid img{
-  width:100%;
-  height:120px; /* mantém o tamanho bom no celular */
-  object-fit:cover;
-  border-radius:6px;
-  cursor:pointer;
-  transition:transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.workshop-grid img:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
-
-  
   /* ================= WORKSHOP – BOTÃO WHATS ================= */
 
 .workshop-cta{
@@ -863,6 +834,7 @@ header{
          <a href="#portfolio">Realismo Preto & Cinza</a>
          <a href="#portfolio-lettering">Lettering</a>
          <a href="#portfolio-fechamentos">Fechamentos</a>
+         <a href="#colabs">Colabs</a>
   </div>
 </div>
       <div class="menu-dropdown">
@@ -873,7 +845,6 @@ header{
   </div>
 </div>
 
-      <a href="#colabs">Colabs</a>
       <a href="#workshop">Workshop & Mentorias</a>
       <a href="#contato">Contato</a>
     </div>
