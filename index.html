@@ -722,12 +722,12 @@ header{
   /* Garante que imagens do grid não herdem regras do carrossel */
 .workshop-grid img{
   display:block;
-  width:100%;
+  width:100% !important;
   max-width:100%;
-  height:95px;          /* 🔥 MENOR no desktop */
-  max-height:95px;  /* REMOVE limite herdado */
+  height:95px !important;          /* 🔥 MENOR no desktop */
+  max-height:95px !important;  /* REMOVE limite herdado */
   aspect-ratio:4 / 3;  /* 🔥 trava proporção */
-  object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS evita distorção */
+  object-fit:cover !important;     /* 🔥 NÃO ESTOURA MAIS evita distorção */
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
