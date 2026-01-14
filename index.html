@@ -713,16 +713,21 @@ header{
   grid-template-columns:repeat(2, 1fr);
   grid-template-rows:repeat(3, auto);
   gap:14px;
+  position:relative;
+  width:100%;
+  max-width:100%;
 }
 
 /* TAMANHO PADRÃO (DESKTOP) */
   /* Garante que imagens do grid não herdem regras do carrossel */
 .workshop-grid img{
+  display:block;
   width:100%;
+  max-width:100%;
   height:95px;          /* 🔥 MENOR no desktop */
+  max-height:95px;  /* REMOVE limite herdado */
   aspect-ratio:4 / 3;  /* 🔥 trava proporção */
   object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS evita distorção */
-  max-height:none !important;  /* REMOVE limite herdado */
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
@@ -738,10 +743,6 @@ header{
 .workshop-grid img:hover{
   transform:scale(1.05);
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
-
-   .TESTE{
-  background:red;
 }
 
 /* BOTÃO WHATS */
@@ -1230,7 +1231,7 @@ header{
   <div class="workshop-container">
 
     <!-- GRID DE FOTOS (ESQUERDA NO DESKTOP) -->
-      <div class="workshop-grid TESTE">
+      <div class="workshop-grid">
       <img src="Workshop/01.jpg">
       <img src="Workshop/02.jpg">
       <img src="Workshop/03.jpg">
