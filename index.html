@@ -12,47 +12,31 @@
 
   
 <style>
-/* =====================================================
-   =================== VARIÁVEIS GLOBAIS =================
-   Aqui você controla as cores principais do site
-===================================================== */
+/* ================= STYLE ================= */
+/* ================= VARIÁVEIS ================= */
 :root{
-  --preto:#0b0b0b;      /* fundo principal */
-  --branco:#ffffff;    /* textos claros */
-  --cinza:#bdbdbd;     /* textos secundários */
-  --prata:#cfd3d6;     /* detalhes, bordas e hover */
+  --preto:#0b0b0b;
+  --branco:#ffffff;
+  --cinza:#bdbdbd;
+  --prata:#cfd3d6;
 }
 
-/* =====================================================
-   ======================= RESET =========================
-   Remove espaçamentos padrões do navegador
-===================================================== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box}
 
-/* =====================================================
-   ======================= BODY ==========================
-===================================================== */
 body{
   font-family:'Montserrat',sans-serif;
   background:var(--preto);
   color:var(--branco);
-  overflow-x:hidden; /* evita scroll lateral */
+  overflow-x:hidden;
 }
 
-/* =====================================================
-   ================= ÂNCORAS SUAVES ======================
-===================================================== */
-html{
-  scroll-behavior:smooth;
+/* ================= ÂNCORA ================= */
+  html{
+  scroll-behavior: smooth;
 }
-
-/* =====================================================
-   ======================= HEADER ========================
-===================================================== */
+  
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;
@@ -62,7 +46,6 @@ header{
   border-bottom:1px solid #222;
 }
 
-/* Barra interna */
 .navbar{
   max-width:1200px;
   margin:auto;
@@ -72,15 +55,13 @@ header{
   align-items:center;
 }
 
-/* Nome / marca */
 .brand{
   font-family:'Playfair Display',serif;
   letter-spacing:1.5px;
   text-transform:uppercase;
-  font-size:24px; /* 🔧 aumenta/diminui o nome */
+  font-size:24px;   /* 🔧 AUMENTA O TAMANHO DO NOME "Henrique Lima Tattoo*/
 }
 
-/* Links do menu */
 .nav-links{
   display:flex;
   gap:22px;
@@ -90,23 +71,15 @@ header{
   color:white;
   text-decoration:none;
   font-size:13px;
-  transition:color 0.3s ease; /* hover suave */
 }
 
-.nav-links a:hover{
-  color:var(--prata);
-}
-
-/* Botão hamburger */
 .hamburger{
   display:none;
   font-size:26px;
   cursor:pointer;
 }
 
-/* =====================================================
-   ======================= HERO ==========================
-===================================================== */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   padding:120px 40px 40px;
@@ -116,12 +89,13 @@ header{
   align-items:center;
 }
 
+/* --- ORDEM NO DESKTOP --- */
 .hero-text{order:1;}
 .hero-image{order:2;}
 
 .hero-text h1{
   font-family:'Playfair Display',serif;
-  font-size:46px; /* 🔧 título principal */
+  font-size:46px;
   opacity:0;
   transform:scale(0.95);
   animation:titleReveal 1.2s ease forwards;
@@ -137,14 +111,12 @@ header{
   animation-delay:0.6s;
 }
 
-/* Botões do hero */
 .hero-buttons{
   margin-top:34px;
   display:flex;
   gap:20px;
 }
 
-/* Botão padrão (usado em vários lugares) */
 .btn{
   padding:14px 32px;
   border:1px solid var(--prata);
@@ -161,7 +133,7 @@ header{
   background:var(--prata);
   color:black;
 }
-
+  
 .btn-left{
   transform:translateX(-40px);
   animation:btnLeft 0.9s ease forwards;
@@ -179,7 +151,6 @@ header{
   height:26px;
 }
 
-/* Imagem do hero */
 .hero-image img{
   width:100%;
   max-height:85vh;
@@ -187,14 +158,11 @@ header{
   border-radius:6px;
 }
 
-/* =====================================================
-   ================= WHATS FLUTUANTE =====================
-===================================================== */
+/* ================= WHATS FLUTUANTE ================= */
 .whats{
   position:fixed;
   bottom:20px;
   right:20px;
-  z-index:999;
 }
 
 .whats img{
@@ -202,9 +170,7 @@ header{
   height:70px;
 }
 
-/* =====================================================
-   ======================= SOBRE =========================
-===================================================== */
+/* ================= SOBRE MIM ================= */
 .sobre{
   padding:120px 40px;
 }
@@ -216,6 +182,9 @@ header{
   grid-template-columns:1.2fr 0.8fr;
   gap:60px;
 }
+
+.sobre-texto{order:1;}
+.sobre-imagem{order:2;}
 
 .sobre-texto h2{
   font-family:'Playfair Display',serif;
@@ -241,7 +210,6 @@ header{
   color:white;
 }
 
-/* Frase final do sobre */
 .sobre-fechamento{
   margin-top:40px;
   padding-left:30px;
@@ -266,13 +234,90 @@ header{
   line-height:1.5;
 }
 
+.sobre-imagem img{
+  width:100%;
+  border-radius:6px;
+  display:block;
+}
+
+/* ================= ANIMAÇÕES ================= */
+@keyframes titleReveal{to{opacity:1; transform:scale(1);}}
+@keyframes subtitleReveal{to{opacity:1; transform:translateY(0);}}
+@keyframes btnLeft{to{opacity:1; transform:translateX(0);}}
+@keyframes btnRight{to{opacity:1; transform:translateX(0);}}
+@keyframes sectionReveal{to{opacity:1; transform:translateY(0);}}
+@keyframes closingReveal{to{opacity:1; transform:translateY(0);}}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .hamburger{display:block}
+
+  .nav-links{
+    position:absolute;
+    top:62px;
+    right:0;
+    background:black;
+    width:100%;
+    flex-direction:column;
+    display:none;
+    padding:20px;
+  }
+
+   .brand{
+    font-size:20px;   /* 🔧 AUMENTA O TAMANHO DO NOME "Henrique Lima Tattoo*/
+  }
+  
+  .hero{
+    grid-template-columns:1fr;
+    padding:90px 20px 40px;
+  }
+
+  .hero-image{order:1;}
+  .hero-text{order:2;text-align:center}
+
+  .hero-text h1{font-size:30px}
+
+  .hero-buttons{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .sobre{
+    padding:80px 20px;
+  }
+
+  .sobre-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .sobre-texto{order:1;}
+  .sobre-imagem{order:2;}
+
+  .sobre-fechamento{
+    border-left:none;
+    border-top:1px solid var(--prata);
+    padding-left:0;
+    padding-top:24px;
+    text-align:center;
+  }
+
+  .sobre-fechamento span{
+    margin:0 auto 18px;
+  }
+}
+
 /* =====================================================
-   ===================== PORTFÓLIO =======================
+   ====== PORTFÓLIO (NOVO – NÃO INTERFERE NO RESTO) =====
 ===================================================== */
+
+/* SEÇÃO */
 .portfolio{
   padding:120px 40px;
 }
 
+/* TÍTULO */
 .portfolio h2{
   font-family:'Playfair Display',serif;
   font-size:34px;
@@ -280,36 +325,79 @@ header{
   margin-bottom:40px;
 }
 
-/* Carrossel */
+/* CARROSSEL (MÁSCARA) */
 .portfolio-carousel{
   position:relative;
-  max-width:900px;
+  max-width:900px; /* ← CONTROLA A LARGURA DO PORTFÓLIO */
   margin:0 auto;
   overflow:hidden;
 }
 
+
+/* FAIXA QUE DESLIZA */
 .portfolio-track{
   display:flex;
   transition:transform 0.6s ease;
 }
 
+/* ITEM ÚNICO */
 .portfolio-item{
   min-width:100%;
   display:flex;
   justify-content:center;
 }
 
-/* Imagens e vídeos */
+  /* ================= COLABS ================= */
+
+/* ITEM COM LEGENDA */
+.colab-item{
+  display:flex;
+  flex-direction:column;   /* 🔴 ISSO resolve o problema */
+  align-items:center;
+}
+
+
+/
+
+/* LEGENDA */
+.colabs-legenda{
+  margin-top:16px;
+  font-size:15px;
+  color:var(--cinza);
+  text-align:center;
+  margin-top:14px; /* 🔧 controla distância da legenda pro vídeo antes era 18 */
+  letter-spacing:0.5px;
+}
+
+  /* FADE-IN DA LEGENDA */
+.colab-legenda{
+  margin-top:16px;              /* 👈 legenda mais afastada */
+  text-align:center;
+  font-size:16px;
+  color:#d0d0d0;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.4s ease;
+}
+
+.colab-legenda.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+  
+/* FOTO E VÍDEO */
 .portfolio-item img,
 .portfolio-item video{
   width:100%;
-  max-height:55vh;
+  max-height:55vh;   /* 🔧 DIMINUI AQUI antes 75vh*/
   object-fit:contain;
-  background:black;
+  background:black; /* remove fundo preto do item */
   border-radius:6px;
 }
 
-/* Setas */
+
+/* SETAS */
 .portfolio-btn{
   position:absolute;
   top:50%;
@@ -320,44 +408,108 @@ header{
   font-size:26px;
   padding:10px 14px;
   cursor:pointer;
-  z-index:10;
+  z-index:10;              /* 🔴 ISSO FAZ A SETA APARECER */
 }
-
+/* POSIÇÃO LATERAL */
 .portfolio-btn.prev{left:15px;}
 .portfolio-btn.next{right:15px;}
 
-/* =====================================================
-   ======================= COLABS ========================
-   ESSENCIAL PARA LEGENDA DOS VÍDEOS
-===================================================== */
+@media(max-width:768px){
+  .portfolio{padding:80px 20px;}
+}
+  
+ /* ================= BOTÃO VER MAIS (PORTFÓLIO) ================= */
 
-/* Item com vídeo + legenda */
-.colab-item{
+.portfolio-vermais{
+  margin-top:40px;
   display:flex;
-  flex-direction:column;
+  justify-content:center;
+}
+
+.portfolio-vermais a{
+  padding:14px 36px;
+  border:1px solid var(--prata); /* borda visível */
+  color:white;
+  text-decoration:none;
+  display:inline-flex;
   align-items:center;
+  gap:14px;
+  font-size:18px;
+  transition:all 0.3s ease;
 }
 
-/* Legenda */
-.colab-legenda{
-  margin-top:16px;
-  text-align:center;
-  font-size:16px;
-  color:#d0d0d0;
-  opacity:0;
-  transform:translateY(10px);
-  transition:all 0.4s ease;
+/* HOVER ELEGANTE */
+.portfolio-vermais a:hover{
+  background:rgba(255,255,255,0.05);
 }
 
-/* Legenda visível */
-.colab-legenda.show{
-  opacity:1;
-  transform:translateY(0);
+/* ÍCONE DO INSTAGRAM */
+.portfolio-vermais img{
+  width:40px;   /* tamanho do ícone */
+  height:40px;
+  display:block;
+  background:none;
 }
 
-/* =====================================================
-   ===================== PREMIAÇÕES ======================
-===================================================== */
+  /* ================= MENU PORTFÓLIO (SUBMENU) ================= */
+
+/* bloco do portfólio */
+.menu-dropdown{
+  position:relative;
+  cursor:pointer;
+}
+
+/* texto "Portfólio" */
+.menu-dropdown span{
+  color:white;
+  font-size:13px;
+}
+
+/* submenu escondido */
+.submenu{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:black;
+  border:1px solid #222;
+  display:none;
+  flex-direction:column;
+  min-width:220px;
+  z-index:999;
+}
+
+/* links internos */
+.submenu a{
+  padding:12px 16px;
+  font-size:13px;
+  color:white;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+/* hover nos itens */
+.submenu a:hover{
+  background:var(--prata);
+}
+
+/* DESKTOP: abre ao passar o mouse */
+.menu-dropdown:hover .submenu{
+  display:flex;
+}
+
+ /* ================= HOVER MENU ================= */
+.nav-links a,
+.menu-dropdown span{
+  transition:color 0.3s ease;
+}
+
+.nav-links a:hover,
+.menu-dropdown span:hover{
+  color:var(--prata);
+}
+ 
+/* ================= PREMIAÇÕES ================= */
+
 .premiacoes{
   padding:120px 40px;
 }
@@ -366,10 +518,12 @@ header{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:0.9fr 1.1fr;
+  grid-template-columns:0.9fr 1.1fr; /* TEXTO MAIS ESTREITO ANTES ERA 1.2 E 0.8*/
   gap:60px;
+  align-items:flex-start;
 }
 
+/* TEXTO */
 .premiacoes-texto h2{
   font-family:'Playfair Display',serif;
   font-size:38px;
@@ -382,33 +536,58 @@ header{
   color:#d0d0d0;
 }
 
-/* Frase final */
+.premiacoes-texto strong{
+  color:white;
+}
+
+  /* FRASE FINAL */
 .premiacoes-fechamento{
   margin-top:40px;
   padding-left:30px;
   border-left:1px solid var(--prata);
 }
 
-/* Grid de imagens */
+.premiacoes-fechamento span{
+  display:block;
+  width:40px;
+  height:1px;
+  background:var(--prata);
+  margin-bottom:18px;
+}
+
+.premiacoes-fechamento p{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  line-height:1.5;
+  color:white;
+}
+
+/* GRID DE IMAGENS */
 .premiacoes-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3,1fr); /* MAIS COLUNAS */
   gap:14px;
 }
 
 .premiacoes-grid img{
   width:100%;
-  height:130px;
-  object-fit:cover;
   border-radius:6px;
   cursor:pointer;
+  height:130px;     /* 🔧 CONTROLA O TAMANHO antes era 140 */
+  object-fit:cover;
   opacity:0;
   transform:translateY(20px);
   animation:fotoReveal 0.6s ease forwards;
-  transition:transform 0.4s ease, box-shadow 0.4s ease;
-}
+  /* IMAGENS zoom sutil */
+  transition:
+  transform 0.4s ease,
+  box-shadow 0.4s ease,
+  opacity 0.6s ease;
 
-/* Delay em sequência */
+  
+}
+  /* IMAGENS surgindo em sequência */
+ 
 .premiacoes-grid img:nth-child(1){animation-delay:0.1s;}
 .premiacoes-grid img:nth-child(2){animation-delay:0.2s;}
 .premiacoes-grid img:nth-child(3){animation-delay:0.3s;}
@@ -420,15 +599,20 @@ header{
 .premiacoes-grid img:nth-child(9){animation-delay:0.9s;}
 .premiacoes-grid img:nth-child(10){animation-delay:1s;}
 
+@keyframes fotoReveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 .premiacoes-grid img:hover{
   transform:scale(1.05);
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* =====================================================
-   ======================= LIGHTBOX ======================
-   Usado nos grids (Premiações e Workshop)
-===================================================== */
+    /* ================= LIGHTBOX ================= */
+
 .lightbox{
   position:fixed;
   inset:0;
@@ -445,83 +629,190 @@ header{
   border-radius:8px;
 }
 
-/* =====================================================
-   ===================== ANIMAÇÕES =======================
-===================================================== */
-@keyframes titleReveal{
-  to{opacity:1; transform:scale(1);}
-}
-@keyframes subtitleReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes btnLeft{
-  to{opacity:1; transform:translateX(0);}
-}
-@keyframes btnRight{
-  to{opacity:1; transform:translateX(0);}
-}
-@keyframes sectionReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes closingReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes fotoReveal{
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* =====================================================
-   ======================= MOBILE ========================
-===================================================== */
+  
+/* ================= MOBILE ================= */
 @media(max-width:768px){
-
-  .hamburger{display:block;}
-
-  .nav-links{
-    position:absolute;
-    top:62px;
-    right:0;
-    width:100%;
-    background:black;
-    flex-direction:column;
-    display:none;
-    padding:20px;
-  }
-
-  .brand{font-size:20px;}
-
-  .hero{
-    grid-template-columns:1fr;
-    padding:90px 20px 40px;
-  }
-
-  .hero-text{text-align:center;}
-  .hero-text h1{font-size:30px;}
-
-  .sobre{
-    padding:80px 20px;
-  }
-
-  .sobre-container{
-    grid-template-columns:1fr;
-  }
-
-  .sobre-fechamento{
-    border-left:none;
-    border-top:1px solid var(--prata);
-    padding-left:0;
-    padding-top:24px;
-    text-align:center;
-  }
-
   .premiacoes-container{
-    grid-template-columns:1fr;
-  }
+  grid-template-columns:1fr;
+  gap:40px;
+}
 
-  .premiacoes-grid img{
-    height:110px;
+.premiacoes-texto{
+  order:1;
+}
+
+.premiacoes-grid{
+  order:2;
+}
+
+  /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.6s ease;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= WORKSHOP & MENTORIAS ================= */
+
+.workshop{
+  padding:120px 40px;
+}
+
+/* TÍTULO */
+.workshop-title{
+  font-family:'Playfair Display',serif;
+  font-size:38px;   /* elegante, não exagerado */
+  text-align:center;
+  margin-bottom:40px;
+}
+
+  @media(max-width:768px){
+  .workshop-title{
+    font-size:26px;
   }
 }
+
+/* ================= WORKSHOP – SUBTÍTULO ================= */
+
+.workshop-subtitle{
+  max-width:720px;
+  margin:0 auto 60px;   /* 🔧 espaçamento correto */
+  text-align:center;
+  font-size:16px;
+  line-height:1.7;
+  color:#d0d0d0;
+}
+
+@media(max-width:768px){
+  .workshop-subtitle{
+    font-size:15px;
+    margin-bottom:40px;
+    padding:0 10px;
+  }
+}
+
+  
+/* CONTAINER GRID + CARROSSEL */
+.workshop-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr; /* ESQUERDA / DIREITA */
+  gap:60px;
+  align-items:flex-start;
+}
+
+/* GRID DE FOTOS */
+.workshop-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-template-rows:repeat(3, auto);
+  gap:14px;
+}
+
+/* TAMANHO PADRÃO (DESKTOP) */
+.workshop-grid img{
+  width:100%;
+  height:95px;          /* 🔥 MENOR no desktop */
+  object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS */
+  border-radius:6px;
+  cursor:pointer;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.workshop-grid img:nth-child(1){animation-delay:0.1s;}
+.workshop-grid img:nth-child(2){animation-delay:0.2s;}
+.workshop-grid img:nth-child(3){animation-delay:0.3s;}
+.workshop-grid img:nth-child(4){animation-delay:0.4s;}
+.workshop-grid img:nth-child(5){animation-delay:0.5s;}
+.workshop-grid img:nth-child(6){animation-delay:0.6s;}
+
+.workshop-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* BOTÃO WHATS */
+.workshop-cta{
+  margin-top:60px;
+  display:flex;
+  justify-content:center;
+}
+
+/* ================= WORKSHOP – BOTÃO ================= */
+
+.workshop-cta a{
+  display:inline-flex;
+  align-items:center;      /* 🔑 ALINHA NA MESMA LINHA */
+  justify-content:center;
+  gap:12px;
+  padding:16px 36px;
+  border:1px solid var(--prata);
+  color:white;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  white-space:nowrap; /* 🔑 isso resolve o alinhamento da frase elevar nível */
+}
+
+.workshop-cta a:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+/* ÍCONE */
+.workshop-cta img{
+  width:22px;
+  height:22px;
+}
+
+
+/* MOBILE */
+@media(max-width:768px){
+  .workshop-container{
+    grid-template-columns:1fr;
+  }
+
+  .workshop-grid img{
+    height:120px; /* mobile tamanho da foto */
+  }
+}
+  
+  /* ORDEM MOBILE */
+  .workshop-grid{
+    order:1;
+  }
+
+  .workshop-videos{
+    order:2;
+  }
+
+  .workshop-cta{
+    order:3;
+  }
+}
+
+  /* ================= WORKSHOP – BOTÃO WHATS ================= */
+
+.workshop-cta{
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+}
+
+/* CONTROLA APENAS O ÍCONE DO BOTÃO */
+.workshop-cta img{
+  width:24px;   /* 🔑 evita ficar gigante */
+  height:24px;
+}
+
+  
+</style>
+</head>
 
 
   
