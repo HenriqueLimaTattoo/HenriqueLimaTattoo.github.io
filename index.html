@@ -703,7 +703,7 @@ header{
   display:grid;
   grid-template-columns:1fr 1fr; /* ESQUERDA / DIREITA */
   gap:60px;
-  align-items:flex-start;
+  align-items:start; /* não estica pelo carrossel */
 }
 
  
@@ -716,6 +716,7 @@ header{
   position:relative;
   width:100%;
   max-width:100%;
+  align-content:start; /* 🔥 ESSENCIAL */
 }
 
 /* TAMANHO PADRÃO (DESKTOP) */
@@ -743,6 +744,11 @@ header{
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
+/* REMOVE QUALQUER HERANÇA DO PORTFÓLIO */
+.workshop *{
+  max-height:none !important;
+}
+  
 /* BOTÃO WHATS */
 .workshop-cta{
   margin-top:60px;
