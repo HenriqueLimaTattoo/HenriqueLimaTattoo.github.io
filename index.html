@@ -648,8 +648,8 @@ header{
 }
 
 .workshop-frase {
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 24px; /* ← aumenta aqui (ex: 24px se quiser mais forte) */
+  line-height: 1.8; /* ← melhora leitura */
   color: #d0d0d0;
 }
 
@@ -680,7 +680,7 @@ header{
 
 .workshop-grid {
   max-width: 900px; /* controla largura total */
-  margin: 0 auto 50px; /* centraliza + espaço abaixo */
+  margin: 0 auto 30px; /* centraliza + espaço abaixo antes era 50px */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 🔥 3 colunas */
   gap: 16px;
@@ -834,7 +834,16 @@ header{
   100%{transform:translateY(0);}
  }
 }
- 
+
+/* GARANTE CLIQUE NAS IMAGENS (DESKTOP) */
+.premiacoes-grid img,
+.workshop-grid img{
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+  
 </style>
 </head>
 
