@@ -665,162 +665,113 @@ header{
 /* TÍTULO */
 .workshop-title{
   font-family:'Playfair Display',serif;
-  font-size:38px;   /* elegante, não exagerado */
+  font-size:38px;
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:60px;
 }
 
-  @media(max-width:768px){
-  .workshop-title{
-    font-size:26px;
-  }
+/* CONTEÚDO GERAL (DESKTOP) */
+.workshop-content{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr; /* texto | grid */
+  gap:80px;
+  align-items:flex-start;
 }
 
-/* ================= WORKSHOP – SUBTÍTULO ================= */
+/* ================= TEXTO ================= */
 
-.workshop-subtitle{
-  max-width:720px;
-  margin:0 auto 60px;   /* 🔧 espaçamento correto */
-  text-align:center;
-  font-size:16px;
+.workshop-text{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.workshop-frase{
+  font-size:17px;
   line-height:1.7;
   color:#d0d0d0;
 }
 
-@media(max-width:768px){
-  .workshop-subtitle{
-    font-size:15px;
-    margin-bottom:40px;
-    padding:0 10px;
-  }
+/* BOTÃO WHATS */
+.workshop-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 36px;
+  border:1px solid var(--prata);
+  color:white;
+  text-decoration:none;
+  width:max-content;
+  transition:all 0.3s ease;
 }
 
-  
-/* CONTAINER GRID + CARROSSEL */
-.workshop-container{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr; /* ESQUERDA / DIREITA */
-  gap:60px;
-  align-items:start; /* não estica pelo carrossel */
+.workshop-btn:hover{
+  background:rgba(255,255,255,0.08);
 }
 
- 
-/* GRID DE FOTOS */
+.workshop-btn img{
+  width:22px;
+  height:22px;
+}
+
+/* ================= GRID DE FOTOS ================= */
+
 .workshop-grid{
   display:grid;
   grid-template-columns:repeat(2, 1fr);
-  grid-template-rows:repeat(3, 95px);   /* 🔥 correção da foto enorme. não era auto era pra colocar 95px. trava altura real*/
+  grid-template-rows:repeat(3, 110px); /* ALTURA FIXA */
   gap:14px;
-  position:relative;
-  width:100%;
-  max-width:100%;
-  align-content:start; /* 🔥 ESSENCIAL */
 }
 
-/* TAMANHO PADRÃO (DESKTOP) */
-  /* Garante que imagens do grid não herdem regras do carrossel */
 .workshop-grid img{
-  display:block;
   width:100%;
-  max-width:100%;
-  height:100%;          /* 🔥 MENOR no desktop */
-  object-fit:cover;     /* 🔥 NÃO ESTOURA MAIS evita distorção */
+  height:100%;
+  object-fit:cover;
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-.workshop-grid img:nth-child(1){animation-delay:0.1s;}
-.workshop-grid img:nth-child(2){animation-delay:0.2s;}
-.workshop-grid img:nth-child(3){animation-delay:0.3s;}
-.workshop-grid img:nth-child(4){animation-delay:0.4s;}
-.workshop-grid img:nth-child(5){animation-delay:0.5s;}
-.workshop-grid img:nth-child(6){animation-delay:0.6s;}
 
 .workshop-grid img:hover{
   transform:scale(1.05);
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* REMOVE QUALQUER HERANÇA DO PORTFÓLIO */
-.workshop *{
-  max-height:none !important;
-}
-  
-/* BOTÃO WHATS */
-.workshop-cta{
-  margin-top:60px;
-  display:flex;
-  justify-content:center;
-}
+/* ================= MOBILE ================= */
 
-/* ================= WORKSHOP – BOTÃO ================= */
-
-.workshop-cta a{
-  display:inline-flex;
-  align-items:center;      /* 🔑 ALINHA NA MESMA LINHA */
-  justify-content:center;
-  gap:12px;
-  padding:16px 36px;
-  border:1px solid var(--prata);
-  color:white;
-  text-decoration:none;
-  transition:all 0.3s ease;
-  white-space:nowrap; /* 🔑 isso resolve o alinhamento da frase elevar nível */
-}
-
-.workshop-cta a:hover{
-  background:rgba(255,255,255,0.08);
-}
-
-/* ÍCONE */
-.workshop-cta img{
-  width:22px;
-  height:22px;
-}
-
-
-/* MOBILE */
 @media(max-width:768px){
-  .workshop-container{
-    grid-template-columns:1fr;
+
+  .workshop{
+    padding:80px 20px;
   }
 
+  .workshop-title{
+    font-size:26px;
+    margin-bottom:40px;
+  }
+
+  .workshop-content{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  /* ORDEM MOBILE */
   .workshop-grid{
     order:1;
+    grid-template-rows:repeat(3, 130px);
   }
 
-  .workshop-videos{
+  .workshop-text{
     order:2;
+    text-align:center;
+    align-items:center;
   }
 
-  .workshop-cta{
-    order:3;
+  .workshop-frase{
+    font-size:15px;
   }
-
-  .workshop-grid img{
-    height:120px; /* tamanho correto no mobile */
-  }
-}
-
-  /* ================= WORKSHOP – BOTÃO WHATS ================= */
-
-/* CONTROLA APENAS O ÍCONE DO BOTÃO */
-.workshop-cta img{
-  width:24px;   /* 🔑 evita ficar gigante */
-  height:24px;
-}
-
- 
-/* ================= CORREÇÃO DE HERANÇA DO CARROSSEL ================= */
-/* ESSA PARTE SEMPRE FICA NO FINAL DO CSS */
-
-.workshop .portfolio-item img{
-  max-height:none !important;   /* remove limite herdado do portfólio */
-  height:95px !important;       /* força altura correta do grid */
-  object-fit:cover;             /* evita distorção */
 }
 
   
@@ -1232,99 +1183,38 @@ header{
 
 
   <!-- ================= WORKSHOP & MENTORIAS ================= -->
+
 <section class="workshop" id="workshop">
 
   <!-- TÍTULO -->
   <h2 class="workshop-title">QUER APRENDER COMIGO?</h2>
 
-  <p class="workshop-subtitle">
-    Mentorias para tatuadores que querem evoluir técnica e visão artística, aprendendo direto da prática.
-  </p>
+  <!-- CONTEÚDO -->
+  <div class="workshop-content">
 
-  <!-- CONTEÚDO (GRID + CARROSSEL) -->
-  <div class="workshop-container">
+    <!-- TEXTO + CTA -->
+    <div class="workshop-text">
+      <p class="workshop-frase">
+        Mentorias para tatuadores que querem evoluir técnica e visão artística, aprendendo direto da prática.
+      </p>
 
-    <!-- GRID DE FOTOS (ESQUERDA NO DESKTOP) -->
-      <div class="workshop-grid">
-      <img src="Workshop/01.jpg">
-      <img src="Workshop/02.jpg">
-      <img src="Workshop/03.jpg">
-      <img src="Workshop/04.jpg">
-      <img src="Workshop/05.jpg">
-      <img src="Workshop/06.jpg">
+      <a href="https://wa.me/558896036386" target="_blank" class="workshop-btn">
+        Vamos elevar seu nível?
+        <img src="Icones/whats.png" alt="WhatsApp">
+      </a>
     </div>
 
-    <!-- CARROSSEL DE VÍDEOS (DIREITA NO DESKTOP) -->
-    <div class="workshop-videos">
-
-      <div class="portfolio-carousel">
-        <button class="portfolio-btn prev" onclick="workshopPrev()">‹</button>
-        <button class="portfolio-btn next" onclick="workshopNext()">›</button>
-
-        <div class="portfolio-track" id="workshopTrack">
-
-          <div class="portfolio-item">
-            <video src="wks01.mp4" muted playsinline></video>
-          </div>
-          
-          <div class="portfolio-item">
-            <video src="wks02.mp4" muted playsinline></video>
-          </div>
-          
-          <div class="portfolio-item">
-            <video src="wks03.mp4" muted playsinline></video>
-          </div>
-          
-          <div class="portfolio-item">
-            <video src="Workshop/04.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="wks05.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/06.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/07.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/08.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/09.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/10.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/11.mp4" muted playsinline></video>
-          </div>
-
-          <div class="portfolio-item">
-            <video src="Workshop/12.mp4" muted playsinline></video>
-          </div>
-
-        </div>
-      </div>
-
+    <!-- GRID DE FOTOS -->
+    <div class="workshop-grid">
+      <img src="Workshop/01.jpg" alt="">
+      <img src="Workshop/02.jpg" alt="">
+      <img src="Workshop/03.jpg" alt="">
+      <img src="Workshop/04.jpg" alt="">
+      <img src="Workshop/05.jpg" alt="">
+      <img src="Workshop/06.jpg" alt="">
     </div>
-  </div>
 
-  <!-- BOTÃO WHATS (CENTRALIZADO EMBAIXO) -->
-  <div class="workshop-cta">
-    <a href="https://wa.me/558896036386" target="_blank" class="btn">
-      Vamos elevar o seu nível?
-      <img src="Icones/whats.png" alt="WhatsApp">
-    </a>
   </div>
-
 </section>
 
   
@@ -1580,38 +1470,6 @@ function premiadasPrev(){
 }
 
 premiadasUpdate();
-</script>
-
-  <script>
-/* ================= WORKSHOP JS ================= */
-let wIndex = 0;
-const wTrack = document.getElementById('workshopTrack');
-const wItems = wTrack.querySelectorAll('.portfolio-item');
-
-function workshopUpdate(){
-  wTrack.style.transform = `translateX(-${wIndex * 100}%)`;
-
-  wItems.forEach((item,i)=>{
-    const video = item.querySelector('video');
-    if(video){
-      video.pause();
-      video.currentTime = 0;
-      if(i === wIndex) video.play();
-    }
-  });
-}
-
-function workshopNext(){
-  wIndex = (wIndex + 1) % wItems.length;
-  workshopUpdate();
-}
-
-function workshopPrev(){
-  wIndex = (wIndex - 1 + wItems.length) % wItems.length;
-  workshopUpdate();
-}
-
-workshopUpdate();
 </script>
 
   
