@@ -609,52 +609,6 @@ header{
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
-    /* ================= LIGHTBOX ================= */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
-
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:8px;
-}
-
-  
-/* ================= MOBILE ================= */
-@media(max-width:768px){
-  .premiacoes-container{
-  grid-template-columns:1fr;
-  gap:40px;
-}
-
-.premiacoes-texto{
-  order:1;
-}
-
-.premiacoes-grid{
-  order:2;
-}
-
-  /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
-
-.fade-up{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 0.6s ease;
-}
-
-.fade-up.show{
-  opacity:1;
-  transform:translateY(0);
-}
 
 /* ================= WORKSHOP & MENTORIAS ================= */
 
@@ -714,32 +668,31 @@ header{
 /* ================= CORREÇÃO ÍCONE WHATS WORKSHOP ================= */
 
 .workshop-btn img{
-  width:22px !important;
-  height:22px !important;
-  max-width:22px !important;
-  max-height:22px !important;
+  width:22px;
+  height:22px;
 }
 
-/* ================= GRID DE FOTOS ================= */
+/* ================= GRID DE FOTOS – WORKSHOP ================= */
 
 .workshop-grid{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  grid-template-rows:repeat(3, 110px); /* ALTURA FIXA */
+  grid-template-columns:repeat(2, 1fr); /* 2 colunas */
   gap:14px;
 }
 
+/* imagens com mesmo comportamento das premiações */
 .workshop-grid img{
-  /* trava o tamanho real das fotos do workshop */
-  width:100% !important;
-  height:110px !important;   /* controla tamanho REAL */
-  max-height:110px !important;
-  object-fit:cover !important;
+  width:100%;
+  height:130px;          /* 👈 mesmo padrão das premiações */
+  object-fit:cover;
   border-radius:6px;
   cursor:pointer;
-  transition:transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
+/* hover elegante */
 .workshop-grid img:hover{
   transform:scale(1.05);
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
@@ -779,6 +732,55 @@ header{
     font-size:18px;
   }
 }
+
+  
+    /* ================= LIGHTBOX ================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:8px;
+}
+
+  
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .premiacoes-container{
+  grid-template-columns:1fr;
+  gap:40px;
+}
+
+.premiacoes-texto{
+  order:1;
+}
+
+.premiacoes-grid{
+  order:2;
+}
+
+  /* ================= ANIMAÇÕES PREMIAÇÕES ================= */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.6s ease;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 
   
 </style>
@@ -1204,7 +1206,7 @@ header{
         Mentorias para tatuadores que querem evoluir técnica e visão artística, aprendendo direto da prática.
       </p>
 
-      <a href="https://wa.me/558896036386" target="_blank" class="workshop-btn">
+      <a href="https://wa.me/558896036386" class="workshop-btn">
         Vamos elevar seu nível?
         <img src="Icones/whats.png" alt="WhatsApp">
       </a>
