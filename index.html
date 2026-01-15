@@ -711,9 +711,13 @@ header{
   background:rgba(255,255,255,0.08);
 }
 
+/* ================= CORREÇÃO ÍCONE WHATS WORKSHOP ================= */
+
 .workshop-btn img{
-  width:22px;
-  height:22px;
+  width:22px !important;
+  height:22px !important;
+  max-width:22px !important;
+  max-height:22px !important;
 }
 
 /* ================= GRID DE FOTOS ================= */
@@ -726,9 +730,11 @@ header{
 }
 
 .workshop-grid img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+  /* trava o tamanho real das fotos do workshop */
+  width:100% !important;
+  height:110px !important;   /* controla tamanho REAL */
+  max-height:110px !important;
+  object-fit:cover !important;
   border-radius:6px;
   cursor:pointer;
   transition:transform 0.4s ease, box-shadow 0.4s ease;
@@ -770,7 +776,7 @@ header{
   }
 
   .workshop-frase{
-    font-size:15px;
+    font-size:18px;
   }
 }
 
@@ -1207,11 +1213,11 @@ header{
     <!-- GRID DE FOTOS -->
     <div class="workshop-grid">
       <img src="Workshop/01.jpg" alt="">
-      <img src="Workshop/02.jpg" alt="">
-      <img src="Workshop/03.jpg" alt="">
       <img src="Workshop/04.jpg" alt="">
+      <img src="Workshop/03.jpg" alt="">
       <img src="Workshop/05.jpg" alt="">
       <img src="Workshop/06.jpg" alt="">
+      <img src="Workshop/02.jpg" alt="">
     </div>
 
   </div>
