@@ -822,55 +822,9 @@ header{
   0%{transform:translateY(0);}
   50%{transform:translateY(-6px);}
   100%{transform:translateY(0);}
+ }
 }
-}
-
-/* ================= ANIMAÇÃO WORKSHOP GRID ================= */
-
-.workshop-grid img{
-  opacity:0;
-  transform:translateY(20px);
-  animation:workshopFade 0.8s ease forwards;
-}
-
-/* efeito em cascata */
-.workshop-grid img:nth-child(1){animation-delay:0.1s;}
-.workshop-grid img:nth-child(2){animation-delay:0.2s;}
-.workshop-grid img:nth-child(3){animation-delay:0.3s;}
-.workshop-grid img:nth-child(4){animation-delay:0.4s;}
-.workshop-grid img:nth-child(5){animation-delay:0.5s;}
-.workshop-grid img:nth-child(6){animation-delay:0.6s;}
-
-@keyframes workshopFade{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-  /* movimento sutil contínuo */
-.workshop-grid img{
-  animation:
-    workshopFade 0.8s ease forwards,
-    floatImg 6s ease-in-out infinite;
-  animation-delay: 0s, 0.8s;
-}
-
-@keyframes floatImg{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0);}
-}
-
-  @keyframes btnSlideLeft{
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
-}
-
-  
-  
+ 
 </style>
 </head>
 
