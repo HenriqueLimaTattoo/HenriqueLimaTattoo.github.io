@@ -755,6 +755,116 @@ header{
 
   }
 }
+
+/* ================= DEPOIMENTOS ================= */
+
+  .depoimentos{
+  padding:120px 40px;
+  text-align:center;
+}
+
+.depoimentos h2{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin-bottom:60px;
+}
+
+.depoimentos-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.depoimentos-foto img{
+  width:100%;
+  border-radius:8px;
+}
+
+.depoimentos-carousel{
+  position:relative;
+  overflow:hidden;
+}
+
+.depo-track{
+  display:flex;
+  transition:transform 0.6s ease;
+}
+
+.depo-slide{
+  min-width:100%;
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:24px;
+}
+
+.depoimento-card{
+  position:relative;
+  background:rgba(255,255,255,0.04);
+  padding:28px;
+  border-radius:8px;
+}
+
+.aspas{
+  position:absolute;
+  top:-18px;
+  left:20px;
+  font-size:48px;
+  color:rgba(255,255,255,0.2);
+}
+
+.depoimento-texto{
+  font-size:16px;
+  line-height:1.7;
+  color:#d0d0d0;
+}
+
+.depoimento-autor{
+  margin-top:18px;
+}
+
+.depoimento-autor strong{
+  display:block;
+  color:white;
+}
+
+.depoimento-autor span{
+  font-size:14px;
+  color:#9a9a9a;
+}
+
+.depo-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:1px solid var(--prata);
+  color:white;
+  font-size:26px;
+  padding:8px 14px;
+  cursor:pointer;
+}
+
+.depo-btn.prev{left:10px;}
+.depo-btn.next{right:10px;}
+
+
+/* botão */
+.depoimento-cta a{
+  display:inline-block;
+  padding:16px 40px;
+  border:1px solid var(--prata);
+  color:white;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
+
+.depoimento-cta a:hover{
+  background:rgba(255,255,255,0.08);
+}
+
   
     /* ================= LIGHTBOX ================= */
 
@@ -846,7 +956,7 @@ header{
   z-index: 5;
   pointer-events: auto;
 }
-
+}
   
 </style>
 </head>
@@ -883,6 +993,7 @@ header{
 </div>
 
       <a href="#workshop">Workshop & Mentorias</a>
+      <a href="#depoimentos">Depoimentos</a>
       <a href="#contato">Contato</a>
     </div>
   </div>
@@ -1285,6 +1396,98 @@ header{
   </div>
 </section>
 
+  
+  <!-- ================= DEPOIMENTOS DE CLIENTES ================= -->
+  
+<section class="depoimentos" id="depoimentos">
+
+  <h2>Depoimentos de Clientes</h2>
+
+  <div class="depoimentos-container">
+
+    <!-- FOTO FIXA (ESQUERDA) -->
+    <div class="depoimentos-foto">
+      <img src="foto2.jpg" alt="Henrique Lima Tattoo">
+    </div>
+
+    <!-- CARROSSEL (DIREITA) -->
+    <div class="depoimentos-carousel">
+
+      <button class="depo-btn prev" onclick="depoPrev()">‹</button>
+      <button class="depo-btn next" onclick="depoNext()">›</button>
+
+      <div class="depo-track" id="depoTrack">
+
+        <!-- SLIDE 1 -->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
+              Atendimento impecável e resultado incrível 🔥
+            </p>
+            <div class="depoimento-autor">
+              <strong>Erika OG</strong>
+              <span>Salvador - BA</span>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 2, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Aaa</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 2, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Bbb</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 2, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ccc</strong>
+              <span>Barbalha - CE</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+   <div class="depoimento-cta">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1ANjTj7qxN3Xce-7s_IelVZf3cyx_4CmGWEFkBdB0anmy9A/viewform?usp=publish-editor" target="_blank">
+      Deixar meu depoimento
+    </a>
+  </div>
+  
+</section>
+
+
+
   <!-- ================= INÍCIO DOS JS (java script) ================= -->
   
 <script>
@@ -1541,6 +1744,33 @@ premiadasUpdate();
 </script>
 
   
+  /* ================= JS DEPOIMENTOS ================= */
+
+  <script>
+let depoIndex = 0;
+const depoTrack = document.getElementById('depoTrack');
+const depoSlides = depoTrack.querySelectorAll('.depo-slide');
+let depoTimer;
+
+function depoUpdate(){
+  depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
+
+  clearTimeout(depoTimer);
+  depoTimer = setTimeout(depoNext, 5000);
+}
+
+function depoNext(){
+  depoIndex = (depoIndex + 1) % depoSlides.length;
+  depoUpdate();
+}
+
+function depoPrev(){
+  depoIndex = (depoIndex - 1 + depoSlides.length) % depoSlides.length;
+  depoUpdate();
+}
+
+depoUpdate();
+</script>
 
   
   
