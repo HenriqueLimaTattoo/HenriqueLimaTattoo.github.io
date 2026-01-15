@@ -612,135 +612,145 @@ header{
 
 /* ================= WORKSHOP & MENTORIAS ================= */
 
-.workshop{
-  padding:120px 40px;
-  text-align:center;
+.workshop {
+  padding: 120px 40px;
 }
 
-.workshop-title{
-  font-family:'Playfair Display',serif;
-  font-size:36px;
-  margin-bottom:60px;
+/* TÍTULO */
+.workshop-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-/* CONTEÚDO */
-.workshop-content{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
+/* CONTEÚDO GERAL (DESKTOP) */
+.workshop-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
   flex-direction:column;
-  align-items:center;
-  gap:60px;
+  grid-template-columns: 1fr 1fr; /* texto | grid */
+  gap: 80px;
+  align-items: center;
 }
 
-/* GRID */
-.workshop-grid{
-  max-width:900px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+/* ================= TEXTO DO WORKSHOP ================= */
+
+.workshop-text {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
 }
 
-.workshop-grid img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:6px;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(20px);
-  animation:workshopFade 0.8s ease forwards,
-             floatImg 6s ease-in-out infinite;
+.workshop-frase {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #d0d0d0;
 }
 
-.workshop-grid img:nth-child(1){animation-delay:0.1s;}
-.workshop-grid img:nth-child(2){animation-delay:0.2s;}
-.workshop-grid img:nth-child(3){animation-delay:0.3s;}
-.workshop-grid img:nth-child(4){animation-delay:0.4s;}
-.workshop-grid img:nth-child(5){animation-delay:0.5s;}
-.workshop-grid img:nth-child(6){animation-delay:0.6s;}
-
-/* TEXTO */
-.workshop-text{
-  max-width:720px;
+/* BOTÃO WHATS */
+.workshop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border: 1px solid var(--prata);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.workshop-frase{
-  font-size:22px;
-  color:#d0d0d0;
-  margin-bottom:40px;
+.workshop-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* BOTÃO */
-.workshop-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  padding:16px 36px;
-  border:1px solid var(--prata);
-  color:white;
-  text-decoration:none;
-  background:rgba(255,255,255,0.05);
+/* ================= CORREÇÃO ÍCONE WHATS WORKSHOP ================= */
 
-  opacity:0;
-  transform:translateX(-60px);
-  animation:btnSlideLeft 0.8s ease forwards;
-  animation-delay:0.6s;
+.workshop-btn img {
+  width: 28px;
+  height: 28px;
 }
 
-.workshop-btn img{
+/* ================= GRID DE FOTOS – WORKSHOP ================= */
+
+.workshop-grid {
+  max-width: 900px; /* controla largura total */
+  margin: 0 auto 50px; /* centraliza + espaço abaixo */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 🔥 3 colunas */
+  gap: 16px;
+}
+
+/* imagens – mesmo padrão das premiações */
+.workshop-grid img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.workshop-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .workshop {
+    padding: 80px 20px;
+  }
+
+   .workshop-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .workshop-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* ORDEM MOBILE */
+  .workshop-grid {
+    order: 1;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile */
+  }
+
+  .workshop-grid img {
+    height: 120px;
+  }
+
+  .workshop-text {
+    order: 2;
+    text-align: center;
+    align-items: center;
+  }
+
+  .workshop-frase {
+    font-size: 18px;
+  }
+
+  /* 🔥 AUMENTA TEXTO DO BOTÃO NO MOBILE */
+  .workshop-btn {
+    font-size: 20px;
+    padding: 18px 40px;
+
+     .workshop-btn img{
   width:30px;
   height:30px;
-}
 
-.workshop-btn:hover{
-  background:rgba(255,255,255,0.08);
-}
-
-/* ANIMAÇÕES */
-@keyframes workshopFade{
-  to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes floatImg{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0);}
-}
-
-@keyframes btnSlideLeft{
-  to{opacity:1;transform:translateX(0);}
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .workshop{
-    padding:80px 20px;
-  }
-
-  .workshop-title{
-    font-size:26px;
-  }
-
-  .workshop-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .workshop-grid img{
-    height:120px;
-  }
-
-  .workshop-btn{
-    font-size:20px;
-    padding:18px 40px;
-  }
-
-  .workshop-btn img{
-    width:34px;
-    height:34px;
   }
 }
-
   
     /* ================= LIGHTBOX ================= */
 
