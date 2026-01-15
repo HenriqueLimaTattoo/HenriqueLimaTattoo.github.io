@@ -634,19 +634,24 @@ header{
   align-items:flex-start;
 }
 
-/* ================= TEXTO ================= */
+/* ================= TEXTO DO WORKSHOP ================= */
 
 .workshop-text{
+  max-width:720px;
+  margin:0 auto;
   display:flex;
   flex-direction:column;
-  gap:40px;
+  align-items:center;
+  gap:30px;
+  text-align:center;
 }
 
 .workshop-frase{
-  font-size:17px;
+  font-size:18px;
   line-height:1.7;
   color:#d0d0d0;
 }
+
 
 /* BOTÃO WHATS */
 .workshop-btn{
@@ -657,7 +662,6 @@ header{
   border:1px solid var(--prata);
   color:white;
   text-decoration:none;
-  width:max-content;
   transition:all 0.3s ease;
 }
 
@@ -675,15 +679,17 @@ header{
 /* ================= GRID DE FOTOS – WORKSHOP ================= */
 
 .workshop-grid{
+  max-width:900px;                 /* controla largura total */
+  margin:0 auto 50px;              /* centraliza + espaço abaixo */
   display:grid;
-  grid-template-columns:repeat(2, 1fr); /* 2 colunas */
-  gap:14px;
+  grid-template-columns:repeat(3, 1fr); /* 🔥 3 colunas */
+  gap:16px;
 }
 
-/* imagens com mesmo comportamento das premiações */
+/* imagens – mesmo padrão das premiações */
 .workshop-grid img{
   width:100%;
-  height:130px;          /* 👈 mesmo padrão das premiações */
+  height:140px;
   object-fit:cover;
   border-radius:6px;
   cursor:pointer;
@@ -692,7 +698,6 @@ header{
     box-shadow 0.4s ease;
 }
 
-/* hover elegante */
 .workshop-grid img:hover{
   transform:scale(1.05);
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
@@ -719,7 +724,11 @@ header{
   /* ORDEM MOBILE */
   .workshop-grid{
     order:1;
-    grid-template-rows:repeat(3, 130px);
+    grid-template-rows:repeat(2, 1fr); /* 2 colunas no mobile */
+  }
+
+   .workshop-grid img{
+    height:120px;
   }
 
   .workshop-text{
@@ -730,6 +739,12 @@ header{
 
   .workshop-frase{
     font-size:18px;
+  }
+
+  /* 🔥 AUMENTA TEXTO DO BOTÃO NO MOBILE */
+  .workshop-btn{
+    font-size:20px;
+    padding:18px 40px;
   }
 }
 
@@ -1207,19 +1222,19 @@ header{
       </p>
 
       <a href="https://wa.me/558896036386" class="workshop-btn">
-        Vamos elevar seu nível?
+        SABER MAIS
         <img src="Icones/whats.png" alt="WhatsApp">
       </a>
     </div>
 
     <!-- GRID DE FOTOS -->
     <div class="workshop-grid">
-      <img src="Workshop/01.jpg" alt="">
-      <img src="Workshop/04.jpg" alt="">
-      <img src="Workshop/03.jpg" alt="">
-      <img src="Workshop/05.jpg" alt="">
-      <img src="Workshop/06.jpg" alt="">
-      <img src="Workshop/02.jpg" alt="">
+      <img src="Workshop/01.jpg" onclick="openLightbox(this.src)">
+      <img src="Workshop/04.jpg" onclick="openLightbox(this.src)">
+      <img src="Workshop/03.jpg" onclick="openLightbox(this.src)">
+      <img src="Workshop/05.jpg" onclick="openLightbox(this.src)">
+      <img src="Workshop/06.jpg" onclick="openLightbox(this.src)">
+      <img src="Workshop/02.jpg" onclick="openLightbox(this.src)">
     </div>
 
   </div>
@@ -1466,7 +1481,6 @@ function premiadasUpdate(){
   }
 }
 
-
 function premiadasNext(){
   prIndex = (prIndex + 1) % prItems.length;
   premiadasUpdate();
@@ -1480,6 +1494,9 @@ function premiadasPrev(){
 premiadasUpdate();
 </script>
 
+  
+
+  
   
 <script>
 /* ================= SUBMENU MOBILE ================= */
@@ -1513,11 +1530,13 @@ animatedItems.forEach(img=>{
 </script>
 
 
+  
   <script>
 /* ================= LIGHTBOX ================= */
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 
+/* premiações */
 document.querySelectorAll('.premiacoes-grid img').forEach(img=>{
   img.addEventListener('click', ()=>{
     lightboxImg.src = img.src;
@@ -1525,6 +1544,15 @@ document.querySelectorAll('.premiacoes-grid img').forEach(img=>{
   });
 });
 
+/* workshop */
+document.querySelectorAll('.workshop-grid img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+
+/* fechar */
 lightbox.addEventListener('click', ()=>{
   lightbox.style.display = 'none';
 });
