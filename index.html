@@ -620,7 +620,7 @@ header{
 /* TÍTULO */
 .workshop-title{
   font-family:'Playfair Display',serif;
-  font-size:38px;
+  font-size:36px;
   text-align:center;
   margin-bottom:50px;
 }
@@ -629,7 +629,7 @@ header{
 .workshop-content{
   max-width:1200px;
   margin:0 auto;
-  display:grid;
+  display:flex;
   flex-direction:column;
   gap:80px;
   align-items:center;
@@ -666,7 +666,8 @@ header{
   color:white;
   text-decoration:none;
   background:rgba(255,255,255,0.05);
-
+  position:relative;
+  z-index:5;
   opacity:0;
   transform:translateX(-60px);
   animation:btnSlideLeft 0.8s ease forwards;
