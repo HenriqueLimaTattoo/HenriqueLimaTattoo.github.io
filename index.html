@@ -680,7 +680,7 @@ header{
 
 .workshop-grid {
   max-width: 900px; /* controla largura total */
-  margin: 0 auto 30px; /* centraliza + espaço abaixo antes era 50px */
+  margin: 0 auto 20px; /* centraliza + espaço abaixo antes era 50px */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 🔥 3 colunas */
   gap: 16px;
@@ -1583,23 +1583,32 @@ const lightboxImg = lightbox.querySelector('img');
 
 /* premiações */
 document.querySelectorAll('.premiacoes-grid img').forEach(img=>{
-  img.addEventListener('click', ()=>{
+  img.addEventListener('click', (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+
     lightboxImg.src = img.src;
     lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   });
 });
 
 /* workshop */
 document.querySelectorAll('.workshop-grid img').forEach(img=>{
-  img.addEventListener('click', ()=>{
+  img.addEventListener('click', (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+
     lightboxImg.src = img.src;
     lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   });
 });
 
 /* fechar */
 lightbox.addEventListener('click', ()=>{
   lightbox.style.display = 'none';
+  document.body.style.overflow = '';
 });
 
 </script>
