@@ -629,9 +629,9 @@ header{
   max-width:1200px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 1fr; /* texto | grid */
+  flex-direction:column;
   gap:80px;
-  align-items:flex-start;
+  align-items:center;
 }
 
 /* ================= TEXTO DO WORKSHOP ================= */
@@ -672,8 +672,8 @@ header{
 /* ================= CORREÇÃO ÍCONE WHATS WORKSHOP ================= */
 
 .workshop-btn img{
-  width:22px;
-  height:22px;
+  width:26px;
+  height:26px;
 }
 
 /* ================= GRID DE FOTOS – WORKSHOP ================= */
@@ -738,13 +738,18 @@ header{
   }
 
   .workshop-frase{
-    font-size:18px;
+    font-size:22px;
   }
 
   /* 🔥 AUMENTA TEXTO DO BOTÃO NO MOBILE */
   .workshop-btn{
     font-size:20px;
     padding:18px 40px;
+  }
+
+  .workshop-btn img{
+  width:34px;
+  height:34px;
   }
 }
 
@@ -1222,7 +1227,7 @@ header{
       </p>
 
       <a href="https://wa.me/558896036386" class="workshop-btn">
-        SABER MAIS
+        SAIBA MAIS
         <img src="Icones/whats.png" alt="WhatsApp">
       </a>
     </div>
