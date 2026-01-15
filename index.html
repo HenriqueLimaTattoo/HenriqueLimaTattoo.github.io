@@ -797,7 +797,7 @@ header{
   min-width:100%;
   display:grid;
   grid-template-rows: repeat(3, 1fr); /* 🔥 3 depoimentos */
-  gap:24px;
+  gap:20px;
 }
 
 .depoimento-card{
@@ -1861,32 +1861,38 @@ premiadasUpdate();
 
   <script>
     /* ================= JS DEPOIMENTOS ================= */
+<script>
+/* ================= DEPOIMENTOS CARROSSEL ================= */
+
 let depoIndex = 0;
+
 const depoTrack = document.getElementById('depoTrack');
 const depoSlides = depoTrack.querySelectorAll('.depo-slide');
-let depoTimer;
+const totalDepo = depoSlides.length;
 
+/* ATUALIZA POSIÇÃO */
 function depoUpdate(){
   depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
-
-  clearTimeout(depoTimer);
-  depoTimer = setTimeout(depoNext, 5000);
 }
 
+/* PRÓXIMO */
 function depoNext(){
-  depoIndex = (depoIndex + 1) % depoSlides.length;
+  depoIndex = (depoIndex + 1) % totalDepo;
   depoUpdate();
 }
 
+/* ANTERIOR */
 function depoPrev(){
-  depoIndex = (depoIndex - 1 + depoSlides.length) % depoSlides.length;
+  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
   depoUpdate();
 }
 
-depoUpdate();
+/* AUTO SLIDE (5s) */
+setInterval(()=>{
+  depoNext();
+}, 5000);
 </script>
 
-  
   
 <script>
 /* ================= SUBMENU MOBILE ================= */
