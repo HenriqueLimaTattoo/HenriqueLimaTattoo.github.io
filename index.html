@@ -796,7 +796,7 @@ header{
 .depo-slide{
   min-width:100%;
   display:grid;
-  grid-template-rows:1fr 1fr;
+  grid-template-rows: repeat(3, 1fr); /* 🔥 3 depoimentos */
   gap:24px;
 }
 
@@ -863,6 +863,50 @@ header{
 
 .depoimento-cta a:hover{
   background:rgba(255,255,255,0.08);
+}
+}
+  /* ================= DEPOIMENTOS – MOBILE PREMIUM ================= */
+@media (max-width: 768px){
+
+  .depoimentos-container{
+    grid-template-columns: 65% 35%; /* FOTO GRANDE | DEPOIMENTOS */
+    gap:20px;
+    align-items:stretch;
+  }
+
+  .depoimentos-foto{
+    height:80vh;              /* 🔥 ocupa quase a tela */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .depoimentos-foto img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    border-radius:10px;
+  }
+
+  .depoimentos-carousel{
+    height:80vh;
+    display:flex;
+    align-items:center;
+  }
+
+  .depo-slide{
+    grid-template-rows:1fr 1fr; /* mantém 2 depoimentos */
+  }
+
+  .depoimento-card{
+    padding:20px;
+    font-size:14px;
+  }
+
+  .depo-btn{
+    bottom:20px;
+    top:auto;
+  }
 }
 
   
@@ -1418,7 +1462,7 @@ header{
 
       <div class="depo-track" id="depoTrack">
 
-        <!-- SLIDE 1 -->
+        <!-- SLIDE 1 ficar 3 depoimentos por slide-->
         <div class="depo-slide">
           
           <div class="depoimento-card">
@@ -1444,6 +1488,17 @@ header{
             </div>
           </div>
 
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 3, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Bbb</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+          
         </div>
 
         <!-- SLIDE 2 -->
@@ -1452,7 +1507,7 @@ header{
           <div class="depoimento-card">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
-              Depoimento 2, quando tiver mais..
+              Depoimento 4, quando tiver mais..
             </p>
             <div class="depoimento-autor">
               <strong>Bbb</strong>
@@ -1463,7 +1518,7 @@ header{
           <div class="depoimento-card">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
-              Depoimento 2, quando tiver mais..
+              Depoimento 5, quando tiver mais..
             </p>
             <div class="depoimento-autor">
               <strong>Ccc</strong>
@@ -1471,8 +1526,47 @@ header{
             </div>
           </div>
 
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 6, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ccc</strong>
+              <span>Barbalha - CE</span>
+            </div>
+          </div>
+          
         </div>
 
+ <!-- SLIDE 3 -->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 5, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ddd</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 6, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Eee</strong>
+              <span>Crato - CE</span>
+            </div>
+          </div>
+
+        </div>
+
+        
       </div>
     </div>
 
@@ -1480,7 +1574,7 @@ header{
 
    <div class="depoimento-cta">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1ANjTj7qxN3Xce-7s_IelVZf3cyx_4CmGWEFkBdB0anmy9A/viewform?usp=publish-editor" target="_blank">
-      Deixar meu depoimento
+      Deixar depoimento ✏️🔥
     </a>
   </div>
   
