@@ -970,7 +970,7 @@ header{
     text-align:center;
 
     position:relative;
-    top:50%; /* 🔥 DESCE O CARD ABAIXO DO CENTRO antes era 14 */
+    top:48%; /* 🔥 DESCE O CARD ABAIXO DO CENTRO antes era 14 */
   }
 
   .aspas{
@@ -1021,7 +1021,7 @@ header{
 
   .depo-dots{
   position:absolute;
-  bottom:60px;      /* 🔥 SOBE/DESCE AS BOLINHAS subir → diminui bottom e descer → aumenta bottom */
+  bottom:90px;      /* 🔥 SOBE/DESCE AS BOLINHAS subir → diminui bottom e descer → aumenta bottom */
   left:50%;
   transform:translateX(-50%);
   display:flex;
@@ -1034,6 +1034,7 @@ header{
   height:8px;
   border-radius:50%;
   background:rgba(255,255,255,0.4);
+  cursor:pointer;
   transition:all 0.3s ease;
 }
 
@@ -1711,13 +1712,14 @@ header{
           </div>
           
         </div>
-
-        <!-- 🔥 INDICADOR DE SLIDE (BOLINHAS) -->
-  <div class="depo-dots" id="depoDots"></div>
-        
+       
       </div>
     </div>
 
+ <!-- 🔥 INDICADOR DE SLIDE (BOLINHAS) -->
+  <div class="depo-dots" id="depoDots"></div>
+        
+    
   </div>
 
    <div class="depoimento-cta">
