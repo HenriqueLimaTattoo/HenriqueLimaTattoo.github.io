@@ -919,7 +919,7 @@ header{
     border-radius:0;
     object-position: center top; /* 🔥 AJUSTE DE ENQUADRAMENTO Se quiser descer mais o rosto, use: center 20%;*/
   }
-  }
+  
 
   .foto-desktop{
     display:none;
@@ -933,16 +933,16 @@ header{
   /* OVERLAY DOS DEPOIMENTOS */
   .depoimentos-carousel{
   position:absolute;
-  top:0%;  /* tava 0 antes, vamos ver se com 50% melhora */
+  top:0%;  /* tava 0 antes, vamos ver se com 50% melhora (50 fou muito lá pra baixo)*/
   right:0;
 
-  width:58%;              /* 🔥 MAIS LARGURA */
+  width:60%;              /* 🔥 MAIS LARGURA */
   height:100%;
+  max-width:340px;           /* 🔥 LIMITA O CARD */
+  margin-right:16px;         /* 🔥 AFASTA DA BORDA */
 
   z-index:5;
-
   display:flex;
-  justify-content:center; /* centraliza horizontal */
   align-items:flex-start;
 
   padding-top:160px;      /* 🔥 DESCE OS COMENTÁRIOS com 260px ou 200px */
@@ -962,24 +962,31 @@ header{
   .depo-slide{
     padding:20px;
     gap:16px;
-    grid-template-rows:repeat(2, auto); /* APENAS 2 depoimentos antes era 2, 1fr*/
+    display:block; /* SLIDE MOBILE = 1 CARD */
+    
   }
 
-  /* ESCONDE O 3º DEPOIMENTO */
-  .depo-slide .depoimento-card:nth-child(3){
+/* ESCONDE TODOS OS CARDS */
+  .depo-slide .depoimento-card{
     display:none;
   }
+  
+  /* MOSTRA APENAS O PRIMEIRO */
+  .depo-slide .depoimento-card:first-child{
+    display:block;
+  }
 
-  /* CARD MOBILE */
+  /* CARD MOBILE (VERTICAL) */
   .depoimento-card{
     background:rgba(0,0,0,0.65);
     backdrop-filter:blur(6px);
-    padding:20px;  /* CARD MAIS VERTICAL 20px */
+    padding:22px;  /* CARD MAIS VERTICAL 20px */
+    border-radius:10px
   }
 
    .depoimento-texto{
     font-size:14px;     /* 🔥 MENOR */
-    line-height:1.6;
+    line-height:1.7;
   }
 
   .depoimento-autor strong{
