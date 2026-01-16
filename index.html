@@ -933,7 +933,7 @@ header{
   /* OVERLAY DOS DEPOIMENTOS */
   .depoimentos-carousel{
   position:absolute;
-  top:0;
+  top:50%;  /* tava 0 antes, vamos ver se com 50% melhora */
   right:0;
 
   width:58%;              /* 🔥 MAIS LARGURA */
@@ -945,8 +945,8 @@ header{
   justify-content:center; /* centraliza horizontal */
   align-items:flex-start;
 
-  padding-top:260px;      /* 🔥 DESCE OS COMENTÁRIOS */
-  padding-right:80px;
+  padding-top:260px;      /* 🔥 DESCE OS COMENTÁRIOS com 260px ou 200px */
+  padding-right:20px;
   padding-left:20px;
 
   background:linear-gradient(
@@ -962,7 +962,7 @@ header{
   .depo-slide{
     padding:20px;
     gap:16px;
-    grid-template-rows:repeat(2, 1fr); /* APENAS 2 depoimentos */
+    grid-template-rows:repeat(2, auto); /* APENAS 2 depoimentos antes era 2, 1fr*/
   }
 
   /* ESCONDE O 3º DEPOIMENTO */
@@ -974,7 +974,7 @@ header{
   .depoimento-card{
     background:rgba(0,0,0,0.65);
     backdrop-filter:blur(6px);
-    padding:18px;
+    padding:26px;  /* CARD MAIS VERTICAL 20px */
   }
 
    .depoimento-texto{
