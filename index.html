@@ -944,11 +944,6 @@ header{
     justify-content:center;
   }
 
-  /* ESCONDE TODOS */
-  .depo-slide .depoimento-card{
-    display:none;
-  }
-
   /* MOSTRA APENAS UM */
   .depo-slide .depoimento-card:first-child{
     display:block;
@@ -1017,30 +1012,6 @@ header{
 
   .depo-btn.prev{left:12px;}
   .depo-btn.next{right:12px;}
-}
-}
-  .depo-dots{
-  position:absolute;
-  bottom:60px;      /* 🔥 SOBE/DESCE AS BOLINHAS subir → diminui bottom e descer → aumenta bottom */
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:10px;
-  z-index:15;
-}
-
-.depo-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.4);
-  cursor:pointer;
-  transition:all 0.3s ease;
-}
-
-.depo-dot.active{
-  background:white;
-  transform:scale(1.2);
 }
 
 }
@@ -1985,52 +1956,68 @@ premiadasUpdate();
 
 
 <script>
-/* ================= JS DEPOIMENTOS CARROSSEL ================= */
+/* ================= JS DEPOIMENTOS (DESKTOP + MOBILE CORRETO) ================= */
 
 let depoIndex = 0;
+let depoTimer;
 
 const depoTrack = document.getElementById('depoTrack');
-const depoSlides = document.querySelectorAll('.depo-slide');
-const totalDepo = depoSlides.length;
-let depoTimer;
-  
-/* ATUALIZA */
+const slides = document.querySelectorAll('.depo-slide');
+const cards  = document.querySelectorAll('.depoimento-card');
+
+/* DETECTA MOBILE */
+function isMobile(){
+  return window.innerWidth <= 768;
+}
+
+/* QUANTIDADE TOTAL */
+function getTotal(){
+  return isMobile() ? cards.length : slides.length;
+}
+
+/* ATUALIZA POSIÇÃO */
 function depoUpdate(){
-  depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
+
+  if(isMobile()){
+    /* MOBILE → 1 depoimento por vez */
+    const cardWidth = cards[0].offsetWidth;
+    depoTrack.style.transform = `translateX(-${depoIndex * cardWidth}px)`;
+  }else{
+    /* DESKTOP → 1 slide (3 depoimentos) */
+    depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
   }
-  
-/* BOLINHAS */
-  function updateDots(){
-  document.querySelectorAll('.depo-dot').forEach((dot,i)=>{
-    dot.classList.toggle('active', i === depoIndex);
-  });
 }
 
 /* PRÓXIMO */
 function depoNext(){
-  depoIndex = (depoIndex + 1) % totalDepo;
+  depoIndex = (depoIndex + 1) % getTotal();
   depoUpdate();
   resetTimer();
 }
 
 /* ANTERIOR */
 function depoPrev(){
-  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
+  depoIndex = (depoIndex - 1 + getTotal()) % getTotal();
   depoUpdate();
   resetTimer();
 }
 
 /* AUTO SLIDE */
 function startAuto(){
-  depoTimer = setInterval(()=>{
-    depoNext();
-  }, 5000);
+  depoTimer = setInterval(depoNext, 5000);
 }
 
 function resetTimer(){
   clearInterval(depoTimer);
   startAuto();
 }
+
+/* REAJUSTA AO REDIMENSIONAR */
+window.addEventListener('resize', ()=>{
+  depoIndex = 0;
+  depoUpdate();
+  resetTimer();
+});
 
 /* INICIA */
 startAuto();
