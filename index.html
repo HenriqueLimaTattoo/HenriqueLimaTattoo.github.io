@@ -938,6 +938,7 @@ header{
   /* TRACK DESLIZANTE */
   .depo-track{
     display:flex;
+    width:100vw; /* 🔥 IMPORTANTE */
     gap:0;
     transition:transform 0.6s ease;
   }
@@ -949,27 +950,25 @@ header{
 
   /* ===== CARD (AGORA CADA UM É UM SLIDE) ===== */
   .depoimento-card{
-    pointer-events:auto;
+  pointer-events:auto;
 
-    flex:0 0 100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+  flex:0 0 100vw;   /* 🔥 UM CARD = UMA TELA */
+  width:100vw;
 
-    width:100%;
-    max-width:320px;
-    margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 
-    background:rgba(40,40,40,0.78);
-    backdrop-filter:blur(6px);
+  background:rgba(40,40,40,0.78);
+  backdrop-filter:blur(6px);
 
-    padding:24px;
-    border-radius:14px;
-    text-align:center;
+  padding:24px;
+  border-radius:14px;
+  text-align:center;
 
-    position:relative;
-    top:48%;       /* 🔥 DESCE O CARD ABAIXO DO CENTRO 48% TAMANHO ÓTIMO*/
-  }
+  position:relative;
+  top:48%;               /* 🔥 DESCE O CARD ABAIXO DO CENTRO 48% TAMANHO ÓTIMO*/}
 
   .aspas{
     font-size:36px;
@@ -1017,6 +1016,10 @@ header{
   .depo-btn.next{right:12px;}
 }
 
+.depo-card-inner{
+  max-width:320px;
+  width:100%;
+}
 
 
     /* ================= LIGHTBOX ================= */
@@ -1575,6 +1578,7 @@ header{
         <div class="depo-slide">
           
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
@@ -1587,6 +1591,7 @@ header{
           </div>
 
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 2, quando tiver mais..
@@ -1598,6 +1603,7 @@ header{
           </div>
 
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 3, quando tiver mais..
@@ -1614,6 +1620,7 @@ header{
         <div class="depo-slide">
           
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 4, quando tiver mais..
@@ -1625,6 +1632,7 @@ header{
           </div>
 
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 5, quando tiver mais..
@@ -1636,6 +1644,7 @@ header{
           </div>
 
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 6, quando tiver mais..
@@ -1652,6 +1661,7 @@ header{
         <div class="depo-slide">
           
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 7, quando tiver mais..
@@ -1663,6 +1673,7 @@ header{
           </div>
 
           <div class="depoimento-card">
+            <div class="depo-card-inner">
             <span class="aspas">❝</span>
             <p class="depoimento-texto">
               Depoimento 8, quando tiver mais..
@@ -1675,6 +1686,7 @@ header{
 
 <div class="depoimento-card">
             <span class="aspas">❝</span>
+            <div class="depo-card-inner">
             <p class="depoimento-texto">
               Depoimento 9, quando tiver mais..
             </p>
