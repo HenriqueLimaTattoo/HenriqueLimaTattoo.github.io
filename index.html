@@ -786,10 +786,20 @@ header{
   border-radius:8px;
 }
 
+  /* padrão: desktop */
+.foto-mobile{
+  display:none;
+}
+
+.foto-desktop{
+  display:block;
+}
+
 /* ===== CARROSSEL ===== */
 .depoimentos-carousel{
   position:relative;
   overflow:hidden;
+  width:100%;     /* 🔥 ISSO ESTAVA FALTANDO */
 }
 
 .depo-track{
@@ -909,16 +919,26 @@ header{
     border-radius:0;
   }
 
+  .foto-desktop{
+    display:none;
+  }
+
+  .foto-mobile{
+    display:block;
+  }
+
+  
   /* OVERLAY DOS DEPOIMENTOS */
   .depoimentos-carousel{
     position:absolute;
     top:0;
     right:0;
-    width:45%;                 /* controla quanto invade a foto */
+    width:52%;              /* MAIS ESPAÇO PRO TEXTO */   /* controla quanto invade a foto */
     height:100%;
     z-index:5;
     display:flex;
-    align-items:center;
+    align-items:flex-start; /* 🔥 NÃO centraliza */
+    padding-top:80px;       /* desce o conteúdo */
     background:linear-gradient(
       to left,
       rgba(0,0,0,0.9),
@@ -1488,10 +1508,11 @@ header{
 
   <div class="depoimentos-container">
 
-    <!-- FOTO FIXA (ESQUERDA) -->
-    <div class="depoimentos-foto">
-      <img src="foto2.jpg" alt="Henrique Lima Tattoo">
-    </div>
+   <div class="depoimentos-foto">
+  <img src="foto2.jpg" class="foto-desktop" alt="Henrique Lima Tattoo">
+  <img src="foto-mobile.jpg" class="foto-mobile" alt="Henrique Lima Tattoo">
+</div>
+
 
     <!-- CARROSSEL (DIREITA) -->
     <div class="depoimentos-carousel">
@@ -1889,10 +1910,8 @@ premiadasUpdate();
 
 
 
-  <script>
-    /* ================= JS DEPOIMENTOS ================= */
 <script>
-/* ================= DEPOIMENTOS CARROSSEL ================= */
+/* ================= JS DEPOIMENTOS CARROSSEL ================= */
 
 let depoIndex = 0;
 
@@ -1910,23 +1929,30 @@ function depoUpdate(){
 function depoNext(){
   depoIndex = (depoIndex + 1) % totalDepo;
   depoUpdate();
-  resetAuto();
+  resetTimer();
 }
 
 /* ANTERIOR */
 function depoPrev(){
   depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
   depoUpdate();
-  resetAuto();
+  resetTimer();
 }
 
 /* AUTO SLIDE */
-function resetAuto(){
-  clearInterval(depoTimer);
-  depoTimer = setInterval(depoNext, 5000);
+function startAuto(){
+  depoTimer = setInterval(()=>{
+    depoNext();
+  }, 5000);
 }
 
-resetAuto();
+function resetTimer(){
+  clearInterval(depoTimer);
+  startAuto();
+}
+
+/* INICIA */
+startAuto();
 </script>
 
   
