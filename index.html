@@ -917,6 +917,8 @@ header{
     height:100%;
     object-fit:cover;
     border-radius:0;
+    object-position: center top; /* 🔥 AJUSTE DE ENQUADRAMENTO Se quiser descer mais o rosto, use: center 20%;*/
+  }
   }
 
   .foto-desktop{
@@ -930,22 +932,31 @@ header{
   
   /* OVERLAY DOS DEPOIMENTOS */
   .depoimentos-carousel{
-    position:absolute;
-    top:0;
-    right:0;
-    width:52%;              /* MAIS ESPAÇO PRO TEXTO */   /* controla quanto invade a foto */
-    height:100%;
-    z-index:5;
-    display:flex;
-    align-items:flex-start; /* 🔥 NÃO centraliza */
-    padding-top:80px;       /* desce o conteúdo */
-    background:linear-gradient(
-      to left,
-      rgba(0,0,0,0.9),
-      rgba(0,0,0,0.5),
-      transparent
-    );
-  }
+  position:absolute;
+  top:0;
+  right:0;
+
+  width:58%;              /* 🔥 MAIS LARGURA */
+  height:100%;
+
+  z-index:5;
+
+  display:flex;
+  justify-content:center; /* centraliza horizontal */
+  align-items:flex-start;
+
+  padding-top:160px;      /* 🔥 DESCE OS COMENTÁRIOS */
+  padding-right:20px;
+  padding-left:20px;
+
+  background:linear-gradient(
+    to left,
+    rgba(0,0,0,0.92),
+    rgba(0,0,0,0.55),
+    transparent
+  );
+}
+
 
   /* SLIDE NO MOBILE */
   .depo-slide{
@@ -964,6 +975,19 @@ header{
     background:rgba(0,0,0,0.65);
     backdrop-filter:blur(6px);
     padding:18px;
+  }
+
+   .depoimento-texto{
+    font-size:14px;     /* 🔥 MENOR */
+    line-height:1.6;
+  }
+
+  .depoimento-autor strong{
+    font-size:14px;
+  }
+
+  .depoimento-autor span{
+    font-size:12px;
   }
 }
 
