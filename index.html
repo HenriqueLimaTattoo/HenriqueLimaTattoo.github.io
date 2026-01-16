@@ -871,12 +871,17 @@ header{
 
   .depoimentos-container{
     position:relative;
+    height:100vh;        /* 🔥 FORÇA TELA CHEIA */
     display:block;
   }
 
   /* FOTO */
   .depoimentos-foto{
-    height:85vh;
+    position:absolute;
+    inset:0;
+    height:100%;
+    width:100%;
+    z-index:1;
   }
 
   .depoimentos-foto img{
@@ -895,6 +900,7 @@ header{
     height:100%;
     display:flex;
     align-items:center;
+    z-index:5;
     background:linear-gradient(
       to left,
       rgba(0,0,0,0.85),
@@ -905,6 +911,7 @@ header{
 
   .depo-slide{
     padding:24px;
+    grid-template-rows: 2fr; /* 🔥 APENAS 1 depoimento por slide */
   }
 
   .depoimento-card{
