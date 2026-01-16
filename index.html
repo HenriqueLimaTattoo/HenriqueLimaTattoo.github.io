@@ -891,8 +891,6 @@ header{
 ========================================================= */
 @media (max-width:768px){
 
-  @media (max-width:768px){
-
   /* ===== SEÇÃO ===== */
   .depoimentos{
     padding:0;
@@ -940,33 +938,27 @@ header{
   /* TRACK DESLIZANTE */
   .depo-track{
     display:flex;
-    width:100%;
+    gap:0;
     transition:transform 0.6s ease;
   }
 
-  /* CADA SLIDE = 100% */
+  /* 🔥 REMOVE A ESTRUTURA DE SLIDES NO MOBILE */
   .depo-slide{
-    min-width:100%;
-    display:flex;
-    justify-content:center;
+    display:contents;
   }
 
-  /* ESCONDE TODOS OS CARDS */
-  .depo-slide .depoimento-card{
-    display:none;
-  }
-
-  /* MOSTRA APENAS UM CARD POR SLIDE */
-  .depo-slide .depoimento-card:first-child{
-    display:block;
-  }
-
-  /* ===== CARD ===== */
+  /* ===== CARD (AGORA CADA UM É UM SLIDE) ===== */
   .depoimento-card{
     pointer-events:auto;
 
-    width:85%;
+    flex:0 0 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    width:100%;
     max-width:320px;
+    margin:0 auto;
 
     background:rgba(40,40,40,0.78);
     backdrop-filter:blur(6px);
@@ -976,7 +968,7 @@ header{
     text-align:center;
 
     position:relative;
-    top:48%;         /* 🔥 DESCE O CARD ABAIXO DO CENTRO */
+    top:48%;       /* 🔥 DESCE O CARD ABAIXO DO CENTRO 48% TAMANHO ÓTIMO*/
   }
 
   .aspas{
@@ -1024,6 +1016,7 @@ header{
   .depo-btn.prev{left:12px;}
   .depo-btn.next{right:12px;}
 }
+
 
 
     /* ================= LIGHTBOX ================= */
