@@ -970,7 +970,7 @@ header{
     text-align:center;
 
     position:relative;
-    top:22%; /* 🔥 DESCE O CARD ABAIXO DO CENTRO antes era 14 */
+    top:28%; /* 🔥 DESCE O CARD ABAIXO DO CENTRO antes era 14 */
   }
 
   .aspas{
@@ -1019,6 +1019,30 @@ header{
   .depo-btn.next{right:12px;}
 }
 
+  .depo-dots{
+  position:absolute;
+  bottom:60px;      /* 🔥 SOBE/DESCE AS BOLINHAS subir → diminui bottom e descer → aumenta bottom */
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:15;
+}
+
+.depo-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.4);
+  transition:all 0.3s ease;
+}
+
+.depo-dot.active{
+  background:white;
+  transform:scale(1.2);
+}
+
+}
 
 
     /* ================= LIGHTBOX ================= */
@@ -1688,6 +1712,8 @@ header{
           
         </div>
 
+        <!-- 🔥 INDICADOR DE SLIDE (BOLINHAS) -->
+  <div class="depo-dots" id="depoDots"></div>
         
       </div>
     </div>
@@ -1970,10 +1996,35 @@ const depoTrack = document.getElementById('depoTrack');
 const depoSlides = document.querySelectorAll('.depo-slide');
 const totalDepo = depoSlides.length;
 let depoTimer;
+const depoDots = document.getElementById('depoDots');
 
+/* cria bolinhas */
+for(let i = 0; i < totalDepo; i++){
+  const dot = document.createElement('div');
+  dot.classList.add('depo-dot');
+
+  if(i === 0) dot.classList.add('active');
+
+  dot.addEventListener('click', ()=>{
+    depoIndex = i;
+    depoUpdate();
+    resetTimer();
+  });
+
+  depoDots.appendChild(dot);
+}
+  
 /* ATUALIZA */
 function depoUpdate(){
   depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
+  updateDots();
+}
+  
+/* BOLINHAS */
+  function updateDots(){
+  document.querySelectorAll('.depo-dot').forEach((dot,i)=>{
+    dot.classList.toggle('active', i === depoIndex);
+  });
 }
 
 /* PRÓXIMO */
