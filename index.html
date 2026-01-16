@@ -919,59 +919,48 @@ header{
     object-position:center top;
   }
 
-  /* ================= OVERLAY ================= */
+  /* ================= CARROSSEL ================= */
 
   .depoimentos-carousel{
     position:absolute;
-    top:0;
-    right:0;
-
-    width:62%;
-    max-width:360px;
-    height:100%;
-
+    inset:0;
     z-index:5;
 
     display:flex;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:center;
 
-    padding-right:16px;
-
-    background:linear-gradient(
-      to left,
-      rgba(0,0,0,0.92),
-      rgba(0,0,0,0.55),
-      transparent
-    );
+    padding:20px;
+    background:none; /* 🔥 NADA de escurecer a foto */
   }
 
-  /* ================= SLIDE ================= */
-
   .depo-track{
-    height:100%;
+    width:100%;
     display:flex;
-    align-items:center;
   }
 
   .depo-slide{
     min-width:100%;
     display:flex;
-    justify-content:flex-end;
+    justify-content:center;
   }
 
   /* ================= CARD ================= */
 
   .depoimento-card{
     width:100%;
-    max-height:70vh;            /* 🔥 ISSO RESOLVE O CORTE */
-    overflow-y:auto;            /* 🔥 TEXTO GRANDE ROLA */
+    max-width:320px;
+    max-height:70vh;
 
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(6px);
+    overflow-y:auto;
+
+    background:rgba(240,240,240,0.85); /* 🔥 CINZA CLARO TRANSPARENTE */
+    color:#111;
 
     padding:24px;
-    border-radius:12px;
+    border-radius:14px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
 
     display:flex;
     flex-direction:column;
@@ -980,13 +969,15 @@ header{
 
   .aspas{
     font-size:36px;
-    opacity:0.3;
+    opacity:0.25;
     margin-bottom:8px;
+    color:#000;
   }
 
   .depoimento-texto{
     font-size:15px;
-    line-height:1.8;
+    line-height:1.7;
+    color:#222;
   }
 
   .depoimento-autor{
@@ -995,13 +986,16 @@ header{
 
   .depoimento-autor strong{
     font-size:14px;
+    color:#000;
   }
 
   .depoimento-autor span{
     font-size:12px;
+    color:#444;
   }
 
 }
+
 
 
 
@@ -1568,7 +1562,7 @@ header{
               Atendimento impecável e resultado incrível 🔥
             </p>
             <div class="depoimento-autor">
-              <strong>Erika OG</strong>
+              <strong>Erika Ozawa</strong>
               <span>Salvador - BA</span>
             </div>
           </div>
