@@ -1960,34 +1960,41 @@ premiadasUpdate();
 
 
 <script>
-/* ================= JS DEPOIMENTOS (DESKTOP + MOBILE CORRETO) ================= */
+/* ================= DEPOIMENTOS CARROSSEL ================= */
 
 let depoIndex = 0;
 
 const depoTrack = document.getElementById('depoTrack');
-const slides = document.querySelectorAll('.depo-slide');
+const depoSlides = document.querySelectorAll('.depo-slide');
 const totalDepo = depoSlides.length;
+let depoTimer;
 
-/* ATUALIZA POSIÇÃO */
+/* ATUALIZA */
 function depoUpdate(){
-    depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
-  }
+  depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
+}
 
 /* PRÓXIMO */
-function depoNext(){ 
-  depoIndex = (depoIndex + 1) % totalDepo; 
-depoUpdate(); }
+function depoNext(){
+  depoIndex = (depoIndex + 1) % totalDepo;
+  depoUpdate();
+  resetAuto();
+}
 
 /* ANTERIOR */
-function depoPrev(){ 
-  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo; 
-  depoUpdate(); }
+function depoPrev(){
+  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
+  depoUpdate();
+  resetAuto();
+}
 
-/* AUTO SLIDE (5s) */ 
-  setInterval(()=>{ 
-    depoNext();
-  }, 5000); 
+/* AUTO SLIDE */
+function resetAuto(){
+  clearInterval(depoTimer);
+  depoTimer = setInterval(depoNext, 5000);
+}
 
+resetAuto();
 </script>
 
   
