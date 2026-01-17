@@ -758,6 +758,7 @@ header{
 
 /* ================= DEPOIMENTOS ================= */
 
+/* ===== GERAL ===== */
 .depoimentos{
   padding:120px 40px;
   text-align:center;
@@ -772,16 +773,13 @@ header{
   align-items:center;
 }
 
-/* FOTO */
-.foto-mobile{display:none;}
-.foto-desktop{display:block;}
-.depoimentos-foto img{width:100%; border-radius:8px;}
+.foto-mobile{ display:none; }
+.foto-desktop{ display:block; width:100%; border-radius:8px; }
 
-/* CARROSSEL */
+/* ===== CARROSSEL ===== */
 .depoimentos-carousel{
   position:relative;
   overflow:hidden;
-  width:100%;
 }
 
 .depo-track{
@@ -789,52 +787,49 @@ header{
   transition:transform 0.6s ease;
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .depoimento-card{
-  flex:0 0 calc(100% / 3);      /* 🔥 3 POR VEZ NO DESKTOP */
+  flex:0 0 calc(100% / 3);
   padding:28px;
   background:rgba(255,255,255,0.04);
   border-radius:8px;
-  text-align:center;
-  box-sizing:border-box;
+  text-align:left;
 }
 
-/* SETAS */
+/* ===== SETAS ===== */
 .depo-btn{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
   background:rgba(0,0,0,0.6);
-  color:#fff;
+  border:1px solid #aaa;
+  color:white;
   font-size:26px;
   padding:8px 14px;
   cursor:pointer;
   z-index:10;
 }
-.depo-btn.prev{left:10px;}
-.depo-btn.next{right:10px;}
 
-                   /* ================= MOBILE ================= */
-@media(max-width:768px){
+.depo-btn.prev{ left:10px; }
+.depo-btn.next{ right:10px; }
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
 
   .depoimentos-container{
-    position:relative;
+    grid-template-columns:1fr;
     height:100vh;
-    overflow:hidden;
-    display:block;
+    position:relative;
   }
 
-  .foto-desktop{display:none;}
+  .foto-desktop{ display:none; }
   .foto-mobile{
     display:block;
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-  }
-
-  .depoimentos-foto{
-    position:absolute;
-    inset:0;
     z-index:1;
   }
 
@@ -849,14 +844,14 @@ header{
   }
 
   .depo-track{
-    display:flex;
+    width:100%;
   }
 
   .depoimento-card{
-    pointer-events:auto;
     flex:0 0 100%;
     max-width:320px;
-    margin:0 auto;
+    margin:auto;
+    pointer-events:auto;
     background:rgba(40,40,40,0.78);
     backdrop-filter:blur(6px);
     text-align:center;
@@ -1830,9 +1825,8 @@ function maxIndex(){
 }
 
 function update(){
-  const cardWidth = cards[0].offsetWidth;
-  track.style.transform =
-    `translateX(-${index * cardWidth * visible()}px)`;
+  const percent = index * (100);
+  track.style.transform = `translateX(-${percent}%)`;
 }
 
 function depoNext(){
