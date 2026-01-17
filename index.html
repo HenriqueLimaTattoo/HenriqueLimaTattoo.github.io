@@ -803,8 +803,9 @@ header{
 }
 
 .depo-track{
-  display:flex;
-  transition:transform 0.6s ease;
+ display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
 }
 
 /* ===== SLIDE ===== */
@@ -935,7 +936,9 @@ header{
   }
 
   .depo-track{
+    display:flex;
     width:100%;
+    transition:transform 0.6s ease;
   }
 
   /* ===== SLIDE ===== */
@@ -956,10 +959,12 @@ header{
 
   /* ===== CARD ===== */
   .depoimento-card{
+    flex:0 0 100%; /* 🔥 UM CARD POR TELA */
     pointer-events:auto;
 
     width:85%;
     max-width:320px;
+    margin:0 auto;
 
     background:rgba(40,40,40,0.78); /* cinza escuro translúcido */
     backdrop-filter:blur(6px);
@@ -1963,49 +1968,58 @@ premiadasUpdate();
 <script>
 /* ================= JS DEPOIMENTOS ================= */
 
-let depoIndex = 0;
+let index = 0;
+let timer;
 
-const depoTrack = document.getElementById('depoTrack');
-const depoSlides = document.querySelectorAll('.depo-slide');
-const totalDepo = depoSlides.length;
-let depoTimer;
+const track = document.getElementById('depoTrack');
+const cards = document.querySelectorAll('.depoimento-card');
 
-/* ATUALIZA */
-function depoUpdate(){
-  depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
+function isMobile(){
+  return window.innerWidth <= 768;
 }
 
-/* PRÓXIMO */
-function depoNext(){
-  depoIndex = (depoIndex + 1) % totalDepo;
-  depoUpdate();
-  resetTimer();
+function step(){
+  return isMobile() ? 1 : 3;
 }
 
-/* ANTERIOR */
-function depoPrev(){
-  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
-  depoUpdate();
-  resetTimer();
+function total(){
+  return Math.ceil(cards.length / step());
 }
 
-/* AUTO SLIDE */
-function startAuto(){
-  depoTimer = setInterval(()=>{
-    depoNext();
-  }, 5000);
+function update(){
+  const offset = index * 100;
+  track.style.transform = `translateX(-${offset}%)`;
 }
 
-function resetTimer(){
-  clearInterval(depoTimer);
-  startAuto();
+function next(){
+  index = (index + 1) % total();
+  update();
+  reset();
 }
 
-/* INICIA */
-startAuto();
+function prev(){
+  index = (index - 1 + total()) % total();
+  update();
+  reset();
+}
+
+function start(){
+  timer = setInterval(next, 5000);
+}
+
+function reset(){
+  clearInterval(timer);
+  start();
+}
+
+window.addEventListener('resize', ()=>{
+  index = 0;
+  update();
+  reset();
+});
+
+start();
 </script>
-
-
 
 
   
