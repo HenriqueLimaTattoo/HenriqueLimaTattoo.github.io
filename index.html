@@ -791,11 +791,12 @@ header{
 
 /* CARD */
 .depoimento-card{
-  flex:0 0 33.3333%;
+  flex:0 0 calc(100% / 3);      /* 🔥 3 POR VEZ NO DESKTOP */
   padding:28px;
   background:rgba(255,255,255,0.04);
   border-radius:8px;
-  text-align:left;
+  text-align:center;
+  box-sizing:border-box;
 }
 
 /* SETAS */
@@ -1830,7 +1831,8 @@ function maxIndex(){
 
 function update(){
   const cardWidth = cards[0].offsetWidth;
-  track.style.transform = `translateX(-${index * cardWidth * visible()}px)`;
+  track.style.transform =
+    `translateX(-${index * cardWidth * visible()}px)`;
 }
 
 function depoNext(){
@@ -1863,7 +1865,7 @@ window.addEventListener('resize', ()=>{
 start();
 </script>
 
-
+  
   
 <script>
 /* ================= SUBMENU MOBILE ================= */
