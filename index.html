@@ -1963,68 +1963,31 @@ premiadasUpdate();
 /* ================= JS DEPOIMENTOS (DESKTOP + MOBILE CORRETO) ================= */
 
 let depoIndex = 0;
-let depoTimer;
 
 const depoTrack = document.getElementById('depoTrack');
 const slides = document.querySelectorAll('.depo-slide');
-const cards  = document.querySelectorAll('.depoimento-card');
-
-/* DETECTA MOBILE */
-function isMobile(){
-  return window.innerWidth <= 768;
-}
-
-/* QUANTIDADE TOTAL */
-function getTotal(){
-  return isMobile() ? cards.length : slides.length;
-}
+const totalDepo = depoSlides.length;
 
 /* ATUALIZA POSIÇÃO */
 function depoUpdate(){
-
-  if(isMobile()){
-    /* MOBILE → 1 depoimento por vez */
-    const cardWidth = cards[0].offsetWidth;
-    depoTrack.style.transform = `translateX(-${depoIndex * cardWidth}px)`;
-  }else{
-    /* DESKTOP → 1 slide (3 depoimentos) */
     depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
   }
-}
 
 /* PRÓXIMO */
-function depoNext(){
-  depoIndex = (depoIndex + 1) % getTotal();
-  depoUpdate();
-  resetTimer();
-}
+function depoNext(){ 
+  depoIndex = (depoIndex + 1) % totalDepo; 
+depoUpdate(); }
 
 /* ANTERIOR */
-function depoPrev(){
-  depoIndex = (depoIndex - 1 + getTotal()) % getTotal();
-  depoUpdate();
-  resetTimer();
-}
+function depoPrev(){ 
+  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo; 
+  depoUpdate(); }
 
-/* AUTO SLIDE */
-function startAuto(){
-  depoTimer = setInterval(depoNext, 5000);
-}
+/* AUTO SLIDE (5s) */ 
+  setInterval(()=>{ 
+    depoNext();
+  }, 5000); 
 
-function resetTimer(){
-  clearInterval(depoTimer);
-  startAuto();
-}
-
-/* REAJUSTA AO REDIMENSIONAR */
-window.addEventListener('resize', ()=>{
-  depoIndex = 0;
-  depoUpdate();
-  resetTimer();
-});
-
-/* INICIA */
-startAuto();
 </script>
 
   
