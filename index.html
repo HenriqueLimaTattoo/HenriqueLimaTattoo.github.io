@@ -757,7 +757,6 @@ header{
 }
 
 /* ================= DEPOIMENTOS ================= */
-/* ================= DEPOIMENTOS ================= */
 
 .depoimentos{
   padding:120px 40px;
@@ -780,40 +779,28 @@ header{
   align-items:center;
 }
 
-/* ===== FOTO (DESKTOP) ===== */
+/* ===== FOTO ===== */
 .depoimentos-foto img{
   width:100%;
   border-radius:8px;
 }
 
-  /* padrão: desktop */
-.foto-mobile{
-  display:none;
-}
-
-.foto-desktop{
-  display:block;
-}
+/* desktop padrão */
+.foto-mobile{ display:none; }
+.foto-desktop{ display:block; }
 
 /* ===== CARROSSEL ===== */
 .depoimentos-carousel{
   position:relative;
   overflow:hidden;
-  width:100%;     /* 🔥 ISSO ESTAVA FALTANDO */
+  width:100%;
 }
 
 .depo-track{
- display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:20px;
-}
-
-/* ===== SLIDE ===== */
-.depo-slide{
-  min-width:100%;
   display:grid;
-  grid-template-rows:repeat(3, 1fr); /* 3 depoimentos no desktop */
+  grid-template-columns:repeat(3, 1fr); /* DESKTOP = 3 CARDS */
   gap:20px;
+  transition:transform 0.6s ease;
 }
 
 /* ===== CARD ===== */
@@ -822,6 +809,7 @@ header{
   background:rgba(255,255,255,0.04);
   padding:28px;
   border-radius:8px;
+  text-align:left;
 }
 
 .aspas{
@@ -858,7 +846,7 @@ header{
   top:50%;
   transform:translateY(-50%);
   background:rgba(0,0,0,0.6);
-  border:1px solid var(--prata);
+  border:1px solid #aaa;
   color:white;
   font-size:26px;
   padding:8px 14px;
@@ -869,7 +857,7 @@ header{
 .depo-btn.prev{left:10px;}
 .depo-btn.next{right:10px;}
 
-/* ===== CTA botão ===== */
+/* ===== CTA ===== */
 .depoimento-cta{
   margin-top:20px;
 }
@@ -877,22 +865,17 @@ header{
 .depoimento-cta a{
   display:inline-block;
   padding:16px 40px;
-  border:1px solid var(--prata);
+  border:1px solid #aaa;
   color:white;
   text-decoration:none;
-  transition:all 0.3s ease;
-}
-
-.depoimento-cta a:hover{
-  background:rgba(255,255,255,0.08);
 }
 
 /* =========================================================
-   ================= MOBILE (OVERLAY) ======================
+   ================= MOBILE ===============================
 ========================================================= */
+
 @media (max-width:768px){
 
-  /* ===== SEÇÃO ===== */
   .depoimentos{
     padding:0;
   }
@@ -902,19 +885,16 @@ header{
     width:100%;
     height:100vh;
     overflow:hidden;
+    display:block;
   }
 
-  /* ===== FOTO ===== */
-  .foto-desktop{
-    display:none;
-  }
-
+  /* FOTO */
+  .foto-desktop{ display:none; }
   .foto-mobile{
     display:block;
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
   }
 
   .depoimentos-foto{
@@ -923,101 +903,46 @@ header{
     z-index:1;
   }
 
-  /* ===== CARROSSEL ===== */
+  /* CARROSSEL */
   .depoimentos-carousel{
     position:absolute;
     inset:0;
     z-index:5;
-
     display:flex;
-    justify-content:center;
     align-items:center;
-    pointer-events:none; /* evita conflito */
+    justify-content:center;
+    pointer-events:none;
   }
 
   .depo-track{
     display:flex;
     width:100%;
-    transition:transform 0.6s ease;
+    gap:0;
   }
 
-  /* ===== SLIDE ===== */
-  .depo-slide{
-    display:flex;
-    justify-content:center;
-  }
-
-  /* ESCONDE TODOS */
-  .depo-slide .depoimento-card{
-    display:none;
-  }
-
-  /* MOSTRA APENAS UM */
-  .depo-slide .depoimento-card:first-child{
-    display:block;
-  }
-
-  /* ===== CARD ===== */
+  /* CARD = 1 POR TELA */
   .depoimento-card{
-    flex:0 0 100%; /* 🔥 UM CARD POR TELA */
     pointer-events:auto;
-
-    width:85%;
+    flex:0 0 100%;
     max-width:320px;
     margin:0 auto;
 
-    background:rgba(40,40,40,0.78); /* cinza escuro translúcido */
+    background:rgba(40,40,40,0.78);
     backdrop-filter:blur(6px);
 
     padding:24px;
     border-radius:14px;
-
     text-align:center;
 
     position:relative;
-    top:48%;            /* 🔥 DESCE O CARD ABAIXO DO CENTRO */
+    top:48%;
   }
 
-  .aspas{
-    font-size:36px;
-    opacity:0.25;
-    margin-bottom:10px;
-    display:block;
-  }
-
-  .depoimento-texto{
-    font-size:15px;
-    line-height:1.7;
-    color:#e0e0e0;
-  }
-
-  .depoimento-autor{
-    margin-top:16px;
-  }
-
-  .depoimento-autor strong{
-    font-size:15px;
-    display:block;
-    color:#fff;
-  }
-
-  .depoimento-autor span{
-    font-size:13px;
-    color:#bdbdbd;
-  }
-
-  /* ===== SETAS ===== */
+  /* SETAS */
   .depo-btn{
     pointer-events:auto;
-    position:absolute;
     top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.6);
-    border:1px solid #aaa;
-    color:white;
     font-size:22px;
-    padding:8px 12px;
-    z-index:10;
   }
 
   .depo-btn.prev{left:12px;}
@@ -1557,21 +1482,17 @@ header{
 </section>
 
   
-  <!-- ================= DEPOIMENTOS DE CLIENTES ================= -->
-  
-<section class="depoimentos" id="depoimentos">
+  <section class="depoimentos" id="depoimentos">
 
   <h2>Depoimentos de Clientes</h2>
 
   <div class="depoimentos-container">
 
-   <div class="depoimentos-foto">
-  <img src="foto2.jpg" class="foto-desktop" alt="Henrique Lima Tattoo">
-  <img src="foto-mobile2.jpg" class="foto-mobile" alt="Henrique Lima Tattoo">
-</div>
+    <div class="depoimentos-foto">
+      <img src="foto2.jpg" class="foto-desktop" alt="">
+      <img src="foto-mobile2.jpg" class="foto-mobile" alt="">
+    </div>
 
-
-    <!-- CARROSSEL  -->
     <div class="depoimentos-carousel">
 
       <button class="depo-btn prev" onclick="depoPrev()">‹</button>
@@ -1579,133 +1500,133 @@ header{
 
       <div class="depo-track" id="depoTrack">
 
-                                 <!-- SLIDE 1 ficar 3 depoimentos por slide-->
-        <div class="depo-slide">
-          
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
+        <!-- 1 -->
+        <div class="depoimento-card">
+          <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
               Atendimento impecável e resultado incrível 🔥
-            </p>
-            <div class="depoimento-autor">
-              <strong>Erika Ozawa</strong>
-              <span>Salvador - BA</span>
-            </div>
+          </p>
+          <div class="depoimento-autor">
+            <strong>Erika Ozawa</strong>
+            <span>Salvador - BA</span>
           </div>
-
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 2, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Aaa</strong>
-              <span>Juazeiro do Norte - CE</span>
-            </div>
-          </div>
-
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 3, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Bbb</strong>
-              <span>Juazeiro do Norte - CE</span>
-            </div>
-          </div>
-          
-
-
-          
-          
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 4, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Bbb</strong>
-              <span>Juazeiro do Norte - CE</span>
-            </div>
-          </div>
-
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 5, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Ccc</strong>
-              <span>Barbalha - CE</span>
-            </div>
-          </div>
-
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 6, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Ccc</strong>
-              <span>Barbalha - CE</span>
-            </div>
-          </div>
-          
-
-
-
-
-          
-          
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 7, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Fff</strong>
-              <span>Juazeiro do Norte - CE</span>
-            </div>
-          </div>
-
-          <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 8, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Ggg</strong>
-              <span>Crato - CE</span>
-            </div>
-          </div>
-
-           <div class="depoimento-card">
-            <span class="aspas">❝</span>
-            <p class="depoimento-texto">
-              Depoimento 9, quando tiver mais..
-            </p>
-            <div class="depoimento-autor">
-              <strong>Hhh</strong>
-              <span>Crato - CE</span>
-            </div>
-          </div>
-          
         </div>
-       
+
+        <!-- 2 -->
+        <div class="depoimento-card">...</div>
+        <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 2, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Aaa</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="depoimento-card">...</div>
+      <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 3, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Bbb</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 4, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Ccc</strong>
+            <span>Barbalha - CE</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 5, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Ddd</strong>
+            <span>Crato - CE</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 6, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Eee</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 7, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Fff</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 8, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Ggg</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 9, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Hhh</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="depoimento-card">...</div>
+    <span class="aspas">❝</span>
+          <p class="depoimento-texto">
+            Depoimento 10, quando tiver mais..
+          </p>
+          <div class="depoimento-autor">
+            <strong>Iii</strong>
+            <span>Juazeiro do Norte - CE</span>
+          </div>
+        </div>
+
+    
       </div>
     </div>
-</div>
-
-   <div class="depoimento-cta">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1ANjTj7qxN3Xce-7s_IelVZf3cyx_4CmGWEFkBdB0anmy9A/viewform?usp=publish-editor" target="_blank">
-      Deixe seu depoimento ✍🏼🔥
-    </a>
   </div>
-  
-</section>
 
+</section>
 
 
   <!-- ================= INÍCIO DOS JS (java script) ================= -->
@@ -1987,24 +1908,23 @@ function total(){
 }
 
 function update(){
-  const offset = index * 100;
-  track.style.transform = `translateX(-${offset}%)`;
+  track.style.transform = `translateX(-${index * 100}%)`;
 }
 
-function next(){
+function depoNext(){
   index = (index + 1) % total();
   update();
   reset();
 }
 
-function prev(){
+function depoPrev(){
   index = (index - 1 + total()) % total();
   update();
   reset();
 }
 
 function start(){
-  timer = setInterval(next, 5000);
+  timer = setInterval(depoNext, 5000);
 }
 
 function reset(){
@@ -2020,7 +1940,6 @@ window.addEventListener('resize', ()=>{
 
 start();
 </script>
-
 
   
 <script>
