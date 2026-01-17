@@ -803,19 +803,23 @@ header{
 
 .depo-track{
   display:flex;
-  gap:20px;
   transition:transform 0.6s ease;
 }
 
+/* ===== SLIDE ===== */
+.depo-slide{
+  min-width:100%;
+  display:grid;
+  grid-template-rows:repeat(3, 1fr); /* 3 depoimentos no desktop */
+  gap:20px;
+}
 
 /* ===== CARD ===== */
 .depoimento-card{
-  flex:0 0 calc(33.333% - 14px); /* 🔥 3 por vez */
   position:relative;
   background:rgba(255,255,255,0.04);
   padding:28px;
   border-radius:8px;
-  text-align:left;    /* OBSERVAR PARA MUDAR PARA CENTER*/
 }
 
 .aspas{
@@ -862,8 +866,6 @@ header{
 
 .depo-btn.prev{left:10px;}
 .depo-btn.next{right:10px;}
-
-}  
 
 /* ===== CTA botão ===== */
 .depoimento-cta{
@@ -932,9 +934,6 @@ header{
   }
 
   .depo-track{
-    display:flex;
-    gap:0;
-    transition:transform 0.6s ease;
     width:100%;
   }
 
@@ -956,16 +955,17 @@ header{
 
   /* ===== CARD ===== */
   .depoimento-card{
-    flex:0 0 100%;
+    pointer-events:auto;
+
     width:85%;
     max-width:320px;
-    margin:0 auto;
 
     background:rgba(40,40,40,0.78); /* cinza escuro translúcido */
     backdrop-filter:blur(6px);
 
     padding:24px;
     border-radius:14px;
+
     text-align:center;
 
     position:relative;
@@ -1549,19 +1549,21 @@ header{
   </div>
 </section>
 
-   <!-- ================= DEPOIMENTOS DE CLIENTES ================= -->
+<!-- ================= DEPOIMENTOS DE CLIENTES ================= -->
   
-  <section class="depoimentos" id="depoimentos">
+<section class="depoimentos" id="depoimentos">
 
   <h2>Depoimentos de Clientes</h2>
 
   <div class="depoimentos-container">
 
-    <div class="depoimentos-foto">
-      <img src="foto2.jpg" class="foto-desktop" alt="">
-      <img src="foto-mobile2.jpg" class="foto-mobile" alt="">
-    </div>
+   <div class="depoimentos-foto">
+  <img src="foto2.jpg" class="foto-desktop" alt="Henrique Lima Tattoo">
+  <img src="foto-mobile2.jpg" class="foto-mobile" alt="Henrique Lima Tattoo">
+</div>
 
+
+    <!-- CARROSSEL  -->
     <div class="depoimentos-carousel">
 
       <button class="depo-btn prev" onclick="depoPrev()">‹</button>
@@ -1569,133 +1571,134 @@ header{
 
       <div class="depo-track" id="depoTrack">
 
-        <!-- CARD 1 -->
-        <div class="depoimento-card">
-          <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
+                                 <!-- SLIDE 1 ficar 3 depoimentos por slide-->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Fiz minha primeira tatuagem com o Henrique e foi simplesmente sensacional.
               Atendimento impecável e resultado incrível 🔥
-          </p>
-          <div class="depoimento-autor">
-            <strong>Erika Ozawa</strong>
-            <span>Salvador - BA</span>
+            </p>
+            <div class="depoimento-autor">
+              <strong>Erika Ozawa</strong>
+              <span>Salvador - BA</span>
+            </div>
           </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 2, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Aaa</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 3, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Bbb</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
+          </div>
+          
         </div>
 
-        <!-- 2 -->
-        <div class="depoimento-card">...</div>
-        <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 2, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Aaa</strong>
-            <span>Juazeiro do Norte - CE</span>
+                                                <!-- SLIDE 2 -->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 4, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Bbb</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
           </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 5, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ccc</strong>
+              <span>Barbalha - CE</span>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 6, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ccc</strong>
+              <span>Barbalha - CE</span>
+            </div>
+          </div>
+          
         </div>
 
-        <!-- 3 -->
-        <div class="depoimento-card">...</div>
-      <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 3, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Bbb</strong>
-            <span>Juazeiro do Norte - CE</span>
+                                                          <!-- SLIDE 3 -->
+        <div class="depo-slide">
+          
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 7, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Fff</strong>
+              <span>Juazeiro do Norte - CE</span>
+            </div>
           </div>
-        </div>
 
-        <!-- 4 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 4, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Ccc</strong>
-            <span>Barbalha - CE</span>
+          <div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 8, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Ggg</strong>
+              <span>Crato - CE</span>
+            </div>
           </div>
-        </div>
 
-        <!-- 5 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 5, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Ddd</strong>
-            <span>Crato - CE</span>
+<div class="depoimento-card">
+            <span class="aspas">❝</span>
+            <p class="depoimento-texto">
+              Depoimento 9, quando tiver mais..
+            </p>
+            <div class="depoimento-autor">
+              <strong>Hhh</strong>
+              <span>Crato - CE</span>
+            </div>
           </div>
+          
         </div>
-
-        <!-- 6 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 6, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Eee</strong>
-            <span>Juazeiro do Norte - CE</span>
-          </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 7, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Fff</strong>
-            <span>Juazeiro do Norte - CE</span>
-          </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 8, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Ggg</strong>
-            <span>Juazeiro do Norte - CE</span>
-          </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 9, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Hhh</strong>
-            <span>Juazeiro do Norte - CE</span>
-          </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="depoimento-card">...</div>
-    <span class="aspas">❝</span>
-          <p class="depoimento-texto">
-            Depoimento 10, quando tiver mais..
-          </p>
-          <div class="depoimento-autor">
-            <strong>Iii</strong>
-            <span>Juazeiro do Norte - CE</span>
-          </div>
-        </div>
-
-    
+       
       </div>
     </div>
-  </div>
+</div>
 
+   <div class="depoimento-cta">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1ANjTj7qxN3Xce-7s_IelVZf3cyx_4CmGWEFkBdB0anmy9A/viewform?usp=publish-editor" target="_blank">
+      Deixe seu depoimento ✍🏼🔥
+    </a>
+  </div>
+  
 </section>
+
+
 
 
   <!-- ================= INÍCIO DOS JS (java script) ================= -->
@@ -1956,71 +1959,50 @@ premiadasUpdate();
 
 
 <script>
-/* ================= JS DEPOIMENTOS (CARDS) ================= */
+/* ================= JS DEPOIMENTOS ================= */
 
-let index = 0;
-let timer;
+let depoIndex = 0;
 
-const track = document.getElementById('depoTrack');
-const cards = document.querySelectorAll('.depoimento-card');
+const depoTrack = document.getElementById('depoTrack');
+const depoSlides = document.querySelectorAll('.depo-slide');
+const totalDepo = depoSlides.length;
+let depoTimer;
 
-/* detecta mobile */
-function isMobile(){
-  return window.innerWidth <= 768;
+/* ATUALIZA */
+function depoUpdate(){
+  depoTrack.style.transform = `translateX(-${depoIndex * 100}%)`;
 }
 
-/* quantos cards por tela */
-function perView(){
-  return isMobile() ? 1 : 3;
-}
-
-/* total de páginas */
-function totalPages(){
-  return Math.ceil(cards.length / perView());
-}
-
-/* largura do deslocamento */
-function update(){
-  const cardWidth = cards[0].offsetWidth;
-  const gap = isMobile() ? 0 : 20;
-  const move = index * perView() * (cardWidth + gap);
-  track.style.transform = `translateX(-${move}px)`;
-}
-
-/* próximo */
+/* PRÓXIMO */
 function depoNext(){
-  index = (index + 1) % totalPages();
-  update();
-  reset();
+  depoIndex = (depoIndex + 1) % totalDepo;
+  depoUpdate();
+  resetTimer();
 }
 
-/* anterior */
+/* ANTERIOR */
 function depoPrev(){
-  index = (index - 1 + totalPages()) % totalPages();
-  update();
-  reset();
+  depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
+  depoUpdate();
+  resetTimer();
 }
 
-/* auto */
-function start(){
-  timer = setInterval(depoNext, 5000);
+/* AUTO SLIDE */
+function startAuto(){
+  depoTimer = setInterval(()=>{
+    depoNext();
+  }, 5000);
 }
 
-function reset(){
-  clearInterval(timer);
-  start();
+function resetTimer(){
+  clearInterval(depoTimer);
+  startAuto();
 }
 
-/* reajusta no resize */
-window.addEventListener('resize', ()=>{
-  index = 0;
-  update();
-  reset();
-});
-
-/* inicia */
-start();
+/* INICIA */
+startAuto();
 </script>
+
 
   
   
