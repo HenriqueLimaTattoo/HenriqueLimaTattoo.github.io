@@ -1960,7 +1960,7 @@ premiadasUpdate();
 
 
 <script>
-/* ================= DEPOIMENTOS CARROSSEL ================= */
+/* ================= JS DEPOIMENTOS ================= */
 
 let depoIndex = 0;
 
@@ -1978,23 +1978,30 @@ function depoUpdate(){
 function depoNext(){
   depoIndex = (depoIndex + 1) % totalDepo;
   depoUpdate();
-  resetAuto();
+  resetTimer();
 }
 
 /* ANTERIOR */
 function depoPrev(){
   depoIndex = (depoIndex - 1 + totalDepo) % totalDepo;
   depoUpdate();
-  resetAuto();
+  resetTimer();
 }
 
 /* AUTO SLIDE */
-function resetAuto(){
-  clearInterval(depoTimer);
-  depoTimer = setInterval(depoNext, 5000);
+function startAuto(){
+  depoTimer = setInterval(()=>{
+    depoNext();
+  }, 5000);
 }
 
-resetAuto();
+function resetTimer(){
+  clearInterval(depoTimer);
+  startAuto();
+}
+
+/* INICIA */
+startAuto();
 </script>
 
   
