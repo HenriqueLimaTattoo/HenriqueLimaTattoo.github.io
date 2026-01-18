@@ -1030,6 +1030,7 @@ header{
   background:#0e0e0e;
 }
 
+/* GRID DESKTOP */
 .cta-container{
   max-width:1200px;
   margin:auto;
@@ -1039,17 +1040,20 @@ header{
   gap:80px;
 }
 
-/* TEXTO */
-.cta-texto h2{
+/* TÍTULO */
+.cta-titulo{
+  grid-column:1;
   font-family:'Playfair Display', serif;
   font-size:42px;
   color:white;
-  margin-bottom:40px;
   line-height:1.2;
 }
 
 /* BOTÃO WHATS */
 .cta-whats{
+  grid-column:1;
+  margin-top:40px;
+
   position:relative;
   display:inline-flex;
   align-items:center;
@@ -1064,14 +1068,14 @@ header{
   overflow:hidden;
 }
 
+/* ÍCONE WHATS */
 .whats-icon{
   width:30px;
   height:30px;
   object-fit:contain;
   position:relative;
-  z-index:2; /* fica acima do efeito prata */
+  z-index:2;
 }
-
 
 /* EFEITO PRATA CINTILANTE */
 .cta-whats::before{
@@ -1100,11 +1104,18 @@ header{
 }
 
 /* FOTO */
+.cta-foto{
+  grid-column:2;
+  display:flex;
+  justify-content:flex-end;
+}
+
 .cta-foto img{
   width:100%;
   max-width:420px;
   border-radius:10px;
 }
+
 
 /* =================================================
    ================= MOBILE ========================
@@ -1113,7 +1124,7 @@ header{
 @media (max-width:768px){
 
   .cta-final{
-    padding:80px 24px;
+    padding:60px 24px;
   }
 
   .cta-container{
@@ -1126,39 +1137,23 @@ header{
     text-align:center;
   }
 
-  /* ORDEM CORRETA */
-  .cta-texto{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    order:1;
-    gap:24px;
-  }
-
-  .cta-foto{
-    order:2;
-  }
-
-  .cta-texto .cta-whats{
-    order:3;
-  }
-
-  /* AJUSTES VISUAIS */
-  .cta-texto h2{
+  /* TÍTULO */
+  .cta-titulo{
     font-size:28px;
   }
 
+  /* FOTO */
   .cta-foto img{
-    max-width:300px; /* ajuste aqui se quiser maior */
+    max-width:300px; /* AQUI você controla o tamanho no mobile */
   }
 
+  /* BOTÃO */
   .cta-whats{
     font-size:16px;
     padding:16px 36px;
   }
 
 }
-
 
   
     /* ================= LIGHTBOX ================= */
@@ -1368,7 +1363,7 @@ header{
 
     <!-- FOTO LATERAL DIREITA -->
     <div class="sobre-imagem">
-      <img src="IMG_sobre.jpg" alt="">
+      <img src="IMG_2.png" alt="">
     </div>
 
   </div>
@@ -1894,26 +1889,28 @@ header{
 
   <div class="cta-container">
 
-    <!-- TEXTO -->
-    <div class="cta-texto">
-      <h2>PRONTO PARA TRANSFORMAR SUA IDEIA EM ARTE?</h2>
+  <!-- TÍTULO -->
+  <h2 class="cta-titulo">
+    PRONTO PARA TRANSFORMAR SUA IDEIA EM ARTE?
+  </h2>
 
-      <a 
-        href="https://wa.me/558896036386?text=Olá!%20Vim%20através%20do%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
-        target="_blank"
-        class="cta-whats"
-      >
-        SOLICITAR ORÇAMENTO
-        <img src="Icones/whats.png" alt="WhatsApp" class="whats-icon">
-      </a>
-    </div>
-
-    <!-- FOTO -->
-    <div class="cta-foto">
-      <img src="IMG_sobre.jpg" alt="Henrique Lima tatuando">
-    </div>
-
+  <!-- FOTO -->
+  <div class="cta-foto">
+    <img src="IMG_sobre.jpg" alt="Henrique Lima tatuando">
   </div>
+
+  <!-- BOTÃO -->
+  <a 
+    href="https://wa.me/558896036386?text=Olá!%20Vim%20através%20do%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+    target="_blank"
+    class="cta-whats"
+  >
+    SOLICITAR ORÇAMENTO
+    <img src="Icones/whats.png" alt="WhatsApp" class="whats-icon">
+  </a>
+
+</div>
+
 
 </section>
 
