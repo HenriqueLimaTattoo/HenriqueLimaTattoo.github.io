@@ -1023,6 +1023,123 @@ header{
 }
 
 
+	/* ================= CTA FINAL ================= */
+
+.cta-final{
+  padding:120px 40px;
+  background:#0e0e0e;
+}
+
+.cta-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:80px;
+}
+
+/* TEXTO */
+.cta-texto h2{
+  font-family:'Playfair Display', serif;
+  font-size:42px;
+  color:white;
+  margin-bottom:40px;
+  line-height:1.2;
+}
+
+/* BOTÃO WHATS */
+.cta-whats{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+
+  padding:18px 48px;
+  border:1px solid var(--prata);
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  letter-spacing:1px;
+  overflow:hidden;
+}
+
+.whats-icon{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  position:relative;
+  z-index:2; /* fica acima do efeito prata */
+}
+
+
+/* EFEITO PRATA CINTILANTE */
+.cta-whats::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+  0%{ left:-100%; }
+  100%{ left:100%; }
+}
+
+.cta-whats:hover{
+  background:rgba(255,255,255,0.06);
+}
+
+/* FOTO */
+.cta-foto img{
+  width:100%;
+  max-width:420px;
+  border-radius:10px;
+}
+
+/* =================================================
+   ================= MOBILE ========================
+================================================= */
+
+@media (max-width:768px){
+
+  .cta-final{
+    padding:80px 24px;
+  }
+
+  .cta-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    height:100vh;
+    gap:32px;
+  }
+
+  .cta-texto h2{
+    font-size:28px;
+  }
+
+  .cta-foto img{
+    max-width:260px;
+  }
+
+  .cta-whats{
+    font-size:16px;
+    padding:16px 36px;
+  }
+}
+
+
   
     /* ================= LIGHTBOX ================= */
 
@@ -1544,7 +1661,7 @@ header{
       <p class="workshop-frase">
         Mentoria para tatuadores que querem evoluir técnica e visão artística.
       </p>
-      <a href="https://wa.me/558896036386" class="workshop-btn">
+      <a href="https://wa.me/558896036386?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20a%20Mentoria." class="workshop-btn">
         SAIBA MAIS
         <img src="Icones/whats.png" alt="WhatsApp">
       </a>
@@ -1751,7 +1868,36 @@ header{
 </section>
 
 
+<!-- ================= CTA FINAL ================= -->
 
+<section class="cta-final">
+
+  <div class="cta-container">
+
+    <!-- TEXTO -->
+    <div class="cta-texto">
+      <h2>PRONTO PARA TRANSFORMAR SUA IDEIA EM ARTE?</h2>
+
+      <a 
+        href="https://wa.me/558896036386?text=Olá!%20Vim%20através%20do%20site%20e20%gostaria%20de%20solicitar%20um%20orçamento."
+        target="_blank"
+        class="cta-whats"
+      >
+        Solicitar orçamento
+        <img src="whats.png" alt="WhatsApp" class="whats-icon">
+      </a>
+    </div>
+
+    <!-- FOTO -->
+    <div class="cta-foto">
+      <img src="IMG_sobre.jpg" alt="Henrique Lima tatuando">
+    </div>
+
+  </div>
+
+</section>
+
+	
 
   <!-- ================= INÍCIO DOS JS (java script) ================= -->
   
@@ -2056,7 +2202,7 @@ startAuto();
 </script>
 
 
-  
+	  
   
 <script>
 /* ================= SUBMENU MOBILE ================= */
