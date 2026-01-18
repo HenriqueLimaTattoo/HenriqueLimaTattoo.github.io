@@ -1023,7 +1023,7 @@ header{
 }
 
 
-	/* ================= CTA FINAL ================= */
+/* ================= CTA FINAL ================= */
 
 .cta-final{
   padding:120px 40px;
@@ -1042,7 +1042,7 @@ header{
 
 /* TÍTULO */
 .cta-titulo{
-  grid-area: texto;
+  grid-column:1;
   font-family:'Playfair Display', serif;
   font-size:42px;
   color:white;
@@ -1051,10 +1051,12 @@ header{
 
 /* BOTÃO WHATS */
 .cta-whats{
-  grid-area: texto;
-  margin-top:40px;     /*32px ou 24px se quiser mais compacto */
+  grid-column:1;
+  margin-top:40px;
 
-  position:relative;     /* antes era relative */
+  justify-self:center; /* 🔥 ISSO CENTRALIZA */	
+
+  position:relative;
   display:inline-flex;
   align-items:center;
   gap:14px;
@@ -1068,12 +1070,6 @@ header{
   overflow:hidden;
 }
 
-/* ORGANIZA TÍTULO + BOTÃO EM COLUNA */
-.cta-titulo,
-.cta-whats{
-  display:block;
-}
-	
 /* ÍCONE WHATS */
 .whats-icon{
   width:30px;
@@ -1312,7 +1308,7 @@ header{
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Transformo histórias em arte eterna na pele</h1>
+    <h1>Transformo histórias em artes eternas na pele</h1>
     <p>
       Realismo Preto & Cinza e Lettering.<br>
       Feito para quem valoriza arte, significado e exclusividade.
@@ -1343,11 +1339,11 @@ header{
       <p>
         Desde pequeno, o desenho sempre foi meu refúgio.
         A arte me acompanhou desde o papel até a pele.
-        E foi na tatuagem que encontrei minha verdadeira expressão.
+        E, foi na tatuagem que encontrei minha verdadeira expressão.
       </p>
 
       <p>
-        Sou <strong>tatuador especializado em Realismo Preto & Cinza e Lettering</strong>.
+        Sou <strong>tatuador especializado em Realismo Preto & Cinza, e Lettering</strong>.
         Acredito que tatuar vai muito além da técnica, é sobre traduzir sentimentos,
         memórias e momentos em arte viva.
       </p>
@@ -1362,7 +1358,7 @@ header{
       <p>
         O Realismo Preto e Cinza e o Lettering me conquistaram pela
         <strong>profundidade, emoção e desafio técnico</strong>.
-        Cada arte que tatuo é uma forma de <strong>eternizar algo que tem valor</strong>.
+        Cada arte que tatuo é uma forma de <strong>eternizar algo que tenha valor</strong>.
       </p>
 
     </div>
@@ -1582,10 +1578,10 @@ header{
 
       <p>
         Meu trabalho já foi reconhecido em grandes convenções de tatuagens,
-        como <strong>Art Tattoo Expo</strong>, <strong>Expo Tattoo Cariri</strong>
+        como a <strong>Art Tattoo Expo</strong>, a <strong>Expo Tattoo Cariri</strong>
         e <strong>Ouricuri Tattoo Fest</strong>, com premiações em
         <strong>Realismo Preto & Cinza</strong> e <strong>Lettering</strong>,
-        conquistando <strong>1º lugar, pódios e títulos de melhor da categoria</strong>.
+        conquistando o <strong>1º lugar, pódios e títulos de melhor das categorias</strong>.
       </p>
 
       <p>
