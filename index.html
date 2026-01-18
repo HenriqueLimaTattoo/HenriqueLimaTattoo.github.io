@@ -1113,7 +1113,7 @@ header{
 @media (max-width:768px){
 
   .cta-final{
-    padding:0;
+    padding:80px 24px;
   }
 
   .cta-container{
@@ -1122,16 +1122,16 @@ header{
     align-items:center;
     justify-content:center;
     height:100vh;
-    gap:28px;
+    gap:32px;
     text-align:center;
   }
 
-  /* ORDEM DOS BLOCOS */
+  /* ORDEM CORRETA */
   .cta-texto{
-    order:1;
     display:flex;
     flex-direction:column;
     align-items:center;
+    order:1;
     gap:24px;
   }
 
@@ -1139,21 +1139,26 @@ header{
     order:2;
   }
 
-  /* CONTEÚDO */
+  .cta-texto .cta-whats{
+    order:3;
+  }
+
+  /* AJUSTES VISUAIS */
   .cta-texto h2{
-    font-size:26px;
+    font-size:28px;
   }
 
   .cta-foto img{
-    max-width:300px; /* antes era 260px (para aumentar a foto no celular) */
+    max-width:300px; /* ajuste aqui se quiser maior */
   }
 
   .cta-whats{
-    order:3;
     font-size:16px;
     padding:16px 36px;
   }
+
 }
+
 
   
     /* ================= LIGHTBOX ================= */
