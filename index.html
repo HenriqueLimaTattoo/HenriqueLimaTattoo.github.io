@@ -1042,7 +1042,7 @@ header{
 
 /* TÍTULO */
 .cta-titulo{
-  grid-column:1;
+  grid-area: texto;
   font-family:'Playfair Display', serif;
   font-size:42px;
   color:white;
@@ -1051,10 +1051,10 @@ header{
 
 /* BOTÃO WHATS */
 .cta-whats{
-  grid-column:1;
-  margin-top:40px;
+  grid-area: texto;
+  margin-top:40px;     /*32px ou 24px se quiser mais compacto */
 
-  position:center;     /* antes era relative */
+  position:relative;     /* antes era relative */
   display:inline-flex;
   align-items:center;
   gap:14px;
@@ -1068,6 +1068,12 @@ header{
   overflow:hidden;
 }
 
+/* ORGANIZA TÍTULO + BOTÃO EM COLUNA */
+.cta-titulo,
+.cta-whats{
+  display:block;
+}
+	
 /* ÍCONE WHATS */
 .whats-icon{
   width:30px;
